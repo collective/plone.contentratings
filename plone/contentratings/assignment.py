@@ -40,6 +40,10 @@ class LocalAssignmentUtility(Persistent):
 
     def supports_category(self, content, category):
         type_name = content.getPortalTypeName()
+        # If the category is not assigned specifically to IDynamicType,
+        # it should not be rejected
+        if category not in self._avalable_categories:
+            return True
         cat_name = category.name
         if self._check_instance and cat_name in \
                self._mapping.get(type_name, ()):
