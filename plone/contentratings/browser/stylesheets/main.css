@@ -1,8 +1,11 @@
 /* Stylesheet for the 'contentratings' Plone theme */
 
-div.UserRatings {
+div.RatingViewlet {
     overflow: hidden;
     float: right;
+}
+.UserRatings, .EditorialRatings {
+    clear: both;
 }
 
 ul.star-rating {
@@ -17,12 +20,18 @@ ul.star-rating {
     background-image: url(/++resource++contentratings/cross_small.gif);
 }
 
+#content .star-rating,
+#content .star-rating a:hover,
+#content .star-rating a:active,
 #content .star-rating a:hover {
     background: url(/++resource++contentratings/star.gif) left -1000px repeat-x;
     background-position: left bottom;
 }
 
-#content .small-star .star-rating a:hover {
+#content .small-star .star-rating,
+#content .small-star .star-rating a:hover,
+#content .small-star .star-rating a:active,
+#content .small-star .star-rating a:focus {
 	background-image: url(/++resource++contentratings/star_small.gif);
 }
 

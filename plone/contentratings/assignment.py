@@ -13,11 +13,17 @@ def all_categories(context=None):
     """Generates a vocabulary of all the category factories available
     in a given context"""
     sm = getSiteManager(context)
-    # This is not canonical z3 API, but it should work
-    categories = sm.adapters.lookupAll((IDynamicType,), IUserRating)
+    categories = []
+    # Get all registered rating types
+    rating_types = getUtility(IVocabularyFactory, 'contentratings.rating_types')
+    rating_types = rating_types(context)
+    for rtype in rating_types:
+        # This is not canonical z3 API, but it should work
+        categories.extend(c for n,c in sm.adapters.lookupAll((IDynamicType,),
+                                                             rtype.value))
     terms = []
-    for name, cat in categories:
-        terms.append(SimpleTerm(value=cat, token=name, title=cat.title))
+    for cat in categories:
+        terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
     return SimpleVocabulary(terms)
 
 

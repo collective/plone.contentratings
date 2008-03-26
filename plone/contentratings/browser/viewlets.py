@@ -5,5 +5,8 @@ class UserRatingViewlet(ViewletBase):
     """A simple viewlet which renders the user rating aggregator"""
 
     def render(self):
-        return getMultiAdapter((self.context, self.request),
+        user = getMultiAdapter((self.context, self.request),
                                name='user-ratings')()
+        editor = getMultiAdapter((self.context, self.request),
+                                 name='editorial-ratings')()
+        return '<div class="RatingViewlet">\n%s\n%s\n</div>'%(editor, user)
