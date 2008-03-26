@@ -20,20 +20,27 @@ ul.star-rating {
     background-image: url(/++resource++contentratings/cross_small.gif);
 }
 
-#content .star-rating,
-#content .star-rating a:hover,
+#content .star-rating a,
 #content .star-rating a:active,
-#content .star-rating a:hover {
+#content .star-rating a:focus {
     background: url(/++resource++contentratings/star.gif) left -1000px repeat-x;
-    background-position: left bottom;
 }
 
-#content .small-star .star-rating,
-#content .small-star .star-rating a:hover,
+
+#content .star-rating a:hover {
+	background-position: left bottom;
+}
+
+#content .small-star .star-rating a,
 #content .small-star .star-rating a:active,
 #content .small-star .star-rating a:focus {
-	background-image: url(/++resource++contentratings/star_small.gif);
+    background: url(/++resource++contentratings/small_star.gif) left -1000px repeat-x;
 }
+
+#content .small-star .star-rating a:hover {
+	background-position: left bottom;
+}
+
 
 #content .Rating {
     margin-bottom: 0.75em;
