@@ -6,7 +6,6 @@ class ICategoryAssignment(Interface):
     portal_type = Choice(title=u"Portal Type",
                          required=True,
                          vocabulary="plone.contentratings.portal_types")
-    #portal_type = TextLine(title=u"Portal Type")
     categories = Set(title=u"Categories",
                      value_type=Choice(title=u"Category",
                                    vocabulary="plone.contentratings.categories")
