@@ -1,0 +1,9 @@
+Changelog for plone.contentratings
+
+    (name of developer listed in brackets)
+
+plone.contentratings - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

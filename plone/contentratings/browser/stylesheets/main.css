@@ -1,0 +1,31 @@
+/* Stylesheet for the 'contentratings' Plone theme */
+
+div.UserRatings {
+    overflow: hidden;
+    float: right;
+}
+
+ul.star-rating {
+    margin:0 0 0 5px;
+}
+
+#content .UserRating a.DeleteRating {
+    background-image: url(/++resource++contentratings/cross.gif);
+}
+
+#content .small-star .UserRating a.DeleteRating {
+    background-image: url(/++resource++contentratings/cross_small.gif);
+}
+
+#content .star-rating a:hover {
+    background: url(/++resource++contentratings/star.gif) left -1000px repeat-x;
+    background-position: left bottom;
+}
+
+#content .small-star .star-rating a:hover {
+	background-image: url(/++resource++contentratings/star_small.gif);
+}
+
+#content .Rating {
+    margin-bottom: 0.75em;
+}

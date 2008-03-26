@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plone.contentratings">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="contentratings"
+      directory="profiles/default"
+      description='Extension profile for the "contentratings" Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

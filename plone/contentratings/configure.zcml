@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:contentratings="http://namespaces.plone.org/contentratings"
+    i18n_domain="contentratings.plone">
+
+  <include package="contentratings" />
+  
+  <five:registerPackage package="." initialize=".initialize" />
+  
+  <contentratings:category
+      for="Products.CMFCore.interfaces.IDynamicType"
+      title="Rating"
+      view_name="small_stars"
+      read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
+      write_expr="python:checkPermission('Content Ratings: User Rate', context)"
+      />
+
+  <!-- Categories for testing only -->
+  <contentratings:category
+      for="Products.CMFCore.interfaces.IDynamicType"
+      name="big_stars"
+      title="Large Rating"
+      view_name="ratings_view"
+      read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
+      write_expr="python:checkPermission('Content Ratings: User Rate', context)"
+      />
+  <contentratings:category
+      for="Products.CMFCore.interfaces.IDynamicType"
+      name="three_stars"
+      title="Short Rating"
+      view_name="three_small_stars"
+      read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
+      write_expr="python:checkPermission('Content Ratings: User Rate', context)"
+      />
+  
+  <interface interface=".interfaces.IUnratable" />
+
+  <adapter factory=".category.PloneRatingCategoryAdapter" />
+  
+  <utility
+      component=".assignment.all_categories"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      name="plone.contentratings.categories"
+      />
+
+  <include package=".browser" />
+  <include file="profiles.zcml" />
+
+</configure>

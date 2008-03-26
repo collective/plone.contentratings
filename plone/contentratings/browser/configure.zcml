@@ -1,0 +1,32 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone.contentratings">
+
+    <browser:viewlet
+        name="plone.contentratings.userratings"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.UserRatingViewlet"
+        permission="zope2.View"
+        />
+    
+    <!-- Resource directory for stylesheets -->
+    <browser:resourceDirectory
+        name="plone.contentratings.stylesheets"
+        directory="stylesheets"
+        />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="edit-rating-assignments"
+        class=".assignment_form.AssignmentForm"
+        permission="cmf.ManagePortal"
+        />
+
+    <utility component=".assignment_form.types_vocab"
+             name="plone.contentratings.portal_types"
+             provides="zope.schema.interfaces.IVocabularyFactory"
+             />
+    <adapter factory=".assignment_form.AssignmentsAdapter" />
+    
+</configure>
