@@ -11,8 +11,7 @@ class ICategoryAssignment(Interface):
                                    vocabulary="plone.contentratings.categories")
                      )
 
-class IEditCategoryAssignments(Interface):
+class IEditCategoryAssignment(Interface):
 
-    types = Tuple(title=u"Portal Type Assignments",
-                  value_type=Object(ICategoryAssignment,
-                                    title=u"Assignment"))
+    assignment = Object(ICategoryAssignment,
+                   title=u"Assignment")

@@ -16,17 +16,27 @@
         directory="stylesheets"
         />
 
-    <browser:page
-        for="Products.CMFCore.interfaces.ISiteRoot"
-        name="edit-rating-assignments"
-        class=".assignment_form.AssignmentForm"
-        permission="cmf.ManagePortal"
-        />
-
-    <utility component=".assignment_form.types_vocab"
+    <utility component=".controlpanel.types_vocab"
              name="plone.contentratings.portal_types"
              provides="zope.schema.interfaces.IVocabularyFactory"
              />
-    <adapter factory=".assignment_form.AssignmentsAdapter" />
+    <adapter factory=".controlpanel.AssignmentsAdapter" />
+    
+    <!-- Control panel for plone.contentratings -->
+
+    <browser:page
+        name="contentratings-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.ContentRatingsControlPanel"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        name="refreshCategories"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.ControlPanelKSSView"
+        permission="cmf.ManagePortal"
+        attribute="refresh_categories"
+        />
     
 </configure>
