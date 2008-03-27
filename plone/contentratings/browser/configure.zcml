@@ -17,6 +17,8 @@
         />
     <adapter factory=".controlpanel.AssignmentsAdapter" />
     
+    <adapter factory=".category_manage.CategoryContainerAdapter" />
+    
     <!-- Control panel for plone.contentratings -->
 
     <browser:page

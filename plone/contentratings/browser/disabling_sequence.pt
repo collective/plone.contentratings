@@ -1,0 +1,36 @@
+<table border="0" class="sequencewidget">
+<tal:block tal:repeat="info view/getValuesAndWidgets">
+  <tr tal:define="widget python: info[1];
+                  value python: info[0];
+                  enabled  python:view.is_enabled(value)"
+      tal:attributes="class python:enabled and 'Enabled' or 'Disabled';">
+    <td>
+      <input class="editcheck" type="checkbox"
+             tal:attributes="
+                 disabled python:not enabled or None;
+                 name string:${view/name}.remove_${repeat/info/index};"
+             tal:condition="view/need_delete" />
+    </td>
+    <td>
+      <span tal:define="error widget/error"
+            tal:replace="structure error" tal:condition="error" />
+        <input tal:condition="enabled" tal:replace="structure widget"/>
+        <input tal:condition="not: enabled" tal:replace="structure widget/disabled" />
+        <input tal:condition="not: enabled" tal:replace="structure widget/hidden" />
+    </td>
+  </tr>
+</tal:block>
+  <tr>
+    <td colspan="2">
+      <input type="submit" value="Remove selected items"
+             tal:condition="view/need_delete"
+             tal:attributes="name string:${view/name}.remove"
+             i18n:attributes="value remove-selected-items" />
+      <input type="submit" value="Add foo"
+             tal:condition="view/need_add"
+             tal:attributes="name string:${view/name}.add;
+                             value view/addButtonLabel" />
+    </td>
+  </tr>
+</table>
+<input tal:replace="structure view/marker" />

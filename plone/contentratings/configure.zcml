@@ -42,5 +42,9 @@
   <include package=".browser" />
   <include file="profiles.zcml" />
   <include file="vocabs.zcml" />
+  
+  <class class="contentratings.category.RatingsCategoryFactory">
+      <implements interface=".browser.interfaces.IPloneRatingCategory" />
+  </class>
 
 </configure>

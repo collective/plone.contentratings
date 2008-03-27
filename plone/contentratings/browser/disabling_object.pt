@@ -1,0 +1,19 @@
+<fieldset>
+  <legend tal:content="view/legendTitle"
+          i18n:translate=""></legend>
+  <div class="row" tal:repeat="widget view/subwidgets">
+    <tal:block tal:condition="python:not widget.context.readonly"
+               tal:define="context nocall:view">
+      <metal:block use-macro="context/@@form_macros/widget_row" />
+    </tal:block>
+    <tal:block tal:condition="python: widget.context.readonly and view.value"
+               tal:replace="structure python:widget.hidden()">
+    </tal:block>
+    <tal:block tal:condition="python: widget.context.readonly and not view.value">
+        <input type="hidden" value="__new" name="widgetname"
+               tal:attributes="name widget/name;
+                               id widget/name" />
+    </tal:block>
+    
+  </div>
+</fieldset>

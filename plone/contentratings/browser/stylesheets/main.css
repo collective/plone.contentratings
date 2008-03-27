@@ -47,3 +47,8 @@ ul.star-rating {
 #content .Rating {
     margin-bottom: 0.75em;
 }
+
+#fieldset-manage_categories .Disabled fieldset,
+#fieldset-manage_categories .Disabled fieldset legend {
+    background-color: lightGrey;
+}

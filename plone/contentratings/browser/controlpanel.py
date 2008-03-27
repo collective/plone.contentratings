@@ -20,6 +20,8 @@ from contentratings.interfaces import _
 
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryAssignment
+from plone.contentratings.browser.interfaces import ICategoryContainer
+from plone.contentratings.browser.category_manage import categories_widget
 from plone.contentratings.interfaces import IRatingCategoryAssignment
 
 
@@ -45,18 +47,10 @@ class AssignmentsAdapter(object):
 
     def _set_assignment(self, assignment):
         self.util.assign_categories(assignment.portal_type, 
-                                    assignment.categories)
+                                    assignment.assigned_categories)
 
     def _get_assignment(self):
         return None
-        # items = []
-        # util = self.util
-        # for ptype in util._mapping.keys():
-        #     assignment = CategoryAssignment()
-        #     assignment.portal_type = ptype
-        #     assignment.categories = set(util.categories_for_type(ptype))
-        #     items.append(assignment)
-        # return tuple(items)
 
     assignment = property(fget=_get_assignment, fset=_set_assignment)
 
@@ -82,7 +76,7 @@ class AssignmentWidget(ObjectWidget):
         
         assignment = CategoryAssignment()
         assignment.portal_type = portal_type
-        assignment.categories = set(selected_categories(portal_type))
+        assignment.assigned_categories = set(selected_categories(portal_type))
         
         return assignment
     
@@ -94,6 +88,12 @@ def selected_categories(portal_type):
     
 
 typespolicies = FormFieldsets(IEditCategoryAssignment)
+typespolicies.id = 'types_categories'
+typespolicies.label = _(u'Portal Types Categories')
+
+categories = FormFieldsets(ICategoryContainer)
+categories.id = 'manage_categories'
+categories.label = _(u'Manage Categories')
 
 class ContentRatingsControlPanel(ControlPanelForm):
     
@@ -105,7 +105,9 @@ class ContentRatingsControlPanel(ControlPanelForm):
     description = _(u"Settings related to content ratings.")
     
     typespolicies['assignment'].custom_widget = AssignmentWidget
-    form_fields = FormFieldsets(typespolicies)
+    
+    categories['categories'].custom_widget = categories_widget
+    form_fields = FormFieldsets(typespolicies, categories)
         
     @form.action(_(u'Change Portal Type'), name=u'change_type')
     def change_type(self, action, data):
@@ -132,10 +134,10 @@ class ControlPanelKSSView(PloneKSSView):
         widget = AssignmentWidget(field, self.request)
         widget.setPrefix('form')
         widget.setRenderedValue()
-        select = widget.getSubWidget('categories')
+        select = widget.getSubWidget('assigned_categories')
         html = select.renderValue(select._getFormValue())
         
         ksscore = self.getCommandSet('core')
-        select = ksscore.getCssSelector('select[id=form.assignment.categories]')
+        select = ksscore.getCssSelector('select[id=form.assignment.assigned_categories]')
         ksscore.replaceHTML(select, html)
         
