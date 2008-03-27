@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="contentratings.plone">
+
+  <utility
+      factory=".vocabs.UserCategoryVocab"
+      name="plone.contentratings.categories"
+      />
+  <utility
+      component=".vocabs.types_vocab"
+      name="plone.contentratings.portal_types"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      />
+  <utility
+      component=".vocabs.rating_view_vocab"
+      name="plone.contentratings.rating_views"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      />
+
+</configure>

@@ -1,29 +1,9 @@
 from zope.interface import implements
 from zope.component import getSiteManager, getUtility
-from zope.app.component.hooks import getSite
 from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from persistent import Persistent
 from BTrees.OOBTree import OOBTree
-from contentratings.interfaces import IUserRating
 from plone.contentratings.interfaces import IRatingCategoryAssignment, IUnratable
-from Products.CMFCore.interfaces import IDynamicType
-
-class UserCategoryVocab(object):
-    """Vocabulary of all categories providing IUserRating"""
-    interface = IUserRating
-    def __call__(self, context=None):
-        """Generates a vocabulary of all the category factories available
-        in a given context"""
-        sm = getSiteManager(context)
-        # Get all registered rating types
-        categories = (c for n,c in sm.adapters.lookupAll((IDynamicType,),
-                                                         self.interface))
-        terms = []
-        for cat in categories:
-            terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
-        return SimpleVocabulary(terms)
-
 
 class LocalAssignmentUtility(Persistent):
     """A utility for determining which rating categories are available for an
@@ -55,9 +35,8 @@ class LocalAssignmentUtility(Persistent):
 
     @property
     def _avalable_categories(self):
-        site = getSite()
         return getUtility(IVocabularyFactory,
-                                     'plone.contentratings.categories')(site)
+                                     'plone.contentratings.categories')()
 
     def assign_categories(self, portal_type, categories):
         """Check that the give names are actually valid category names,

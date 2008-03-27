@@ -15,11 +15,6 @@
         name="plone.contentratings.stylesheets"
         directory="stylesheets"
         />
-
-    <utility component=".controlpanel.types_vocab"
-             name="plone.contentratings.portal_types"
-             provides="zope.schema.interfaces.IVocabularyFactory"
-             />
     <adapter factory=".controlpanel.AssignmentsAdapter" />
     
     <!-- Control panel for plone.contentratings -->

@@ -1,8 +1,6 @@
 from zope.interface import implements
 from zope.component import adapts
 
-from zope.app.component.hooks import getSite
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from plone.contentratings.interfaces import IRatingCategoryAssignment
 from Products.CMFCore.utils import getToolByName
 
@@ -30,23 +28,8 @@ from kss.core import kssaction
 from plone.app.kss.interfaces import IPloneKSSView
 
 
-
 class CategoryAssignment(object):
     implements(ICategoryAssignment)
-
-
-def types_vocab(context):
-    """Types Vocabulary which doesn't freak out during validation"""
-    context = getattr(context, 'context', context) or getSite()
-    ptool = getToolByName(context, 'plone_utils', None)
-    ttool = getToolByName(context, 'portal_types', None)
-    if ptool is None or ttool is None:
-        return None
-    items = [ (ttool[t].Title(), t)
-              for t in ptool.getUserFriendlyTypes() ]
-    items.sort()
-    items = [SimpleTerm(i[1], i[1], i[0]) for i in items]
-    return SimpleVocabulary(items)
 
 
 class AssignmentsAdapter(object):
