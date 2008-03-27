@@ -15,8 +15,7 @@ class UserCategoryVocab(object):
     def __call__(self, context=None):
         """Generates a vocabulary of all the category factories available
         in a given context"""
-        if context is None:
-            context = getSite()
+        context = getSite()
         sm = getSiteManager(context)
         # Get all registered rating types
         categories = (c for n,c in sm.adapters.lookupAll((IDynamicType,),
