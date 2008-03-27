@@ -34,21 +34,13 @@
       read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
       write_expr="python:checkPermission('Content Ratings: User Rate', context)"
       />
-  <contentratings:category
-      for="Products.CMFCore.interfaces.IDynamicType"
-      name="editorial"
-      title="Editorial Rating"
-      storage="contentratings.storage.EditorialRatingStorage"
-      read_expr="python:checkPermission('Content Ratings: View Editorial Rating', context)"
-      write_expr="python:checkPermission('Content Ratings: Editor Rate', context)"
-      />
   
   <interface interface=".interfaces.IUnratable" />
 
   <adapter factory=".category.PloneRatingCategoryAdapter" />
   
   <utility
-      component=".assignment.all_categories"
+      factory=".assignment.UserCategoryVocab"
       provides="zope.schema.interfaces.IVocabularyFactory"
       name="plone.contentratings.categories"
       />

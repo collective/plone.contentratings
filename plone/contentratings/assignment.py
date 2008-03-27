@@ -9,22 +9,20 @@ from contentratings.interfaces import IUserRating
 from plone.contentratings.interfaces import IRatingCategoryAssignment, IUnratable
 from Products.CMFCore.interfaces import IDynamicType
 
-def all_categories(context=None):
-    """Generates a vocabulary of all the category factories available
-    in a given context"""
-    sm = getSiteManager(context)
-    categories = []
-    # Get all registered rating types
-    rating_types = getUtility(IVocabularyFactory, 'contentratings.rating_types')
-    rating_types = rating_types(context)
-    for rtype in rating_types:
-        # This is not canonical z3 API, but it should work
-        categories.extend(c for n,c in sm.adapters.lookupAll((IDynamicType,),
-                                                             rtype.value))
-    terms = []
-    for cat in categories:
-        terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
-    return SimpleVocabulary(terms)
+class UserCategoryVocab(object):
+    """Vocabulary of all categories providing IUserRating"""
+    interface = IUserRating
+    def __call__(self, context=None):
+        """Generates a vocabulary of all the category factories available
+        in a given context"""
+        sm = getSiteManager(context)
+        # Get all registered rating types
+        categories = (c for n,c in sm.adapters.lookupAll((IDynamicType,),
+                                                         self.interface))
+        terms = []
+        for cat in categories:
+            terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
+        return SimpleVocabulary(terms)
 
 
 class LocalAssignmentUtility(Persistent):
