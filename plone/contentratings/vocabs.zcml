@@ -7,6 +7,10 @@
       name="plone.contentratings.categories"
       />
   <utility
+      factory=".vocabs.LocalUserCategoryVocab"
+      name="plone.contentratings.local_categories"
+      />
+  <utility
       component=".vocabs.types_vocab"
       name="plone.contentratings.portal_types"
       provides="zope.schema.interfaces.IVocabularyFactory"

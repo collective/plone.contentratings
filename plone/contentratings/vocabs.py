@@ -1,5 +1,6 @@
 from zope.interface import implements, Interface
 from zope.component import getSiteManager
+from zope.app.component import queryNextSiteManager
 from zope.app.component.hooks import getSite
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
@@ -26,6 +27,30 @@ class UserCategoryVocab(object):
             terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
         return SimpleVocabulary(terms)
 
+class LocalUserCategoryVocab(object):
+    """Vocabulary of all categories providing IUserRating"""
+    implements(IVocabularyFactory)
+    interface = IUserRating
+    def __call__(self, context=None):
+        """Generates a vocabulary of all the category factories available
+        in a given context"""
+        context = getSite()
+        sm = getSiteManager(context)
+        # Get all registered rating types
+        all_categories = sm.adapters.lookupAll((IDynamicType,), self.interface)
+        next_sm = queryNextSiteManager(context)
+        parent_categories = {}
+        if next_sm is not None:
+            for n, c in next_sm.adapters.lookupAll((IDynamicType,),
+                                                   self.interface):
+                parent_categories[id(c)] = c
+        # use 'id' to check if these are the object exists here and in parent
+        my_categories = (c for c in all_categories if id(c)
+                                    not in parent_categories)
+        terms = []
+        for cat in my_categories:
+            terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
+        return SimpleVocabulary(terms)
 
 def types_vocab(context):
     """Types Vocabulary which doesn't freak out during validation"""
