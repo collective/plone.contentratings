@@ -52,3 +52,8 @@ ul.star-rating {
 #fieldset-manage_categories .Disabled fieldset legend {
     background-color: lightGrey;
 }
+
+#fieldset-manage_categories ol.sequenceWidget {
+    list-style: none;
+}
+}

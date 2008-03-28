@@ -1,14 +1,15 @@
 from zope.interface import implements, alsoProvides
 from zope.component import adapts, getSiteManager, queryUtility
+from zope.app.component import queryNextSiteManager
 from zope.app.form import CustomWidgetFactory
 from zope.app.form.interfaces import MissingInputError
-from zope.app.form.browser import ObjectWidget, ListSequenceWidget
+from zope.app.form.browser import ObjectWidget, ListSequenceWidget, SequenceDisplayWidget
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from zope.schema import getFieldsInOrder
 
 
 from plone.i18n.normalizer.interfaces import IURLNormalizer
-from plone.contentratings.browser.interfaces import ICategoryContainer, ITTWCategory
+from plone.contentratings.browser.interfaces import ICategoryContainer
 from contentratings.interfaces import IUserRating
 from contentratings.interfaces import IRatingCategory, _
 from contentratings.category import RatingsCategoryFactory
@@ -25,10 +26,10 @@ class CategoryContainerAdapter(object):
     def __init__(self, context):
         self.context = context
         self.sm = getSiteManager(context)
+        self.nsm = queryNextSiteManager(context)
     
     def add(self, category):
         "add a new rating category to the local Site Manager"
-        alsoProvides(category, ITTWCategory)
         self.sm.registerAdapter(category, 
                                 (IDynamicType,), 
                                 IUserRating,
@@ -49,23 +50,48 @@ class CategoryContainerAdapter(object):
         for name, field in getFieldsInOrder(IRatingCategory):
             if not field.readonly:
                 setattr(orig_category, name, getattr(category, name))
+
+    def _filter_categories(self, local):
+        """separate categories in local and acquired one"""
+        all_categories = self.sm.adapters.lookupAll((IDynamicType,),
+                                                    IUserRating)
+        parent_categories = {}
+        if self.nsm is not None:
+            for n, c in self.nsm.adapters.lookupAll((IDynamicType,),
+                                                     IUserRating):
+                parent_categories[id(c)] = c
+        # use 'id' to check if these are the object exists here and in parent
+        if local:
+            filtered_categories = (c for n,c in all_categories if id(c)
+                                                      not in parent_categories)
+        else:
+            filtered_categories = (c for n,c in all_categories if id(c)
+                                                      in parent_categories)
+
+        return filtered_categories
+
+    def _get_acquired_categories(self):
+        "gets registered rating categories acquired from site managers other then local one"
+
+        return sorted(self._filter_categories(local=False), 
+                       key=lambda x: x.order)
                 
-    def _get_categories(self):
-        "gets all the registered rating categories"
+    def _get_local_categories(self):
+        "gets the local site manager registered rating categories"
         
-        categories = self.sm.adapters.lookupAll((IDynamicType,),
-                                                IUserRating)
-        return sorted((c for n,c in categories), key=lambda x: x.order)
+        return sorted(self._filter_categories(local=True), 
+                       key=lambda x: x.order)
+    
     
     def _set_categories(self, categories):
         """modifies the registered rating categories 
         to match the given list of categories"""
-        orig_categories = self._get_categories()
+        orig_categories = self._get_local_categories()
         orig_names = dict((c.name,c) for c in orig_categories)
         for cat in categories:
             cat.name = cat.name or u''
             cat.order = cat.order is None and 100 or cat.order
-            if cat.name == u'__new':
+            if cat.name == u'':
                 prefix = name = queryUtility(IURLNormalizer).normalize(cat.title)
                 i = 1
                 while name in orig_names:
@@ -82,64 +108,33 @@ class CategoryContainerAdapter(object):
         for c in categories:
             if c.name not in orig_names:
                 self.add(c)
-            elif ITTWCategory.providedBy(orig_names[c.name]):
+            else:
                 self.modify(c)
             
                 
-    categories = property(_get_categories, _set_categories)
+    local_categories = property(_get_local_categories, _set_categories)
+    acquired_categories = property(_get_acquired_categories)
 
-class DisablingObjectWidget(ObjectWidget):
+class ObjectDisplayWidget(ObjectWidget):
     """an object widget which hide all readonly attributes """
 
-    template = ViewPageTemplateFile('disabling_object.pt')
+    template = ViewPageTemplateFile('display_object.pt')
     
     def __call__(self):
         return self.template()
 
-    def setRenderedValue(self, value):
-        """make sure we store the value on the widget"""
-        self.value = value
-        super(DisablingObjectWidget, self).setRenderedValue(value)
 
-    def hidden(self):
-        """Render the object as hidden fields."""
-        result = []
-        for name in self.names:
-            result.append(self.getSubWidget(name).hidden())
-        return "".join(result)
-        
-    def disabled(self):
-        """Render a disabld version of the widget"""
-        return self.template(disabled=True)
-        
-    def is_global(self):
-        """decide if the interface ITTWCategory is implemented by given object"""
-        return not ITTWCategory.providedBy(self.value)
-
-class DisablingListSequenceWidget(ListSequenceWidget):
-    """ a list widget which disables all entries not providing a specific interface"""
+class HiddenReadonlyObjectWidget(ObjectWidget):
+    """an object widget which hide all readonly attributes """
     
-    template = ViewPageTemplateFile('disabling_sequence.pt')
-    interface = ITTWCategory
+    template = ViewPageTemplateFile('hidden_readonly_object.pt')
     
-    def is_enabled(self, value):
-        """ decide if the interface is implemented by given object"""
-        if value is not None:
-            matching = [c for c in self.context.context.categories if c.name == value.name]
-            if matching:
-                return ITTWCategory.providedBy(matching[0])
-        return True
+    def __call__(self):
+        return self.template()
 
-    def getValuesAndWidgets(self):
-        """Return a list of values and widgets to display"""
-        sequence = self._getRenderedValue()
-        result = []
-        for i, value in enumerate(sequence):
-            widget = self._getWidget(i)
-            widget.setRenderedValue(value)
-            result.append((value, widget))
-        return result
+hr_category_widget = CustomWidgetFactory(HiddenReadonlyObjectWidget, RatingsCategoryFactory)
+hr_categories_widget = CustomWidgetFactory(ListSequenceWidget, hr_category_widget)
 
-category_widget = CustomWidgetFactory(DisablingObjectWidget, RatingsCategoryFactory)
-categories_widget = CustomWidgetFactory(DisablingListSequenceWidget, category_widget)
 
+display_category_widget = CustomWidgetFactory(ObjectDisplayWidget, RatingsCategoryFactory)
+display_categories_widget = CustomWidgetFactory(SequenceDisplayWidget, display_category_widget)

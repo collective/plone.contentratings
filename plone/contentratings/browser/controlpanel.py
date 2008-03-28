@@ -21,7 +21,7 @@ from plone.contentratings.interfaces import IRatingCategoryAssignment
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryContainer
-from plone.contentratings.browser.category_manage import categories_widget
+from plone.contentratings.browser.category_manage import hr_categories_widget, display_categories_widget
 from plone.contentratings.interfaces import IRatingCategoryAssignment
 
 
@@ -85,10 +85,19 @@ def selected_categories(portal_type):
 typespolicies = FormFieldsets(IEditCategoryAssignment)
 typespolicies.id = 'types_categories'
 typespolicies.label = _(u'Portal Types Categories')
+typespolicies.description = _(u'Choose a portal type from the list and select '
+u'one or more rating categories to appear on that type. ')
+typespolicies.required = False
 
 categories = FormFieldsets(ICategoryContainer)
 categories.id = 'manage_categories'
 categories.label = _(u'Manage Categories')
+categories.description = _(u'Add, modify, or remove rating categories.  You may '
+u'specify a title, description, conditions for viewing and setting ratings, '
+u'a view to display the rating, and a relative order number.  Categories which are '
+u'defined at a lower level (e.g., globally) may not be edited. '
+u'You need to save your changes after adding or removing categories')
+categories.required = False
 
 class ContentRatingsControlPanel(ControlPanelForm):
     
@@ -101,7 +110,8 @@ class ContentRatingsControlPanel(ControlPanelForm):
     
     typespolicies['assignment'].custom_widget = AssignmentWidget
     
-    categories['categories'].custom_widget = categories_widget
+    categories['local_categories'].custom_widget = hr_categories_widget
+    categories['acquired_categories'].custom_widget = display_categories_widget
     form_fields = FormFieldsets(typespolicies, categories)
         
     @form.action(_(u'Change Portal Type'), name=u'change_type')

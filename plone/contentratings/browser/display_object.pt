@@ -1,0 +1,13 @@
+<fieldset>
+  <legend tal:content="view/legendTitle" />
+  <div class="row" tal:repeat="widget view/subwidgets">
+
+    <tal:block tal:condition="python:not widget.context.readonly">
+      <div class="label"
+           tal:content="python: widget.context.title"> Title </div>
+      <div class="field"
+           tal:content="python: widget._data"> Value </div>  
+    </tal:block>
+
+  </div>
+</fieldset>

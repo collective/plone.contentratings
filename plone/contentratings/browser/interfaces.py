@@ -10,7 +10,8 @@ class ICategoryAssignment(Interface):
                          vocabulary="plone.contentratings.portal_types")
     assigned_categories = Set(title=_(u"Categories"),
                      value_type=Choice(title=_(u"Category"),
-                                   vocabulary="plone.contentratings.categories")
+                                   vocabulary="plone.contentratings.categories"),
+                     required=False
                      )
                      
 class IPloneRatingCategory(IRatingCategory):
@@ -26,17 +27,22 @@ class IPloneRatingCategory(IRatingCategory):
 class IEditCategoryAssignment(Interface):
 
     assignment = Object(ICategoryAssignment,
-                   title=_(u"Assignment"))
+                   title=_(u"Assignment"),
+                   required=False)
 
 
 class ICategoryContainer(Interface):
     
-    categories = List(title=_(u"Categories"),
-                      value_type=Object(IPloneRatingCategory,
-                                        title=_(u"Category")))
+    local_categories = List(title=_(u"Local Categories"),
+                            value_type=Object(IPloneRatingCategory,
+                                              title=_(u"Category")),
+                            required=False)
                                         
+    acquired_categories = Tuple(title=_(u"Acquired Categories")                                          ,
+                                value_type=Object(IPloneRatingCategory,
+                                                  title=_(u"Category")),
+                                readonly=True,
+                                required=False,
+                                )
 
-class ITTWCategory(Interface):
-    """marker interface for categories created through the web.
-       (let us recognize them when in the configlet)"""
     
