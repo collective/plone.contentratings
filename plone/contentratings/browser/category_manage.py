@@ -110,16 +110,8 @@ class DisablingObjectWidget(ObjectWidget):
         
     def disabled(self):
         """Render a disabld version of the widget"""
-        result = []
-        for name in self.names:
-            widget = self.getSubWidget(name)
-            if not widget.context.readonly:
-                result.append((widget.context.title, widget._data))
-        fieldset = '<fieldset><legend>%s %s</legend>%%s</fieldset>'%(self.legendTitle(),
-                                                                     _(u'(global)'))   
-        disabled = '<div class="row"><div class="label">%s</div><div class="field">%s</div></div>'
-        return fieldset%('\n'.join(disabled%(t,v) for t,v in result))
-
+        return self.template(disabled=True)
+        
     def is_global(self):
         """decide if the interface ITTWCategory is implemented by given object"""
         return not ITTWCategory.providedBy(self.value)

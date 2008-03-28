@@ -33,7 +33,7 @@ class ICategoryContainer(Interface):
     
     categories = List(title=_(u"Categories"),
                       value_type=Object(IPloneRatingCategory,
-                                        title=u"Category"))
+                                        title=_(u"Category")))
                                         
 
 class ITTWCategory(Interface):
