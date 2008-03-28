@@ -31,9 +31,19 @@
     <browser:page
         name="refreshCategories"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class=".controlpanel.ControlPanelKSSView"
+        class=".kss_ratings.ControlPanelKSSView"
         permission="cmf.ManagePortal"
         attribute="refresh_categories"
         />
+        
+    <browser:pages
+        for="*"
+        class=".kss_ratings.RatingKSSView"
+        permission="zope.Public">
+      <page name="updateRating"
+            attribute="update_rating" />
+      <page name="deleteRating"
+            attribute="delete_rating" />
+    </browser:pages>
     
 </configure>

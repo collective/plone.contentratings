@@ -8,3 +8,16 @@ select[name=form.assignment.portal_type]:change {
     action-server: refreshCategories;
     refreshCategories-type_id: currentFormVar('form.assignment.portal_type');
 } 
+
+ul.star-rating a.rate:click {
+    evt-click-preventdefault:  True;
+    action-server: updateRating;
+    updateRating-rating_class: nodeAttr('class');
+    updateRating-category: kssAttr('category', true);
+}
+
+.UserRating a.DeleteRating:click {
+    evt-click-preventdefault:  True;
+    action-server: deleteRating;
+    deleteRating-category: kssAttr('category', true);
+} 

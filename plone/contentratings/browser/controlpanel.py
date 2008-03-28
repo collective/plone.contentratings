@@ -1,7 +1,6 @@
 from zope.interface import implements
 from zope.component import adapts
 
-from plone.contentratings.interfaces import IRatingCategoryAssignment
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.controlpanel.form import ControlPanelForm
@@ -18,16 +17,12 @@ from zope.i18n import translate
 
 from contentratings.interfaces import _
 
+from plone.contentratings.interfaces import IRatingCategoryAssignment
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryContainer
 from plone.contentratings.browser.category_manage import categories_widget
 from plone.contentratings.interfaces import IRatingCategoryAssignment
-
-
-from plone.app.kss.plonekssview import PloneKSSView
-from kss.core import kssaction
-from plone.app.kss.interfaces import IPloneKSSView
 
 
 class CategoryAssignment(object):
@@ -116,28 +111,3 @@ class ContentRatingsControlPanel(ControlPanelForm):
         self.request.form['type_id'] = type_id
         return self()
 
-
-
-
-class ControlPanelKSSView(PloneKSSView):
-    """ kss change categories type """
-
-    implements(IPloneKSSView)
-
-    @kssaction
-    def refresh_categories(self, type_id):
-        
-        field = IEditCategoryAssignment['assignment']
-        adapted = IEditCategoryAssignment(self.context)
-        field = field.bind(adapted)
-        
-        widget = AssignmentWidget(field, self.request)
-        widget.setPrefix('form')
-        widget.setRenderedValue()
-        select = widget.getSubWidget('assigned_categories')
-        html = select.renderValue(select._getFormValue())
-        
-        ksscore = self.getCommandSet('core')
-        select = ksscore.getCssSelector('select[id=form.assignment.assigned_categories]')
-        ksscore.replaceHTML(select, html)
-        
