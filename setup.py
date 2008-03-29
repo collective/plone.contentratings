@@ -27,6 +27,7 @@ setup(name='plone.contentratings',
       install_requires=[
           'setuptools',
           'contentratings',
+          'archetypes.schemaextender',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

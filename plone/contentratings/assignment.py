@@ -23,12 +23,12 @@ class LocalAssignmentUtility(Persistent):
         if category not in self._avalable_categories:
             return True
         cat_name = category.name
-        if self._check_instance and cat_name in \
+        if self._check_instance(content) and cat_name in \
                self._mapping.get(type_name, ()):
             return True
 
     def supported_categories(self, content):
-        if not self._check_instance():
+        if not self._check_instance(content):
             return []
         else:
             return self.categories_for_type(content.getPortalTypeName())

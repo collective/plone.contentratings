@@ -38,7 +38,9 @@
   <interface interface=".interfaces.IUnratable" />
 
   <adapter factory=".category.PloneRatingCategoryAdapter" />
-
+  <adapter factory=".schema_extender.RatingRemover"
+           name="contentratings.ratingremover" />
+  
   <include package=".browser" />
   <include file="profiles.zcml" />
   <include file="vocabs.zcml" />
