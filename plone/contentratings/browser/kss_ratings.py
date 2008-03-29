@@ -40,9 +40,10 @@ class RatingKSSView(PloneKSSView):
         rating = None
         for el in class_elements:
             if el.startswith('star-'):
-                rating = el[5:]                
+                rating = el[5:]
         if not rating:
-            raise KSSExplicitError, "the rating value needs to be included in method call"
+            raise KSSExplicitError, "the rating value needs to be included in "\
+                                    "method call"
         self._call_view_method(category, 'rate', value=rating)
 
     @kssaction
@@ -51,6 +52,8 @@ class RatingKSSView(PloneKSSView):
         self._call_view_method(category, 'remove_rating')
 
     def _call_view_method(self, category, method_name, **kw):
+        if category == '_default':
+            category = u''
         manager = getAdapter(self.context, IUserRating, name=category)
         view_name = manager.view_name
         rating_view = getMultiAdapter((manager,self.request), name=view_name)
@@ -58,9 +61,9 @@ class RatingKSSView(PloneKSSView):
         kw['redirect'] = False
         msg = method(**kw)
         html = rating_view()
-        
         ksscore = self.getCommandSet('core')
-        select = ksscore.getCssSelector('div.Rating#rating-stars-view-%s' % category)
+        select = ksscore.getCssSelector('div.Rating#rating-stars-view-%s' %
+                                        (category or '_default'))
         ksscore.replaceHTML(select, html)
         
         kssplone = self.getCommandSet('plone')
