@@ -13,11 +13,13 @@ ul.star-rating {
 }
 
 #content .UserRating a.DeleteRating {
-    background-image: url(/++resource++contentratings/cross.gif);
+    background-image: url(/++resource++contentratings/X_icon_20x20.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 #content .small-star .UserRating a.DeleteRating {
-    background-image: url(/++resource++contentratings/cross_small.gif);
+    background-image: url(/++resource++contentratings/X_icon_10x10.gif);
 }
 
 
@@ -55,5 +57,4 @@ ul.star-rating {
 
 #fieldset-manage_categories ol.sequenceWidget {
     list-style: none;
-}
 }

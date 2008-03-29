@@ -14,10 +14,12 @@ ul.star-rating a.rate:click {
     action-server: updateRating;
     updateRating-rating_class: nodeAttr('class');
     updateRating-category: kssAttr('category', true);
+    updateRating-error: plone-followLink;
 }
 
 .UserRating a.DeleteRating:click {
     evt-click-preventdefault:  True;
     action-server: deleteRating;
     deleteRating-category: kssAttr('category', true);
+    updateRating-error: plone-followLink;
 } 
