@@ -45,5 +45,15 @@
       <page name="deleteRating"
             attribute="delete_rating" />
     </browser:pages>
+        
+    <browser:pages
+        for="*"
+        class=".kss_ratings.EditorialKSSView"
+        permission="zope.Public">
+      <page name="updateEditorRating"
+            attribute="update_rating" />
+      <page name="deleteEditorRating"
+            attribute="delete_rating" />
+    </browser:pages>
     
 </configure>

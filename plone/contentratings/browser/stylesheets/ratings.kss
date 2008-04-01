@@ -9,7 +9,7 @@ select[name=form.assignment.portal_type]:change {
     refreshCategories-type_id: currentFormVar('form.assignment.portal_type');
 } 
 
-ul.star-rating a.rate:click {
+.Rating ul.star-rating a.rate:click {
     evt-click-preventdefault:  True;
     action-server: updateRating;
     updateRating-rating_class: nodeAttr('class');
@@ -17,9 +17,17 @@ ul.star-rating a.rate:click {
     updateRating-error: plone-followLink;
 }
 
-.UserRating a.DeleteRating:click {
+.Rating .UserRating a.DeleteRating:click {
     evt-click-preventdefault:  True;
     action-server: deleteRating;
     deleteRating-category: kssAttr('category', true);
     updateRating-error: plone-followLink;
-} 
+}
+
+.EditorRating ul.star-rating a.rate:click {
+    evt-click-preventdefault:  True;
+    action-server: updateEditorRating;
+    updateEditorRating-rating_class: nodeAttr('class');
+    updateEditorRating-category: kssAttr('category', true);
+    updateEditorRating-error: plone-followLink;
+}
