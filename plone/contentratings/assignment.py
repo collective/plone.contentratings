@@ -12,6 +12,9 @@ class LocalAssignmentUtility(Persistent):
 
     def __init__(self):
         self._mapping = OOBTree()
+        
+    def getId(self):
+        return "contentratings"
 
     def _check_instance(self, content):
         return not IUnratable.providedBy(content)

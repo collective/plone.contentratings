@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+  <export-step id="plone.contentratings"
+    handler="plone.contentratings.exportimport.exportimport.exportTypeRatingAssignments"
+    title="Content Ratings">
+    Export Content Ratings Assignments specific configuration.
+  </export-step>
+</export-steps>

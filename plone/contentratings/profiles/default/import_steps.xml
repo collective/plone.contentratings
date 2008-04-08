@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="plone.contentratings"
+    version="20080408-01"
+    handler="plone.contentratings.exportimport.exportimport.importTypeRatingAssignments"
+    title="Content Ratings">
+    Import Content Ratings Assignments specific configuration.
+  </import-step>
+ </import-steps>

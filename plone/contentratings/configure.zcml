@@ -42,6 +42,7 @@
            name="contentratings.ratingremover" />
   
   <include package=".browser" />
+  <include package=".exportimport" />
   <include file="profiles.zcml" />
   <include file="vocabs.zcml" />
   
