@@ -84,7 +84,7 @@ def selected_categories(portal_type):
 
 typespolicies = FormFieldsets(IEditCategoryAssignment)
 typespolicies.id = 'types_categories'
-typespolicies.label = _(u'Portal Types Categories')
+typespolicies.label = _(u'Rating Assignments')
 typespolicies.description = _(u'Choose a portal type from the list and select '
 u'one or more rating categories to appear on that type. ')
 typespolicies.required = False

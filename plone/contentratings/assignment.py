@@ -12,7 +12,7 @@ class LocalAssignmentUtility(Persistent):
 
     def __init__(self):
         self._mapping = OOBTree()
-        
+
     def getId(self):
         return "contentratings"
 
