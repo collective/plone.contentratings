@@ -15,6 +15,11 @@
         name="plone.contentratings.stylesheets"
         directory="stylesheets"
         />
+    <!-- Resource directory for images etc. -->
+    <browser:resourceDirectory
+        name="plone.contentratings.resources"
+        directory="resources"
+        />
     <adapter factory=".controlpanel.AssignmentsAdapter" />
     
     <adapter factory=".category_manage.CategoryContainerAdapter" />
