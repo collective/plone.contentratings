@@ -13,17 +13,17 @@ class ICategoryAssignment(Interface):
                                    vocabulary="plone.contentratings.categories"),
                      required=False
                      )
-                     
+
 class IPloneRatingCategory(IRatingCategory):
     """use a vocabulary for views"""
-    
+
     view_name = Choice(
         title=_(u"View"),
         description=_(u"Select the view for this category"),
         vocabulary='plone.contentratings.rating_views',
         required=True,
         )
-        
+
 class IEditCategoryAssignment(Interface):
 
     assignment = Object(ICategoryAssignment,
@@ -32,17 +32,15 @@ class IEditCategoryAssignment(Interface):
 
 
 class ICategoryContainer(Interface):
-    
+
     local_categories = List(title=_(u"Local Categories"),
                             value_type=Object(IPloneRatingCategory,
                                               title=_(u"Category")),
                             required=False)
-                                        
-    acquired_categories = Tuple(title=_(u"Acquired Categories")                                          ,
+
+    acquired_categories = Tuple(title=_(u"Acquired Categories"),
                                 value_type=Object(IPloneRatingCategory,
                                                   title=_(u"Category")),
                                 readonly=True,
                                 required=False,
                                 )
-
-    

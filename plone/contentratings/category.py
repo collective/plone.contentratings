@@ -1,7 +1,6 @@
 from AccessControl import getSecurityManager
 from contentratings.category import RatingCategoryAdapter
 from zope.component import queryUtility, adapts
-from zope.component.exceptions import ComponentLookupError
 from plone.contentratings.interfaces import IRatingCategoryAssignment
 from contentratings.interfaces import IRatingCategory
 from zope.tales.engine import Engine

@@ -1,52 +1,35 @@
 import unittest
-
+from zope.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.annotation.attribute import AttributeAnnotations
+from zope.interface import directlyProvides
+from zope.app.container.sample import SampleContainer
+from zope.app.testing import ztapi
 from zope.testing import doctestunit
 from zope.component import testing
-from Testing import ZopeTestCase as ztc
 
-from Products.Five import zcml
-from Products.Five import fiveconfigure
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
-ptc.setupPloneSite()
-
-import plone.contentratings
-
-class TestCase(ptc.PloneTestCase):
-    class layer(PloneSite):
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            zcml.load_config('configure.zcml',
-                             plone.contentratings)
-            fiveconfigure.debug_mode = False
-
-        @classmethod
-        def tearDown(cls):
-            pass
-
+def setUpCategoryTests(test):
+    testing.setUp(test)
+    # Setup our adapter from category to rating api
+    ztapi.provideAdapter(IAttributeAnnotatable, IAnnotations,
+                         AttributeAnnotations)
+    container = SampleContainer()
+    directlyProvides(container, IAttributeAnnotatable)
+    test.globs = {'my_container': container}
 
 def test_suite():
     return unittest.TestSuite([
 
         # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='plone.contentratings',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
+        doctestunit.DocFileSuite('assignment.txt',
+                                 package='plone.contentratings',
+                                 setUp=testing.setUp,
+                                 tearDown=testing.tearDown),
+        doctestunit.DocFileSuite('category.txt',
+                                 package='plone.contentratings',
+                                 setUp=setUpCategoryTests,
+                                 tearDown=testing.tearDown),
 
-        #doctestunit.DocTestSuite(
-        #    module='plone.contentratings.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-
-        # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='plone.contentratings',
-        #    test_class=TestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='plone.contentratings',
-        #    test_class=TestCase),
 
         ])
 

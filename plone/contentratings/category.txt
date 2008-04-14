@@ -1,0 +1,72 @@
+This package provides a custom `Rating Manager` class which delegates
+which categories are assigned to a particular content object to
+a utility.  It also provides some Zope 2 specific information in
+the TALES expressions context used for evaluating the category
+conditions.
+
+In order to test our rating manager, we need a category assignment
+utility.  We make a simple one which uses an attribute on the content::
+
+    >>> class FakeAssignmentUtil(object):
+    ...     def supports_category(self, content, category):
+    ...         return getattr(content, 'allowed', False)
+    >>> from zope.app.testing import ztapi
+    >>> from plone.contentratings.interfaces import IRatingCategoryAssignment
+    >>> ztapi.provideUtility(IRatingCategoryAssignment, FakeAssignmentUtil())
+
+We also need a content object and a real category to adapt::
+
+    >>> from contentratings.category import RatingsCategoryFactory
+    >>> category = RatingsCategoryFactory('My Rating')
+    >>> from plone.contentratings.category import PloneRatingCategoryAdapter
+
+Now we adapt our content and category using our Rating Manager.  The
+rating manager will check the utility and determine that the category
+is not allowed, rejecting the adaptation by giving back a None instead
+of an rating manager:
+
+    >>> manager = PloneRatingCategoryAdapter(category, my_container)
+    >>> manager is None
+    True
+
+If the utility approves the assigment, then we get a proper rating manager::
+
+    >>> my_container.allowed = True
+    >>> manager = PloneRatingCategoryAdapter(category, my_container)
+    >>> manager is not None
+    True
+    >>> isinstance(manager, PloneRatingCategoryAdapter)
+    True
+
+The manager provides access to the user logged in user (determined by Zope's
+AccessControl), in this case we haven't logged in, so it's the special
+user 'Anonymous'::
+
+    >>> user = manager._get_user()
+    >>> user is not None
+    True
+    >>> user.getId() is None
+    True
+    >>> user
+    <SpecialUser 'Anonymous User'>
+
+It also provides some CMF specific expression context.  We need to
+make our object look like it's in a portal for this to work::
+
+    >>> class FakeURLTool(object):
+    ...     def getPortalObject(self):
+    ...         return 'a portal'
+    >>> class FakeMembershipTool(object):
+    ...     checkPermission = 'a method'
+    >>> my_container.portal_membership = FakeMembershipTool()
+    >>> my_container.portal_url = FakeURLTool()
+
+    >>> expr_context = manager._getExprContext().contexts
+    >>> expr_context['context'] is my_container
+    True
+    >>> expr_context['user']
+    <SpecialUser 'Anonymous User'>
+    >>> expr_context['portal']
+    'a portal'
+    >>> expr_context['checkPermission']
+    'a method'

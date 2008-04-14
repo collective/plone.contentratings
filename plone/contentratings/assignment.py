@@ -29,6 +29,7 @@ class LocalAssignmentUtility(Persistent):
         if self._check_instance(content) and cat_name in \
                self._mapping.get(type_name, ()):
             return True
+        return False
 
     def supported_categories(self, content):
         if not self._check_instance(content):

@@ -1,0 +1,114 @@
+Local Assignment Utility
+========================
+
+The local assignment utility is used to manage the mappings between
+portal types and rating categories.  It also determines if a rating
+category is available on a particular content object.  Let's look at
+how it should work.
+
+First, the utility needs a vocabulary of avalable rating categories.
+The package provides one, but we can create a simplified one::
+
+    >>> class Dummy(object):
+    ...     pass
+    >>> cat1 = Dummy()
+    >>> cat1.name = 'cat1'
+    >>> cat2 = Dummy()
+    >>> cat2.name = 'cat2'
+    >>> from zope.schema.vocabulary import SimpleVocabulary
+    >>> def vocab_factory(object=None):
+    ...     return SimpleVocabulary.fromItems((('cat1', cat1),
+    ...                                        ('cat2', cat2)))
+    >>> from zope.app.testing import ztapi
+    >>> from zope.schema.interfaces import IVocabularyFactory
+    >>> ztapi.provideUtility(IVocabularyFactory, vocab_factory,
+    ...                      name="plone.contentratings.categories")
+
+Now we can instantiate our utility and examine its behavior::
+
+    >>> from plone.contentratings.assignment import LocalAssignmentUtility
+    >>> util = LocalAssignmentUtility()
+    >>> util.getId()
+    'contentratings'
+
+Let's make a content object to test with::
+
+    >>> class FakeType(object):
+    ...     portal_type = ''
+    ...     def getPortalTypeName(self):
+    ...         return self.portal_type
+    >>> content = FakeType()
+    >>> content.portal_type = 'my_type'
+
+    >>> util.categories_for_type('my_type')
+    []
+
+    >>> util.supported_categories(content)
+    []
+
+    >>> util.supports_category(content, cat1)
+    False
+
+
+We can assign specific categories to a type::
+
+    >>> util.assign_categories('my_type', [cat2,])
+
+    >>> supported = util.supported_categories(content)
+    >>> len(supported)
+    1
+    >>> supported[0] is cat2
+    True
+
+    >>> supported = util.categories_for_type('my_type')
+    >>> len(supported)
+    1
+    >>> supported[0] is cat2
+    True
+
+    >>> util.supports_category(content, cat1)
+    False
+    >>> util.supports_category(content, cat2)
+    True
+    
+If we attempt to set a category which is not part of the vocabulary,
+we get an error::
+
+    >>> cat3 = Dummy()
+    >>> cat3.name = 'cat3'
+    >>> util.assign_categories('my_type', [cat3]) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    AssertionError
+
+    >>> util.assign_categories('my_type', [cat1, cat3]) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    AssertionError
+
+Categories not in the vocabulary are those which are not assigned
+based on portal_type, but which implement their own assignment
+mechanisms.  So, any category which is not part of the vocabulary is
+assumed to apply, even though it cannot be assigned to a type::
+
+    >>> cat3 in util.supported_categories(content)
+    False
+    >>> util.supports_category(content, cat3)
+    True
+
+The utility makes one additional check to determine if a category is
+available for a particular type.  If the type provides the IUnratable
+marker interface, then none of the type assigned categories will be
+allowed for the content object::
+
+    >>> util.supports_category(content, cat2)
+    True
+    >>> from zope.interface import directlyProvides
+    >>> from plone.contentratings.interfaces import IUnratable
+    >>> directlyProvides(content, IUnratable)
+    >>> util.supports_category(content, cat2)
+    False
+    >>> util.supported_categories(content)
+    []
+    >>> util.supports_category(content, cat3)
+    True

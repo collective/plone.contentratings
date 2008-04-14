@@ -1,6 +1,5 @@
 from zope.interface import implements, Interface
 from zope.component import getSiteManager
-from zope.app.component import queryNextSiteManager
 from zope.app.component.hooks import getSite
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
@@ -15,8 +14,8 @@ class UserCategoryVocab(object):
     implements(IVocabularyFactory)
     interface = IUserRating
     def __call__(self, context=None):
-        """Generates a vocabulary of all the category factories available
-        in a given context"""
+        """Generates a vocabulary of all the category factories
+        registered for IDynamicType available in a given context"""
         context = getSite()
         sm = getSiteManager(context)
         # Get all registered rating types
