@@ -6,6 +6,7 @@
  <configlet title="Ratings" action_id="contentratings"
     appId="plone.contentratings" category="Plone"
     condition_expr="python:True"
+    i18n:attributes="title"
     url_expr="string:${portal_url}/contentratings-controlpanel"
     visible="True">
   <permission>Manage portal</permission>

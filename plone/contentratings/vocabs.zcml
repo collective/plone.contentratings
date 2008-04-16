@@ -1,6 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    i18n_domain="contentratings.plone">
+    i18n_domain="plone.contentratings">
 
   <utility
       factory=".vocabs.UserCategoryVocab"

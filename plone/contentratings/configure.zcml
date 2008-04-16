@@ -3,7 +3,7 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:contentratings="http://namespaces.plone.org/contentratings"
-    i18n_domain="contentratings.plone">
+    i18n_domain="plone.contentratings">
 
   <include package="contentratings" />
   
