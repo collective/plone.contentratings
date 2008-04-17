@@ -39,14 +39,18 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
         if self.environ.shouldPurge():
             self._purgeTypeRatingsSettings()
 
+        self._initLocalCategoriesSettings(node)
         self._initTypeAssignmentsSettings(node)
         self._logger.info('contentratings: Type Ratings and assignment settings imported.')
 
     def _purgeTypeRatingsSettings(self):
-        # XXX: which settings should we purge? 
-        pass
-
-    def _initTypeAssignmentsSettings(self, node):
+        self.context._mapping.clear()
+        category_container=ICategoryContainer(getSite())
+        for cat in category_container.local_categories:
+            category_container.remove(cat)
+        
+        
+    def _initLocalCategoriesSettings(self, node):
         def _convert(type, value):
             if type=='string':
                 return unicode(value)
@@ -55,16 +59,6 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
             return value
             
         for child in node.childNodes:
-            if child.nodeName=='assignments':
-                for type_node in child.getElementsByTagName('type'):
-                    portaltype=type_node.getAttribute('portal_type')
-                    categories=[e.getAttribute('value') for e in
-                                  type_node.getElementsByTagName('category')]
-                    already = [cat.name for cat in
-                                   self.context.categories_for_type(portaltype)]
-                    categories=Set(categories + already)
-                    self.context._mapping[portaltype] = categories
-                    
             if child.nodeName=='categories':
                 category_container=ICategoryContainer(getSite())
                 current_categories=[cat.name for cat in 
@@ -83,6 +77,18 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
                         category_container.modify(RatingsCategoryFactory(**attributes))
                     else:
                         category_container.add(RatingsCategoryFactory(**attributes))
+                        
+    def _initTypeAssignmentsSettings(self, node):
+        for child in node.childNodes:
+            if child.nodeName=='assignments':
+                for type_node in child.getElementsByTagName('type'):
+                    portaltype=type_node.getAttribute('portal_type')
+                    categories=[e.getAttribute('value') for e in
+                                  type_node.getElementsByTagName('category')]
+                    already = [cat.name for cat in
+                                   self.context.categories_for_type(portaltype)]
+                    categories=Set(categories + already)
+                    self.context._mapping[portaltype] = categories
                 
 
     def _extractTypeAssignments(self):
