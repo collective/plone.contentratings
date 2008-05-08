@@ -15,7 +15,7 @@ from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 from zope.i18n import translate
 
-from contentratings.interfaces import _
+from plone.contentratings.interfaces import _
 
 from plone.contentratings.interfaces import IRatingCategoryAssignment
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment

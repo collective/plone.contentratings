@@ -1,0 +1,101 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2008-05-08 05:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone.contentratings\n"
+
+#: ./browser/interfaces.py:41
+msgid "Acquired Categories"
+msgstr ""
+
+#: ./browser/controlpanel.py:236
+msgid "Add, modify, or remove rating categories.  You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number.  Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
+msgstr ""
+
+#: ./browser/interfaces.py:30
+msgid "Assignment"
+msgstr ""
+
+#: ./browser/interfaces.py:11
+msgid "Categories"
+msgstr ""
+
+#: ./browser/interfaces.py:12
+msgid "Category"
+msgstr ""
+
+#: ./browser/controlpanel.py:246
+msgid "Category Assignments"
+msgstr ""
+
+#: ./browser/controlpanel.py:259
+msgid "Change Portal Type"
+msgstr ""
+
+#: ./schema_extender.py:40
+msgid "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
+msgstr ""
+
+#: ./browser/controlpanel.py:229
+msgid "Choose a portal type from the list and select one or more rating categories to appear on that type. "
+msgstr ""
+
+#: ./schema_extender.py:38
+msgid "Enable Ratings"
+msgstr ""
+
+#: ./browser/interfaces.py:36
+msgid "Local Categories"
+msgstr ""
+
+#: ./browser/controlpanel.py:235
+msgid "Manage Categories"
+msgstr ""
+
+#: ./browser/interfaces.py:8
+msgid "Portal Type"
+msgstr ""
+
+#: ./browser/controlpanel.py:228
+msgid "Rating Assignments"
+msgstr ""
+
+#. Default: "Ratings"
+#: ./profiles/default/controlpanel.xml
+msgid "Ratings"
+msgstr ""
+
+#. Default: "Ratings Settings"
+#: ./profiles/default/actionicons.xml
+msgid "Ratings Settings"
+msgstr ""
+
+#: ./browser/interfaces.py:22
+msgid "Select the view for this category"
+msgstr ""
+
+#: ./browser/controlpanel.py:250
+msgid "Set the categories for portal types"
+msgstr ""
+
+#: ./browser/controlpanel.py:251
+msgid "Settings related to content ratings."
+msgstr ""
+
+#: ./browser/interfaces.py:21
+msgid "View"
+msgstr ""
+

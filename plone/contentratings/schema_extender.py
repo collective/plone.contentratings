@@ -8,7 +8,7 @@ from Products.ATContentTypes.interface import IATDocument
 
 from plone.contentratings.interfaces import IUnratable, \
                                             IRatingCategoryAssignment
-from contentratings.interfaces import _
+from plone.contentratings.interfaces import _
 
 class ReverseInterfaceField(ExtensionField, BooleanField):
     """Just a boolean field"""
