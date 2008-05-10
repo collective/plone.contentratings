@@ -1,0 +1,15 @@
+To Do
+======
+
+* Add mechanism to make it easy to create indexes for specific aspects of
+  rating categories (e.g., (avg rating, number of ratings), users who
+  have rated an object, ....  This probably needs some infrastructure
+  support in Plone (e.g. a more flexible implementation of the
+  IIndexableObjectWrapper stuff).
+
+* Aggregate statistics across multiple rating categories and a user
+  interface for displaying them.  This probably requires some support
+  in the underlying contentratings package, and may be best left to
+  individual applications using this infrastructure.
+
+* ??? 

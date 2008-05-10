@@ -12,7 +12,8 @@ def read(*rnames):
 description = read('README.txt') + '\n\n' + \
               'Detailed Documentation\n' + \
               '**********************\n\n' + \
-              read('plone' , 'contentratings', 'README.txt')
+              read('plone' , 'contentratings', 'README.txt') + '\n\n' + \
+              read('plone' , 'contentratings', 'TODO.txt')
 
 setup(name='plone.contentratings',
       version=version,
