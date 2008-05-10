@@ -20,7 +20,7 @@ setup(name='plone.contentratings',
       description="Plone support for the contentratings package",
       long_description=description,
       classifiers=[
-        'License :: OSI Approved :: GNU Public License (GPL)',
+        "License :: OSI Approved :: GNU General Public License (GPL)",
         "Framework :: Plone",
         "Framework :: Zope2",
         "Programming Language :: Python",
