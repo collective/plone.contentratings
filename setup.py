@@ -18,7 +18,7 @@ description = read('README.txt') + '\n\n' + \
 setup(name='plone.contentratings',
       version=version,
       description="Plone support for the contentratings package",
-      long_description="",
+      long_description=description,
       classifiers=[
         'License :: OSI Approved :: GNU Public License (GPL)',
         "Framework :: Plone",
