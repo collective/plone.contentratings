@@ -37,7 +37,7 @@ setup(name='plone.contentratings',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'contentratings>=1.0-beta1',
+          'contentratings>=1.0-beta1,>=1.0-beta1dev',
           'archetypes.schemaextender',
       ],
       )
