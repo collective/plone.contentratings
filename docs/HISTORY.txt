@@ -1,9 +1,31 @@
-Changelog for plone.contentratings
+HISTORY
+=======
 
-    (name of developer listed in brackets)
+1.0 - Unreleased
+----------------
 
-plone.contentratings - 0.1 Unreleased
+- Added german translations.
+  [saily]
+  
+- Restructured and updated HISTORY.txt.  
+  [saily]
 
-    - Initial package structure.
-      [zopeskel]
+1.0 beta - 2008-05-10
+---------------------
+
+- A completely new architecture for defining and storing ratings. Introduces 
+  the concepts of rating categories and rating views.
+
+0.2 beta - 2008-05-10
+---------------------
+
+- A bugfix release with many improvements from 0.1. This package is superseded 
+  by version 1.0 which has a completely new architecture though it should be 
+  backwards compatible.
+
+0.1 - Released
+--------------
+
+- Initial package structure.
+  [alecm]
 
