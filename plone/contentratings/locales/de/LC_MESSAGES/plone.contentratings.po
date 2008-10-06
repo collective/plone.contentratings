@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plone.contentratings\n"
+"POT-Creation-Date: 2008-05-08 05:23+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Daniel Widerin <daniel.widerin@kombinat.at>\n"
+"Language-Team: Kombinat Media Gestalter GmbH <office@kombinat.at>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: AUSTRIA\n"
+
+#: browser/interfaces.py:41
+msgid "Acquired Categories"
+msgstr "Übernommene Kategorien"
+
+#: browser/controlpanel.py:236
+msgid "Add, modify, or remove rating categories.  You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number.  Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
+msgstr "Kategorien können hier hinzugefügt, bearbeitet oder gelöscht werden. Sie können einen Titel, eine Beschreibung, Bedingungen zum Anzeigen oder Bewerten, eine Sortiernummer und eine Ansicht angeben. Kategorien die in einer tieferen Ebene definiert wurden können nicht bearbeitet werden. Sie müssen Ihre Änderungen nach dem Hinzufügen oder Löschen speichern."
+
+#: browser/interfaces.py:30
+msgid "Assignment"
+msgstr "Zuweisung"
+
+#: browser/interfaces.py:11
+msgid "Categories"
+msgstr "Kategorien"
+
+#: browser/interfaces.py:12
+msgid "Category"
+msgstr "Kategorie"
+
+#: browser/controlpanel.py:246
+msgid "Category Assignments"
+msgstr "Kategoriezuweisungen"
+
+#: browser/controlpanel.py:259
+msgid "Change Portal Type"
+msgstr "Artikeltyp ändern"
+
+#: schema_extender.py:40
+msgid "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
+msgstr "Aktivieren Sie diese Checkbox um Bewertungen für dieses Element zuzulassen. Verwenden Sie die Konfiguration um die Bewertungen für jeden Artikeltyp festzulegen."
+
+#: browser/controlpanel.py:229
+msgid "Choose a portal type from the list and select one or more rating categories to appear on that type. "
+msgstr "Wählen Sie einen Artikeltyp aus der Liste und markieren Sie eine oder mehrere Kategorien für diesen Typ."
+
+#: schema_extender.py:38
+msgid "Enable Ratings"
+msgstr "Bewertungen zulassen"
+
+#: browser/interfaces.py:36
+msgid "Local Categories"
+msgstr "Lokale Kategorien"
+
+#: browser/controlpanel.py:235
+msgid "Manage Categories"
+msgstr "Kategorien verwalten"
+
+#: browser/interfaces.py:8
+msgid "Portal Type"
+msgstr "Artikeltyp"
+
+#: browser/controlpanel.py:228
+msgid "Rating Assignments"
+msgstr "Bewertungen zuweisen"
+
+#. Default: "Ratings"
+#: profiles/default/controlpanel.xml
+msgid "Ratings"
+msgstr "Bewertungen"
+
+#. Default: "Ratings Settings"
+#: profiles/default/actionicons.xml
+msgid "Ratings Settings"
+msgstr "Bewertungseinstellungen"
+
+#: browser/interfaces.py:22
+msgid "Select the view for this category"
+msgstr "Ansicht für diese Kategorie"
+
+#: browser/controlpanel.py:250
+msgid "Set the categories for portal types"
+msgstr "Kategorie für diesen Artikeltyp festlegen"
+
+#: browser/controlpanel.py:251
+msgid "Settings related to content ratings."
+msgstr "Einstellungmöglichkeiten des Bewertungssystem"
+
+#: browser/interfaces.py:21
+msgid "View"
+msgstr "Anzeigen"
+
