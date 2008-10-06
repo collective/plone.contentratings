@@ -1,8 +1,14 @@
 from setuptools import setup, find_packages
 import sys, os
 import xml.sax.saxutils
+from xml.dom.minidom import parse
 
-version = '1.0-beta1'
+def readversion():
+    mdfile = os.path.join(os.path.dirname(__file__), 'plone', 'contentratings', 
+                          'profiles', 'default', 'metadata.xml')
+    metadata = parse(mdfile)
+    assert metadata.documentElement.tagName == "metadata"
+    return metadata.getElementsByTagName("version")[0].childNodes[0].data
 
 def read(*rnames):
     text = open(os.path.join(os.path.dirname(__file__), *rnames)).read()
@@ -16,7 +22,7 @@ description = read('README.txt') + '\n\n' + \
               read('plone' , 'contentratings', 'TODO.txt')
 
 setup(name='plone.contentratings',
-      version=version,
+      version=readversion().strip(),
       description="Plone support for the contentratings package",
       long_description=description,
       classifiers=[

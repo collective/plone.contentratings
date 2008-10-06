@@ -4,10 +4,13 @@ HISTORY
 1.0 - Unreleased
 ----------------
 
+- Added missing metadata.xml and made setup.py read out it's version.
+  [saily]
+
 - Added german translations.
   [saily]
   
-- Restructured and updated HISTORY.txt.  
+- Restructured and updated HISTORY.txt.
   [saily]
 
 1.0 beta - 2008-05-10
