@@ -13,7 +13,7 @@ def readversion():
 def read(*rnames):
     text = open(os.path.join(os.path.dirname(__file__), *rnames)).read()
     text = unicode(text, 'utf-8').encode('ascii', 'xmlcharrefreplace')
-    return xml.sax.saxutils.escape(text)
+    return text
 
 description = read('README.txt') + '\n\n' + \
               'Detailed Documentation\n' + \
@@ -46,4 +46,7 @@ setup(name='plone.contentratings',
           'contentratings>=1.0-beta1dev',
           'archetypes.schemaextender',
       ],
+      entry_points="""
+      # -*- Entry points: -*-
+      """,
       )
