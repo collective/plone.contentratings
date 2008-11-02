@@ -1,10 +1,10 @@
-input[name=form.actions.change_type]:load {
+input[name="form.actions.change_type"]:load {
     action-client: setStyle;
     setStyle-name: display;
     setStyle-value: none;
 }
 
-select[name=form.assignment.portal_type]:change {
+select[name="form.assignment.portal_type"]:change {
     action-server: refreshCategories;
     refreshCategories-type_id: currentFormVar('form.assignment.portal_type');
 } 
