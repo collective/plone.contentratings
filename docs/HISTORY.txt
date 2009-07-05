@@ -4,6 +4,13 @@ HISTORY
 1.0 - Unreleased
 ----------------
 
+- Added auto-save on type change in control panel (disabled due to KSS
+  bug).
+  [alecm]
+
+- Added fixes for KSS issues.
+  [alecm]
+
 - Added missing metadata.xml and made setup.py read out it's version.
   [saily]
 

@@ -43,7 +43,7 @@ class LocalAssignmentUtility(Persistent):
                                      'plone.contentratings.categories')()
 
     def assign_categories(self, portal_type, categories):
-        """Check that the give names are actually valid category names,
+        """Check that the given names are actually valid category names,
         if so assign them to the portal_type"""
         categories = set(categories)
         available_categories = set(t.value for t in self._avalable_categories)

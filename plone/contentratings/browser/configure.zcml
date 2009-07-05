@@ -33,13 +33,15 @@
         permission="cmf.ManagePortal"
         />
 
-    <browser:page
-        name="refreshCategories"
+    <browser:pages
         for="zope.app.component.interfaces.ISite"
         class=".kss_ratings.ControlPanelKSSView"
-        permission="cmf.ManagePortal"
-        attribute="refresh_categories"
-        />
+        permission="cmf.ManagePortal">
+      <page name="refreshCategories"
+            attribute="refresh_categories"/>
+      <page name="saveRatingAssignments"
+            attribute="save_rating_assignments" />
+    </browser:pages>
         
     <browser:pages
         for="*"

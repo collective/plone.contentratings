@@ -1,10 +1,13 @@
-from zope.component import getAdapter, getMultiAdapter
+from zope.component import getAdapter, getMultiAdapter, getUtility
+from zope.schema.interfaces import IVocabularyFactory
 
 from kss.core import kssaction, KSSExplicitError
 from plone.app.kss.plonekssview import PloneKSSView
 
+from plone.contentratings.interfaces import IRatingCategoryAssignment
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.controlpanel import AssignmentWidget
+from plone.contentratings.browser.controlpanel import selected_categories
 from contentratings.interfaces import IUserRating, IEditorialRating
 
 
@@ -25,10 +28,27 @@ class ControlPanelKSSView(PloneKSSView):
         html = select.renderValue(select._getFormValue())
         
         ksscore = self.getCommandSet('core')
-        select = ksscore.getCssSelector('select[id=form.assignment.assigned_categories]')
+        select = ksscore.getCssSelector(
+            'select[id="form.assignment.assigned_categories"]')
+        ksscore.clearChildNodes(select)
         ksscore.replaceHTML(select, html)
         
-        
+    @kssaction
+    def save_rating_assignments(self):
+        """Save the rating assignments in the current form"""
+        req =self.request
+        p_type = req.get('form.assignment.portal_type', '')
+        assignments = set(req.get('form.assignment.assigned_categories', ()))
+        util = getUtility(IRatingCategoryAssignment)
+        current_selection = selected_categories(p_type)
+        if set(c.name for c in current_selection) != assignments:
+            categories = list(getUtility(IVocabularyFactory,
+                         name='plone.contentratings.categories')(self.context))
+            util.assign_categories(p_type,
+                                   [c.value for c in categories
+                                                     if c.token in assignments])
+
+
 class RatingKSSView(PloneKSSView):
     """ kss actions for changing and deleting ratings """
     rating_iface = IUserRating

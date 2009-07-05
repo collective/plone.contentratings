@@ -4,10 +4,17 @@ input[name="form.actions.change_type"]:load {
     setStyle-value: none;
 }
 
+/* Disabled until KSS issue #9354 is fixed (http://dev.plone.org/plone/ticket/9354)
+select[name="form.assignment.portal_type"]:focus {
+    action-server: saveRatingAssignments;
+    saveRatingAssignments-kssSubmitForm: currentForm();
+}
+*/
+
 select[name="form.assignment.portal_type"]:change {
     action-server: refreshCategories;
     refreshCategories-type_id: currentFormVar('form.assignment.portal_type');
-} 
+}
 
 .Rating ul.star-rating a.rate:click {
     evt-click-preventdefault:  True;
