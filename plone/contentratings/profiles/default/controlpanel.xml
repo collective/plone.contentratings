@@ -4,7 +4,7 @@
         i18n:domain="plone.contentratings">
 
  <configlet title="Ratings" action_id="contentratings"
-    appId="plone.contentratings" category="Plone"
+    appId="plone.contentratings" category="Products"
     condition_expr="python:True"
     i18n:attributes="title"
     url_expr="string:${portal_url}/contentratings-controlpanel"
