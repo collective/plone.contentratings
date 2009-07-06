@@ -12,10 +12,11 @@ description = read('README.txt') + '\n\n' + \
               'Detailed Documentation\n' + \
               '**********************\n\n' + \
               read('plone' , 'contentratings', 'README.txt') + '\n\n' + \
-              read('plone' , 'contentratings', 'TODO.txt')
+              read('plone' , 'contentratings', 'TODO.txt') + '\n\n' + \
+              read('docs', 'HISTORY.txt')
 
 setup(name='plone.contentratings',
-      version="1.0-beta2",
+      version="1.0-beta2-1",
       description="Plone support for the contentratings package",
       long_description=description,
       classifiers=[

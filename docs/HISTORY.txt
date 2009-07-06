@@ -1,8 +1,8 @@
 HISTORY
 =======
 
-1.0 - Unreleased
-----------------
+1.0 beta2 2009-07-06
+---------------------
 
 - Added auto-save on type change in control panel (disabled due to KSS
   bug).
