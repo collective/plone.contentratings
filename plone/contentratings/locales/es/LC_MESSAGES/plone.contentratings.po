@@ -1,0 +1,102 @@
+# translation of plone.contentratings.po to Spanish
+# Leonardo J .Caballero G. <leonardocaballero@gmail.com>, 2009.
+# Spanish translation team Plone Cono Sur <plone-conosur@lists.plone.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: plone.contentratings\n"
+"POT-Creation-Date: 2008-05-08 05:23+0000\n"
+"PO-Revision-Date: 2009-08-11 12:38-0400\n"
+"Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
+"Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone.contentratings\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#: ./browser/interfaces.py:41
+msgid "Acquired Categories"
+msgstr "Categorías adquiridas"
+
+#: ./browser/controlpanel.py:236
+msgid "Add, modify, or remove rating categories.  You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number.  Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
+msgstr "Agregar, modificar o remover categorías de calificaciones. Puede especificar un titulo, una descripción, las condiciones de visualización y ajuste de calificaciones, una vista para mostrar la calificación, y un número de orden relativo. Las categorías que se definen en un nivel inferior (ej., globalmente) no pueden ser editadas. Usted necesita guardar los cambios antes después de agregar o remover categorías"
+
+#: ./browser/interfaces.py:30
+msgid "Assignment"
+msgstr "Asignación"
+
+#: ./browser/interfaces.py:11
+msgid "Categories"
+msgstr "Categorías"
+
+#: ./browser/interfaces.py:12
+msgid "Category"
+msgstr "Categoría"
+
+#: ./browser/controlpanel.py:246
+msgid "Category Assignments"
+msgstr "Asignación de la categoría"
+
+#: ./browser/controlpanel.py:259
+msgid "Change Portal Type"
+msgstr "Cambiar tipo de portal"
+
+#: ./schema_extender.py:40
+msgid "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
+msgstr "Marque esta casilla para agregar calificaciones a este elemento. Utilice el panel de control para seleccionar las calificaciones mostradas en cada tipo de contenido."
+
+#: ./browser/controlpanel.py:229
+msgid "Choose a portal type from the list and select one or more rating categories to appear on that type. "
+msgstr "Elija un tipo de portal de la lista y seleccione una o más categorías de calificación para aparecer en ese tipo."
+
+#: ./schema_extender.py:38
+msgid "Enable Ratings"
+msgstr "Habilitar calificaciones"
+
+#: ./browser/interfaces.py:36
+msgid "Local Categories"
+msgstr "Categorías locales"
+
+#: ./browser/controlpanel.py:235
+msgid "Manage Categories"
+msgstr "Administrar categorías"
+
+#: ./browser/interfaces.py:8
+msgid "Portal Type"
+msgstr "Tipos del portal"
+
+#: ./browser/controlpanel.py:228
+msgid "Rating Assignments"
+msgstr "Asignación de calificación"
+
+#. Default: "Ratings"
+#: ./profiles/default/controlpanel.xml
+msgid "Ratings"
+msgstr "Calificaciones"
+
+#. Default: "Ratings Settings"
+#: ./profiles/default/actionicons.xml
+msgid "Ratings Settings"
+msgstr "Configuraciones de calificaciones"
+
+#: ./browser/interfaces.py:22
+msgid "Select the view for this category"
+msgstr "Seleccionar la vista para esta categoría"
+
+#: ./browser/controlpanel.py:250
+msgid "Set the categories for portal types"
+msgstr "Definir las categorías par los tipos del portal"
+
+#: ./browser/controlpanel.py:251
+msgid "Settings related to content ratings."
+msgstr "Configuraciones relacionadas con los contenidos calificados"
+
+#: ./browser/interfaces.py:21
+msgid "View"
+msgstr "Vista"
+
