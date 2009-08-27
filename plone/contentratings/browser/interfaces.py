@@ -1,7 +1,8 @@
 from zope.interface import Interface
 from zope.schema import TextLine, Set, Tuple, Choice, Object, List
 
-from contentratings.interfaces import IRatingCategory, _
+from contentratings.interfaces import IRatingCategory
+from plone.contentratings.interfaces import _
 
 class ICategoryAssignment(Interface):
 

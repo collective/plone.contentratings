@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
 "POT-Creation-Date: 2008-05-08 05:23+0000\n"
-"PO-Revision-Date: 2009-08-27 15:17+0100\n"
+"PO-Revision-Date: 2009-08-27 16:49+0100\n"
 "Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: Czech <info@dms4u.cz>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "Zděděné kategorie"
 
 #: ./browser/controlpanel.py:236
 msgid "Add, modify, or remove rating categories.  You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number.  Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
-msgstr "Přidejte, upravte nebo zrušte kategorie hodnocení. Můžete zadat nadpis, popis, podmínky pro zobrazení a změnu hodnocení, pohled pro zobrazení hodnocení a relativní pořadí. Kategorie, které jsou definovány na niždí úrovni (například globální kategorie)  nelze změnit. Nezapoměňte po pžidání nebo odebrání kategorií  uložit změny."
+msgstr "Přidejte, upravte nebo zrušte kategorie hodnocení. Můžete zadat nadpis, popis, podmínky pro zobrazení a změnu hodnocení, pohled pro zobrazení hodnocení a relativní pořadí. Kategorie, které jsou definovány na nižší úrovni (například globální kategorie)  nelze změnit. Nezapoměňte po přidání nebo odebrání kategorií uložit změny."
 
 #: ./browser/interfaces.py:30
 msgid "Assignment"
