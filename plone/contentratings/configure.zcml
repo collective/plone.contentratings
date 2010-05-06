@@ -44,6 +44,9 @@
   <adapter factory=".schema_extender.RatingRemover"
            name="contentratings.ratingremover" />
   
+  <adapter name="average_rating" factory=".catalog.average_rating" />
+  <adapter name="amount_of_ratings" factory=".catalog.amount_of_ratings" />
+
   <include package=".browser" />
   <include package=".exportimport" />
   <include file="profiles.zcml" />
