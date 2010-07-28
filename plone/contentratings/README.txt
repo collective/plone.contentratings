@@ -2,13 +2,13 @@ Using `plone.contentratings`
 ============================
 
 After making the package `plone.contentratings` and its dependencies
-available to your Zope instance.  Once you have restarted Zope, you
-should now have a "product" called `contentratings` available in the
-Plone Quick Installer (the `Add-on Products` control panel).
-Installing this "product" will add a new control panel toPplone called
-`Ratings`.  This panel provides two configuration sections.  One for
-associating particular content types with rating categories, and
-another for adding and managing rating categories.
+available to your Zope instance and restarting Zope, you should have a
+"product" called `contentratings` available in the Plone Quick
+Installer (the `Add-on Products` control panel).  Installing this
+"product" will add a new control panel to Plone called `Ratings`.
+This panel provides two configuration sections.  One for associating
+particular content types with rating categories, and another for
+adding and managing rating categories.
 
 
 Assigning Ratings
@@ -57,7 +57,7 @@ determined by the order attribute which should be an integer.  The
 view setting determines how the rating should appear in the UI.
 Python products can register rating views to provide different look
 and feel or behavior.  Instructions for creating and registering new
-views can be found in the documentation of the`contentratings`
+views can be found in the documentation of the `contentratings`_
 package.  If you use a completely custom class for your view, make
 sure it implements the `contentratings.browser.interfaces.IRatingView`
 interface and is registered for the
@@ -86,7 +86,7 @@ Additionally, this also makes it possible to override a category
 defined globally by creating one with an identical name.  However,
 there is no guarantee that the names of globally defined are related
 to their titles, so it's not always obvious how to do this, nor is
-doing this recommended.  You may end up with two categories with the
+aldoing this recommended.  You may end up with two categories with the
 same title , differentiated only by their order, which is likely to
 lead to confusion when assigning categories.
 
@@ -99,7 +99,7 @@ Notes for Developers
 
 Creating global categories and custom rating views should be a
 straightforward process for developers who have read the
-`contentratings` documentation.  There are a few special things to
+`contentratings`_ documentation.  There are a few special things to
 note when developing custom rating behavior for Plone.
 
 If you want a custom global categories to be available in the control
@@ -116,7 +116,7 @@ respect the `Enable Ratings` checkbox on content objects.
 If you want to implement a custom `Rating Manager` for your content
 types (which presumably also implement IDynamicType), you should
 inherit from the `PloneRatingCategoryAdapter`, rather than the
-standard `RatingCategoryAdapter` in `contentratings`.  Without the
+standard `RatingCategoryAdapter` in `contentratings`_.  Without the
 behaviors defined in this class, any TTW categories assigned to types
 using the custom rating manager are likely to break or not appear.
 
@@ -136,7 +136,10 @@ defined in site managers below the current site (e.g. at the portal).
 These cannot be edited, but they can be overridden (see the
 **Notes On Category Names** section above).
 
-Istalling the utility in a local site manager above the Plone root,
+Installing the utility in a local site manager above the Plone root,
 must be done programatically for now.  The promising `plone.localconf`
 package may soon provide a generic mechanism and UI for such
 installations.
+
+
+.. _contentratings: http://pypi.python.org/pypi/contentratings/
