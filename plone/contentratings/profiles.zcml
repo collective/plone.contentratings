@@ -10,6 +10,14 @@
       directory="profiles/default"
       description='Extension profile for the "contentratings" Plone theme.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       />
-
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="plone.contentratings Uninstall Profile"
+      directory="profiles/uninstall"
+      description="Removes plone.contentratings."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
 </configure>

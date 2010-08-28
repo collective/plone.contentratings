@@ -183,7 +183,7 @@ class AssignmentWidget(ObjectWidget):
         >>> content.assignment.portal_type
         'type1'
         >>> content.assignment.assigned_categories
-        Set(['cat1'])
+        set(['cat1'])
 
     """
 

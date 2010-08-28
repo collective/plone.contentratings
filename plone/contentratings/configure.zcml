@@ -6,8 +6,7 @@
     xmlns:contentratings="http://namespaces.plone.org/contentratings"
     i18n_domain="plone.contentratings">
 
-  <include package="contentratings" />
-  <include package="archetypes.schemaextender" />
+  <includeDependencies package="." />
   
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
@@ -45,7 +44,13 @@
            name="contentratings.ratingremover" />
   
   <adapter name="average_rating" factory=".catalog.average_rating" />
-  <adapter name="amount_of_ratings" factory=".catalog.amount_of_ratings" />
+  <adapter name="number_of_ratings" factory=".catalog.number_of_ratings" />
+  <adapter name="rating_users" factory=".catalog.rating_users" />
+  <subscriber
+      for="Products.CMFCore.interfaces.ICatalogAware
+           contentratings.interfaces.IObjectRatedEvent"
+      handler=".catalog.index_on_rate"
+      />
 
   <include package=".browser" />
   <include package=".exportimport" />

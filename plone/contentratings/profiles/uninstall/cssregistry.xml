@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+
+ <stylesheet title=""
+    id="++resource++plone.contentratings.stylesheets/main.css"
+    remove="True"/>>
+ <stylesheet title=""
+    id="++resource++contentratings/star_rating.css"
+    remove="True"/>
+
+</object>

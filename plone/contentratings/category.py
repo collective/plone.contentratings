@@ -22,8 +22,8 @@ class PloneRatingCategoryAdapter(RatingCategoryAdapter):
         # exists and approves the category
         if util is None or not util.supports_category(context, category):
             return None
-        self = RatingCategoryAdapter.__new__(cls, category, context)
-        return self
+        # sub classes shouldn't implement __new__
+        return super(PloneRatingCategoryAdapter, cls).__new__(cls)
 
     def _get_user(self):
         """Use Zope 2 security to lookup the current user"""

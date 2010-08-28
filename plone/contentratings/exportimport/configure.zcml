@@ -1,12 +1,25 @@
 <configure
  xmlns="http://namespaces.zope.org/zope"
- >
+ xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
   
   <adapter
       factory=".exportimport.ContentRatingsXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
       for="plone.contentratings.interfaces.IRatingCategoryAssignment
            Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <genericsetup:importStep
+      name="plone.contentratings"
+      title="Content Ratings"
+      description="Import Content Ratings Assignments specific configuration."
+      handler=".exportimport.importTypeRatingAssignments" />
+  
+  <genericsetup:exportStep
+      name="plone.contentratings"
+      title="Content Ratings"
+      description="Export Content Ratings Assignments specific configuration."
+      handler=".exportimport.exportTypeRatingAssignments"
       />
   
 </configure>

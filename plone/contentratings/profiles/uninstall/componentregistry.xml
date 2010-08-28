@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<componentregistry>
+ <adapters/>
+ <utilities>
+  <utility
+     interface="plone.contentratings.interfaces.IRatingCategoryAssignment"
+     factory="plone.contentratings.assignment.LocalAssignmentUtility"
+     remove="True"/>
+ </utilities>
+</componentregistry>
