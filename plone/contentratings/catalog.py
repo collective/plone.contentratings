@@ -8,15 +8,11 @@ from contentratings.interfaces import IUserRating
 
 @indexer(IDynamicType)
 def average_rating(object):
+    """Returns a tuple of the average rating and number of ratings for
+    easy sorting"""
     try:
-        return IUserRating(object).averageRating
-    except (ComponentLookupError, TypeError, ValueError):
-        raise AttributeError
-
-@indexer(IDynamicType)
-def number_of_ratings(object):
-    try:
-        return IUserRating(object).numberOfRatings
+        adapter = IUserRating(object)
+        return (adapter.averageRating, adapter.numberOfRatings)
     except (ComponentLookupError, TypeError, ValueError):
         raise AttributeError
 

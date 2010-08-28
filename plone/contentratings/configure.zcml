@@ -44,7 +44,6 @@
            name="contentratings.ratingremover" />
   
   <adapter name="average_rating" factory=".catalog.average_rating" />
-  <adapter name="number_of_ratings" factory=".catalog.number_of_ratings" />
   <adapter name="rating_users" factory=".catalog.rating_users" />
   <subscriber
       for="Products.CMFCore.interfaces.ICatalogAware
