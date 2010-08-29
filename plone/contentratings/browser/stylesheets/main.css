@@ -5,7 +5,7 @@ div.RatingViewlet {
     float: right;
 }
 .UserRatings, .EditorialRatings {
-    clear: both;
+    overflow: hidden;
 }
 
 ul.star-rating {
