@@ -1,9 +1,10 @@
 from zope.interface import implements
-from zope.component import getSiteManager, getUtility
+from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 from persistent import Persistent
 from BTrees.OOBTree import OOBTree
-from plone.contentratings.interfaces import IRatingCategoryAssignment, IUnratable
+from plone.contentratings.interfaces import (IRatingCategoryAssignment,
+                                             IUnratable,)
 
 class LocalAssignmentUtility(Persistent):
     """A utility for determining which rating categories are available for an

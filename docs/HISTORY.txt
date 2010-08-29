@@ -1,6 +1,18 @@
 HISTORY
 =======
 
+1.0 rc1 (unreleased)
+--------------------
+
+- Add indexing of average rating and users that have rated content.
+  [alecm]
+
+- Added Spanish and Czech translations.
+  [dukebody, macagua]
+
+- Added uninstall profile.
+  [alecm]
+
 1.0 beta2 2009-07-06
 ---------------------
 
