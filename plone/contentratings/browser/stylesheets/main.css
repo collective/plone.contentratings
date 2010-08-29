@@ -12,6 +12,15 @@ ul.star-rating {
     margin:0 0 0 5px;
 }
 
+#content ul.star-rating{
+    margin-left: 0;
+}
+
+#content a.DeleteRating{
+    border-bottom:none;
+    margin: 0;
+}
+
 #content .UserRating a.DeleteRating {
     background-image: url(/++resource++contentratings/X_icon_20x20.gif);
     background-position: center center;
@@ -21,7 +30,6 @@ ul.star-rating {
 #content .small-star .UserRating a.DeleteRating {
     background-image: url(/++resource++contentratings/X_icon_10x10.gif);
 }
-
 
 #content .star-rating a,
 #content .star-rating a:hover,
