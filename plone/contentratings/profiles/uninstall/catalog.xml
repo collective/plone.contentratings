@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+ <index remove="True" name="number_of_ratings" meta_type="FieldIndex" />
+ <index remove="True" name="average_rating" meta_type="FieldIndex" />
+ <index remove="True" name="rating_users" meta_type="KeywordIndex" />
+ <column remove="True" value="number_of_ratings"/>
+ <column remove="True" value="average_rating"/>
+
+</object>

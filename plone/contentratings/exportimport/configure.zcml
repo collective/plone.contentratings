@@ -22,4 +22,10 @@
       handler=".exportimport.exportTypeRatingAssignments"
       />
   
+  <genericsetup:importStep
+      name="plone.contentratings.uninstallVarious"
+      title="Uninstall Content Ratings Adapters"
+      description="Uninstall all custom rating categories."
+      handler="..setuphandlers.uninstallVarious" />
+  
 </configure>
