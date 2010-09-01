@@ -1,7 +1,7 @@
 HISTORY
 =======
 
-1.0 rc1 (unreleased)
+1.0 rc1 (2010-08-31)
 --------------------
 
 - Add indexing of average rating and users that have rated content.
