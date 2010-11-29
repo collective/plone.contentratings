@@ -46,7 +46,7 @@
   <adapter name="average_rating" factory=".catalog.average_rating" />
   <adapter name="rating_users" factory=".catalog.rating_users" />
   <subscriber
-      for="Products.CMFCore.interfaces.ICatalogAware
+      for="Products.CMFCore.interfaces.IDynamicType
            contentratings.interfaces.IObjectRatedEvent"
       handler=".catalog.index_on_rate"
       />
