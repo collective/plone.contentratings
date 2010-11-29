@@ -1,6 +1,12 @@
 HISTORY
 =======
 
+1.0 rc2 (2010-11-28)
+--------------------
+
+- Bring back Plone 3 support by removing dependence on new CMFCore interface.
+  [alecm]
+
 1.0 rc1 (2010-08-31)
 --------------------
 
