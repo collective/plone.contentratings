@@ -1,8 +1,8 @@
 HISTORY
 =======
 
-unreleased
-----------
+1.0 final (2011-08-21)
+----------------------
 
 - Explicitly include CMFCore permissions in configure.zcml for Plone 4.1
   compatibility. If Plone 3 compatibility is to be maintainted include
