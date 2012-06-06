@@ -1,0 +1,3 @@
+include *.py *.txt
+recursive-include docs *.txt
+recursive-include plone *.py *.txt *.xml *.zcml *.pt *.css *.kss *.gif *.png *.mo *.po *.pot *.sh

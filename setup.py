@@ -16,7 +16,7 @@ description = read('README.txt') + '\n\n' + \
               read('docs', 'HISTORY.txt')
 
 setup(name='plone.contentratings',
-      version="1.0.1-1",
+      version="1.0.1-2",
       description="Plone support for the contentratings package",
       long_description=description,
       classifiers=[
