@@ -1,6 +1,11 @@
 HISTORY
 =======
 
+1.0.2 (unreleased)
+------------------
+
+- Restore Plone 3 compatibility. [thet]
+
 1.0.1 (2012-06-04)
 ------------------
 

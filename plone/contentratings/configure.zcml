@@ -4,11 +4,12 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:contentratings="http://namespaces.plone.org/contentratings"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.contentratings">
 
   <includeDependencies package="." />
 
-  <include package="Products.CMFCore" file="permissions.zcml" />
+  <include zcml:condition="have plone-4" package="Products.CMFCore" file="permissions.zcml" />
   
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
