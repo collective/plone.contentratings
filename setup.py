@@ -38,10 +38,10 @@ setup(name='plone.contentratings',
       install_requires=[
           'setuptools',
           'contentratings>=1.0',
+          'zope.app.component',
           'archetypes.schemaextender',
       ],
-      entry_points="""
-[z3c.autoinclude.plugin]
+      entry_points="""[z3c.autoinclude.plugin]
 target = plone
-      """,
+""",
       )

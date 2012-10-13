@@ -7,7 +7,8 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.contentratings">
 
-  <includeDependencies package="." />
+  <include package="contentratings" file="meta.zcml" />
+  <include package="contentratings" file="configure.zcml" />
 
   <include zcml:condition="have plone-4" package="Products.CMFCore" file="permissions.zcml" />
   

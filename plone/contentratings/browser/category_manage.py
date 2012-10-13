@@ -1,20 +1,25 @@
-from zope.interface import implements, alsoProvides
+from zope.interface import implements
 from zope.component import adapts, getSiteManager, queryUtility
 from zope.app.component import queryNextSiteManager
 from zope.app.form import CustomWidgetFactory
-from zope.app.form.interfaces import MissingInputError
-from zope.app.form.browser import ObjectWidget, ListSequenceWidget, SequenceDisplayWidget
+from zope.app.form.browser import (ObjectWidget, ListSequenceWidget,
+                                   SequenceDisplayWidget,)
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from zope.schema import getFieldsInOrder
-from zope.app.component.interfaces import ISite
+try:
+    from zope.location.interfaces import ISite
+except ImportError:
+    # Zope BBB
+    from zope.app.component.interfaces import ISite
 
 from plone.i18n.normalizer.interfaces import IURLNormalizer
 from plone.contentratings.browser.interfaces import ICategoryContainer
 from contentratings.interfaces import IUserRating
-from contentratings.interfaces import IRatingCategory, _
+from contentratings.interfaces import IRatingCategory
 from contentratings.category import RatingsCategoryFactory
 
 from Products.CMFCore.interfaces import IDynamicType
+
 
 class CategoryContainerAdapter(object):
     """Adapter for site root to ICategoryContainer.  This provides mechanisms

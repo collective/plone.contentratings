@@ -6,14 +6,16 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.controlpanel.form import ControlPanelForm
 from plone.fieldsets.fieldsets import FormFieldsets
 from zope.app.form.browser.objectwidget import ObjectWidget
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile 
 
-from zope.app.component.interfaces import ISite
+try:
+    from zope.location.interfaces import ISite
+except ImportError:
+    # Zope BBB
+    from zope.app.component.interfaces import ISite
 from zope.formlib import form
 
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
-from zope.i18n import translate
 
 from plone.contentratings.interfaces import _
 
@@ -21,8 +23,10 @@ from plone.contentratings.interfaces import IRatingCategoryAssignment
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryContainer
-from plone.contentratings.browser.category_manage import hr_categories_widget, display_categories_widget
-from plone.contentratings.interfaces import IRatingCategoryAssignment
+from plone.contentratings.browser.category_manage import (
+    hr_categories_widget,
+    display_categories_widget,
+    )
 
 
 class CategoryAssignment(object):
