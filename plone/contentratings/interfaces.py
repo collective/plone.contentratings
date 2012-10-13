@@ -20,3 +20,5 @@ class IRatingCategoryAssignment(Interface):
 class IUnratable(Interface):
     """A marker interface indicating that an object is not ratable"""
 
+class IDexterityRatingsEnabled(Interface):
+    """An interface for enabling ratings on dexterity content"""
