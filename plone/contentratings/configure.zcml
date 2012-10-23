@@ -31,15 +31,18 @@
       read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
       write_expr="python:checkPermission('Content Ratings: User Rate', context)"
       />
-      
-  <configure zcml:condition="installed plone.app.dexterity"> 
+  <configure zcml:condition="installed five.grok"
+             xmlns:grok="http://namespaces.zope.org/grok">
+    <grok:grok package=".behaviors" />
+  </configure>
+  <configure zcml:condition="installed plone.app.dexterity">
       <plone:behavior
         title="Rating"
         description="Enable Content ratings for this type."
         provides=".behaviors.IRatingBehavior"
         factory=".behaviors.RatingBehavior"
     />
-  </configure>  
+  </configure>
 
   <!-- Categories for testing only -->
   <contentratings:category

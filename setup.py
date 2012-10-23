@@ -40,6 +40,7 @@ setup(name='plone.contentratings',
           'contentratings>=1.0',
           'zope.app.component',
           'archetypes.schemaextender',
+          'rwproperty'
       ],
       entry_points="""[z3c.autoinclude.plugin]
 target = plone
