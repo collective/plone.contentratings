@@ -28,13 +28,13 @@
 
     <browser:page
         name="contentratings-controlpanel"
-        for="zope.location.interfaces.ISite"
+        for="Products.CMFCore.interfaces.ISiteRoot"
         class=".controlpanel.ContentRatingsControlPanel"
         permission="cmf.ManagePortal"
         />
 
     <browser:pages
-        for="zope.location.interfaces.ISite"
+        for="Products.CMFCore.interfaces.ISiteRoot"
         class=".kss_ratings.ControlPanelKSSView"
         permission="cmf.ManagePortal">
       <page name="refreshCategories"
