@@ -39,17 +39,17 @@ alsoProvides(IRatingBehavior, IFormFieldProvider)
 class RatingBehavior(object):
     """ Store by applying a marker interface. This makes it easy to switch the view on and off.
     """
-    
+
     implements(IRatingBehavior)
     adapts(IDexterityContent)
-    
+
     def __init__(self, context):
         self.context = context
 
     @getproperty
     def allow_ratings(self):
         return IDexterityRatingsEnabled.providedBy(self.context)
-        
+
     @setproperty
     def allow_ratings(self, value):
         if value == True:
