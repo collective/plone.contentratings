@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,16 +66,16 @@ msgstr ""
 msgid "Rating Assignments"
 msgstr ""
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
 msgstr ""
 
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
-msgstr ""
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
 msgstr ""
 
 #: ./behaviors.py:26

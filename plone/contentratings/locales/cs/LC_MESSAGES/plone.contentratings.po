@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: 2009-08-27 16:49+0100\n"
 "Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: Czech <info@dms4u.cz>\n"
@@ -63,6 +63,10 @@ msgstr "Typ položky"
 msgid "Rating Assignments"
 msgstr "Přiřazení hodnocení"
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #. Default: "Ratings"
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
@@ -71,10 +75,6 @@ msgstr "Hodnocení"
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Vyberte pohled (view) pro tuto kategorii"
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
-msgstr "Vyberte kategorie pro typy položek"
 
 #: ./behaviors.py:26
 msgid "Settings"

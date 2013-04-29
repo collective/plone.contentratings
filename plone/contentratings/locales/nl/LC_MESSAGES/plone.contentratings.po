@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: 2008-06-17 14:46+0200\n"
 "Last-Translator: Jarno de Wit <Jarno.de.Wit@pareto.nl>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -66,6 +66,10 @@ msgstr "Content type"
 msgid "Rating Assignments"
 msgstr "Waarderingstoewijzing"
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #. Default: "Ratings"
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
@@ -74,10 +78,6 @@ msgstr "Waarderingen"
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Kies de weergave voor deze categorie"
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
-msgstr "Stel de categorie in voor content typen"
 
 #: ./behaviors.py:26
 msgid "Settings"

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: 2009-08-11 12:38-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -67,6 +67,10 @@ msgstr "Tipos del portal"
 msgid "Rating Assignments"
 msgstr "Asignación de calificación"
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #. Default: "Ratings"
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
@@ -75,10 +79,6 @@ msgstr "Calificaciones"
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Seleccionar la vista para esta categoría"
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
-msgstr "Definir las categorías par los tipos del portal"
 
 #: ./behaviors.py:26
 msgid "Settings"

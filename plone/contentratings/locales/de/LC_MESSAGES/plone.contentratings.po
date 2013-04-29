@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniel Widerin <daniel.widerin@kombinat.at>\n"
 "Language-Team: Kombinat Media Gestalter GmbH <office@kombinat.at>\n"
@@ -65,6 +65,10 @@ msgstr "Artikeltyp"
 msgid "Rating Assignments"
 msgstr "Bewertungen zuweisen"
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #. Default: "Ratings"
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
@@ -73,10 +77,6 @@ msgstr "Bewertungen"
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Ansicht für diese Kategorie"
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
-msgstr "Kategorie für diesen Artikeltyp festlegen"
 
 #: ./behaviors.py:26
 msgid "Settings"

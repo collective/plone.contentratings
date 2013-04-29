@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: 2011-07-19 09:41+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,10 @@ msgstr "Elementu-mota"
 msgid "Rating Assignments"
 msgstr "Bozketaren esleipenak"
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
 msgstr "Botuak"
@@ -70,10 +74,6 @@ msgstr "Botuak"
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Aukeratu kategoria honen bista"
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
-msgstr "Elementu-motentzat kategoriak aukeratu"
 
 #: ./behaviors.py:26
 msgid "Settings"

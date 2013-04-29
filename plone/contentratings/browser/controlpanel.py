@@ -253,7 +253,7 @@ class ContentRatingsControlPanel(ControlPanelForm):
 
     actions = ControlPanelForm.actions.copy()
 
-    label = _(u"Set the categories for portal types")
+    label = _(u"Rating settings")
     description = _(u"Settings related to content ratings.")
 
     typespolicies['assignment'].custom_widget = AssignmentWidget

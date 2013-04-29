@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: see version.txt\n"
-"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"POT-Creation-Date: 2013-04-29 09:59+0000\n"
 "PO-Revision-Date: 2008-08-30 22:55-0300\n"
 "Last-Translator: Érico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -64,6 +64,10 @@ msgstr "Tipo de conteúdo"
 msgid "Rating Assignments"
 msgstr "Atribuição de avaliações"
 
+#: ./browser/controlpanel.py:256
+msgid "Rating settings"
+msgstr ""
+
 #. Default: "Ratings"
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
@@ -72,10 +76,6 @@ msgstr "Avaliações"
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Escolha a visão para esta categoria"
-
-#: ./browser/controlpanel.py:256
-msgid "Set the categories for portal types"
-msgstr "Categorias para tipos de conteúdo"
 
 #: ./behaviors.py:26
 msgid "Settings"
