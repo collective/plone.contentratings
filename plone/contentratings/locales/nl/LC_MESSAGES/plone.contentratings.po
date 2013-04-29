@@ -2,8 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-17 12:41+0000\n"
+"POT-Creation-Date: 2013-04-29 09:21+0000\n"
 "PO-Revision-Date: 2008-06-17 14:46+0200\n"
 "Last-Translator: Jarno de Wit <Jarno.de.Wit@pareto.nl>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -14,61 +13,56 @@ msgstr ""
 "Language-Code: nl\n"
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Is-Fallback-For: nl-be nl-nl\n"
 
-#: ./browser/interfaces.py:41
+#: ./browser/interfaces.py:42
 msgid "Acquired Categories"
 msgstr "Overgenomen categorieën"
 
-#: ./browser/controlpanel.py:236
-msgid "Add, modify, or remove rating categories.  You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number.  Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
-msgstr "Voeg toe, pas aan of verwijder waarderingscategorieën. U ma een titel, beschrijving, voorwaarden opgeven voor weergave en instellingen van waarderingen, een weergave voor het tonen van de waardering en een relative volgorde. Categorieën die op een lager niveau worden ingesteld (bijvoorbeeld globaal) mogen niet worden gewijzigd. U moet uw wijzigingen opslaan na toevoegen of verwijderen van categorieën"
-
-#: ./browser/interfaces.py:30
+#: ./browser/interfaces.py:31
 msgid "Assignment"
 msgstr "Toewijziging"
 
-#: ./browser/interfaces.py:11
+#: ./browser/interfaces.py:12
 msgid "Categories"
 msgstr "Categorieën"
 
-#: ./browser/interfaces.py:12
+#: ./browser/interfaces.py:13
 msgid "Category"
 msgstr "Categorie"
 
-#: ./browser/controlpanel.py:246
+#: ./browser/controlpanel.py:252
 msgid "Category Assignments"
 msgstr "Categorie toewijziging"
 
-#: ./browser/controlpanel.py:259
+#: ./browser/controlpanel.py:265
 msgid "Change Portal Type"
 msgstr "Wijzig content type"
 
-#: ./schema_extender.py:40
-msgid "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
-msgstr "Vink deze optie aan om waardering toe te voegen voor dit item. Gebruik het configuratiescherm om de te tonen waardering voor elk contenttype in te stellen."
-
-#: ./browser/controlpanel.py:229
-msgid "Choose a portal type from the list and select one or more rating categories to appear on that type. "
-msgstr "Kies een content type uit de lijst en kies kies één of meer te tonen waarderingscategorieën voor het type. "
-
+#: ./behaviors.py:29
 #: ./schema_extender.py:38
 msgid "Enable Ratings"
 msgstr "Waardering inschakelen"
 
-#: ./browser/interfaces.py:36
+#: ./behaviors.py:30
+msgid "Enable ratings on this content item"
+msgstr ""
+
+#: ./browser/interfaces.py:37
 msgid "Local Categories"
 msgstr "Lokale categorieën"
 
-#: ./browser/controlpanel.py:235
+#: ./browser/controlpanel.py:240
 msgid "Manage Categories"
 msgstr "Categorieën beheren"
 
-#: ./browser/interfaces.py:8
+#: ./browser/interfaces.py:9
 msgid "Portal Type"
 msgstr "Content type"
 
-#: ./browser/controlpanel.py:228
+#: ./browser/controlpanel.py:232
 msgid "Rating Assignments"
 msgstr "Waarderingstoewijzing"
 
@@ -77,24 +71,38 @@ msgstr "Waarderingstoewijzing"
 msgid "Ratings"
 msgstr "Waarderingen"
 
-#. Default: "Ratings Settings"
-#: ./profiles/default/actionicons.xml
-msgid "Ratings Settings"
-msgstr "Waarderingsinstellingen"
-
-#: ./browser/interfaces.py:22
+#: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Kies de weergave voor deze categorie"
 
-#: ./browser/controlpanel.py:250
+#: ./browser/controlpanel.py:256
 msgid "Set the categories for portal types"
 msgstr "Stel de categorie in voor content typen"
 
-#: ./browser/controlpanel.py:251
+#: ./behaviors.py:26
+msgid "Settings"
+msgstr ""
+
+#: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
 msgstr "Aan waardering gerelateerde instellingen"
 
-#: ./browser/interfaces.py:21
+#: ./browser/interfaces.py:22
 msgid "View"
 msgstr "Weergave"
+
+#. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
+#: ./schema_extender.py:40
+msgid "allow_ratings_help"
+msgstr ""
+
+#. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
+#: ./browser/controlpanel.py:241
+msgid "categories_description_help"
+msgstr ""
+
+#. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
+#: ./browser/controlpanel.py:233
+msgid "typespolicies_description_help"
+msgstr ""
 

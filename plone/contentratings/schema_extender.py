@@ -37,7 +37,8 @@ class RatingRemover(object):
                                      widget=BooleanWidget(
                                                     label=_(u"Enable Ratings"),
                                                     description=
-                                                    _(u"Check this box to add "
+                                                    _('allow_ratings_help',
+                                                    default=u"Check this box to add "
                                                     u"ratings to this item. "
                                                     u"Use the control panel to "
                                                     u"select the ratings shown "

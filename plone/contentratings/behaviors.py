@@ -26,7 +26,7 @@ class IRatingBehavior(Schema):
     fieldset('settings', label=_(u"Settings"),
                   fields=['allow_ratings'])
     allow_ratings = Bool(
-             title=_(u'Enable ratings'),
+             title=_(u'Enable Ratings'),
              description=_(u'Enable ratings on this content item'),
              default=True
             )

@@ -230,16 +230,18 @@ def selected_categories(portal_type):
 typespolicies = FormFieldsets(IEditCategoryAssignment)
 typespolicies.id = 'types_categories'
 typespolicies.label = _(u'Rating Assignments')
-typespolicies.description = _(u'Choose a portal type from the list and select '
-u'one or more rating categories to appear on that type. ')
+typespolicies.description = _('typespolicies_description_help',
+                              default=u'Choose a portal type from the list and select '
+u'one or more rating categories to appear on that type.')
 typespolicies.required = False
 
 categories = FormFieldsets(ICategoryContainer)
 categories.id = 'manage_categories'
 categories.label = _(u'Manage Categories')
-categories.description = _(u'Add, modify, or remove rating categories.  You '
+categories.description = _('categories_description_help',
+                           default=u'Add, modify, or remove rating categories. You '
 u'may specify a title, description, conditions for viewing and setting '
-u'ratings, a view to display the rating, and a relative order number.  '
+u'ratings, a view to display the rating, and a relative order number. '
 u'Categories which are defined at a lower level (e.g., globally) may not be '
 u'edited. You need to save your changes after adding or removing categories')
 

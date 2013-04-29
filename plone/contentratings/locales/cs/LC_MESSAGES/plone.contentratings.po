@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
-"POT-Creation-Date: 2008-05-08 05:23+0000\n"
+"POT-Creation-Date: 2013-04-29 09:21+0000\n"
 "PO-Revision-Date: 2009-08-27 16:49+0100\n"
 "Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: Czech <info@dms4u.cz>\n"
@@ -14,59 +14,52 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone.contentratings\n"
 
-#: ./browser/interfaces.py:41
+#: ./browser/interfaces.py:42
 msgid "Acquired Categories"
 msgstr "Zděděné kategorie"
 
-#: ./browser/controlpanel.py:236
-msgid "Add, modify, or remove rating categories.  You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number.  Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
-msgstr "Přidejte, upravte nebo zrušte kategorie hodnocení. Můžete zadat nadpis, popis, podmínky pro zobrazení a změnu hodnocení, pohled pro zobrazení hodnocení a relativní pořadí. Kategorie, které jsou definovány na nižší úrovni (například globální kategorie)  nelze změnit. Nezapoměňte po přidání nebo odebrání kategorií uložit změny."
-
-#: ./browser/interfaces.py:30
+#: ./browser/interfaces.py:31
 msgid "Assignment"
 msgstr "Přiřazení"
 
-#: ./browser/interfaces.py:11
+#: ./browser/interfaces.py:12
 msgid "Categories"
 msgstr "Kategorie"
 
-#: ./browser/interfaces.py:12
+#: ./browser/interfaces.py:13
 msgid "Category"
 msgstr "Kategorie"
 
-#: ./browser/controlpanel.py:246
+#: ./browser/controlpanel.py:252
 msgid "Category Assignments"
 msgstr "Přiřazení kategorií"
 
-#: ./browser/controlpanel.py:259
+#: ./browser/controlpanel.py:265
 msgid "Change Portal Type"
 msgstr "Změna typu položky"
 
-#: ./schema_extender.py:40
-msgid "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
-msgstr "Zaškrtnutím tohoto pole povolíte hodnocení této položky. V nastavení portálu můžete vybrat, které typy hodnocení budou zobrazeny u příslužných typů položek."
-
-#: ./browser/controlpanel.py:229
-msgid "Choose a portal type from the list and select one or more rating categories to appear on that type. "
-msgstr "Vyberte typ položky ze seznamu a vyberte jednu nebo více kategorií, které budou u tohoto typu položek povoleny."
-
+#: ./behaviors.py:29
 #: ./schema_extender.py:38
 msgid "Enable Ratings"
 msgstr "Povolit hodnocení"
 
-#: ./browser/interfaces.py:36
+#: ./behaviors.py:30
+msgid "Enable ratings on this content item"
+msgstr ""
+
+#: ./browser/interfaces.py:37
 msgid "Local Categories"
 msgstr "Místní kategorie"
 
-#: ./browser/controlpanel.py:235
+#: ./browser/controlpanel.py:240
 msgid "Manage Categories"
 msgstr "Správa kategorií"
 
-#: ./browser/interfaces.py:8
+#: ./browser/interfaces.py:9
 msgid "Portal Type"
 msgstr "Typ položky"
 
-#: ./browser/controlpanel.py:228
+#: ./browser/controlpanel.py:232
 msgid "Rating Assignments"
 msgstr "Přiřazení hodnocení"
 
@@ -75,24 +68,38 @@ msgstr "Přiřazení hodnocení"
 msgid "Ratings"
 msgstr "Hodnocení"
 
-#. Default: "Ratings Settings"
-#: ./profiles/default/actionicons.xml
-msgid "Ratings Settings"
-msgstr "Nastavení hodnocení"
-
-#: ./browser/interfaces.py:22
+#: ./browser/interfaces.py:23
 msgid "Select the view for this category"
 msgstr "Vyberte pohled (view) pro tuto kategorii"
 
-#: ./browser/controlpanel.py:250
+#: ./browser/controlpanel.py:256
 msgid "Set the categories for portal types"
 msgstr "Vyberte kategorie pro typy položek"
 
-#: ./browser/controlpanel.py:251
+#: ./behaviors.py:26
+msgid "Settings"
+msgstr ""
+
+#: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
 msgstr "Nastavení hodnocení položek"
 
-#: ./browser/interfaces.py:21
+#: ./browser/interfaces.py:22
 msgid "View"
 msgstr "Pohled (view)"
+
+#. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
+#: ./schema_extender.py:40
+msgid "allow_ratings_help"
+msgstr ""
+
+#. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
+#: ./browser/controlpanel.py:241
+msgid "categories_description_help"
+msgstr ""
+
+#. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
+#: ./browser/controlpanel.py:233
+msgid "typespolicies_description_help"
+msgstr ""
 
