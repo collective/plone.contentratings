@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 09:59+0000\n"
+"POT-Creation-Date: 2013-04-29 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: plone-italian-translation-discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
@@ -50,6 +50,9 @@ msgstr "Abilita Gradimento"
 msgid "Enable ratings on this content item"
 msgstr "Abilita il gradimento su questo elemento"
 
+msgid "Large Rating"
+msgstr "Gradimento Grande"
+
 #: ./browser/interfaces.py:37
 msgid "Local Categories"
 msgstr "Categorie Locali"
@@ -61,6 +64,9 @@ msgstr "Gestisci Categorie"
 #: ./browser/interfaces.py:9
 msgid "Portal Type"
 msgstr "Tipo di contenuto"
+
+msgid "Rating"
+msgstr "Gradimento"
 
 #: ./browser/controlpanel.py:232
 msgid "Rating Assignments"
@@ -86,6 +92,9 @@ msgstr "Impostazioni"
 #: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
 msgstr "Impostazioni per il gradimento dei contenuti"
+
+msgid "Short Rating"
+msgstr "Gradimento Compatto"
 
 #: ./browser/interfaces.py:22
 msgid "View"

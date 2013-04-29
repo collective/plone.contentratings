@@ -9,6 +9,8 @@ from Products.CMFCore.interfaces import IDynamicType
 from contentratings.interfaces import IUserRating
 from contentratings.browser.interfaces import IRatingView
 
+from plone.contentratings import messageFactory as _
+
 class UserCategoryVocab(object):
     """Vocabulary of all categories providing IUserRating"""
     implements(IVocabularyFactory)
@@ -23,7 +25,7 @@ class UserCategoryVocab(object):
                                                          self.interface))
         terms = []
         for cat in categories:
-            terms.append(SimpleTerm(value=cat, token=cat.name, title=cat.title))
+            terms.append(SimpleTerm(value=cat, token=cat.name, title=_(cat.title)))
         return SimpleVocabulary(terms)
 
 def types_vocab(context):

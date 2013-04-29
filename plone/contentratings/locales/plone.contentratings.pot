@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 09:59+0000\n"
+"POT-Creation-Date: 2013-04-29 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,9 @@ msgstr ""
 msgid "Enable ratings on this content item"
 msgstr ""
 
+msgid "Large Rating"
+msgstr ""
+
 #: ./browser/interfaces.py:37
 msgid "Local Categories"
 msgstr ""
@@ -60,6 +63,9 @@ msgstr ""
 
 #: ./browser/interfaces.py:9
 msgid "Portal Type"
+msgstr ""
+
+msgid "Rating"
 msgstr ""
 
 #: ./browser/controlpanel.py:232
@@ -84,6 +90,9 @@ msgstr ""
 
 #: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
+msgstr ""
+
+msgid "Short Rating"
 msgstr ""
 
 #: ./browser/interfaces.py:22

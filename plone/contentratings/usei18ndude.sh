@@ -10,6 +10,8 @@ DOMAIN="plone.contentratings"
 
 touch locales/$DOMAIN.pot
 i18ndude rebuild-pot --pot locales/$DOMAIN.pot --create $DOMAIN ./
+i18ndude merge --pot locales/${DOMAIN}.pot --merge locales/${DOMAIN}-manual.pot
+
 
 # sync all locales
 find locales -type d -depth 1 \

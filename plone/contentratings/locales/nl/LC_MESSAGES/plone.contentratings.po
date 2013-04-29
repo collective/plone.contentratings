@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 09:59+0000\n"
+"POT-Creation-Date: 2013-04-29 10:54+0000\n"
 "PO-Revision-Date: 2008-06-17 14:46+0200\n"
 "Last-Translator: Jarno de Wit <Jarno.de.Wit@pareto.nl>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -50,6 +50,9 @@ msgstr "Waardering inschakelen"
 msgid "Enable ratings on this content item"
 msgstr ""
 
+msgid "Large Rating"
+msgstr ""
+
 #: ./browser/interfaces.py:37
 msgid "Local Categories"
 msgstr "Lokale categorieën"
@@ -61,6 +64,9 @@ msgstr "Categorieën beheren"
 #: ./browser/interfaces.py:9
 msgid "Portal Type"
 msgstr "Content type"
+
+msgid "Rating"
+msgstr ""
 
 #: ./browser/controlpanel.py:232
 msgid "Rating Assignments"
@@ -86,6 +92,9 @@ msgstr ""
 #: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
 msgstr "Aan waardering gerelateerde instellingen"
+
+msgid "Short Rating"
+msgstr ""
 
 #: ./browser/interfaces.py:22
 msgid "View"

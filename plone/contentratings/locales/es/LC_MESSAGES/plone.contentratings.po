@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
-"POT-Creation-Date: 2013-04-29 09:59+0000\n"
+"POT-Creation-Date: 2013-04-29 10:54+0000\n"
 "PO-Revision-Date: 2009-08-11 12:38-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -51,6 +51,9 @@ msgstr "Habilitar calificaciones"
 msgid "Enable ratings on this content item"
 msgstr ""
 
+msgid "Large Rating"
+msgstr ""
+
 #: ./browser/interfaces.py:37
 msgid "Local Categories"
 msgstr "Categorías locales"
@@ -62,6 +65,9 @@ msgstr "Administrar categorías"
 #: ./browser/interfaces.py:9
 msgid "Portal Type"
 msgstr "Tipos del portal"
+
+msgid "Rating"
+msgstr ""
 
 #: ./browser/controlpanel.py:232
 msgid "Rating Assignments"
@@ -87,6 +93,9 @@ msgstr ""
 #: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
 msgstr "Configuraciones relacionadas con los contenidos calificados"
+
+msgid "Short Rating"
+msgstr ""
 
 #: ./browser/interfaces.py:22
 msgid "View"
