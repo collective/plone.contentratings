@@ -90,15 +90,15 @@ msgstr "Ikusi"
 #. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
 #: ./schema_extender.py:40
 msgid "allow_ratings_help"
-msgstr ""
+msgstr "Aukeratu hau elementu honi botuak gehitzeko. Erabili kontrol-panela elementu-mota bakoitzean agertuko diren bozketa-motak aukeratzeko."
 
 #. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
 #: ./browser/controlpanel.py:241
 msgid "categories_description_help"
-msgstr ""
+msgstr "Bozketa kategoriak gehitu, aldatu edo ezabatu. Bakoitzarentzat izenburua, deskribapena, baimenak eta ordena zenbakia aukeratu ditzakezu. Globalki ezarrita dauden kategoriak ez dira editagarriak. Zure aldaketak gorde egin beharko dituzu kategoriak gehitu edo aldatzen dituzun bakoitzean"
 
 #. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
 #: ./browser/controlpanel.py:233
 msgid "typespolicies_description_help"
-msgstr ""
+msgstr "Aukeratu elementu-mota bat zerrendatik eta elementu-mota horietan agertuko diren bozketa kategoria bat edo gehiago-"
 

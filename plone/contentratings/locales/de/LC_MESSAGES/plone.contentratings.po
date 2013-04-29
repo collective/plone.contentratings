@@ -93,15 +93,15 @@ msgstr "Anzeigen"
 #. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
 #: ./schema_extender.py:40
 msgid "allow_ratings_help"
-msgstr ""
+msgstr "Aktivieren Sie diese Checkbox um Bewertungen für dieses Element zuzulassen. Verwenden Sie die Konfiguration um die Bewertungen für jeden Artikeltyp festzulegen."
 
 #. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
 #: ./browser/controlpanel.py:241
 msgid "categories_description_help"
-msgstr ""
+msgstr "Kategorien können hier hinzugefügt, bearbeitet oder gelöscht werden. Sie können einen Titel, eine Beschreibung, Bedingungen zum Anzeigen oder Bewerten, eine Sortiernummer und eine Ansicht angeben. Kategorien die in einer tieferen Ebene definiert wurden können nicht bearbeitet werden. Sie müssen Ihre Änderungen nach dem Hinzufügen oder Löschen speichern."
 
 #. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
 #: ./browser/controlpanel.py:233
 msgid "typespolicies_description_help"
-msgstr ""
+msgstr "Wählen Sie einen Artikeltyp aus der Liste und markieren Sie eine oder mehrere Kategorien für diesen Typ."
 
