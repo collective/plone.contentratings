@@ -44,14 +44,14 @@ msgstr "Cambia tipo di contenuto"
 #: ./behaviors.py:29
 #: ./schema_extender.py:38
 msgid "Enable Ratings"
-msgstr "Abilita Gradimento"
+msgstr "Abilita Rating"
 
 #: ./behaviors.py:30
 msgid "Enable ratings on this content item"
-msgstr "Abilita il gradimento su questo elemento"
+msgstr "Abilita il rating su questo elemento"
 
 msgid "Large Rating"
-msgstr "Gradimento Grande"
+msgstr "Rating Grande"
 
 #: ./browser/interfaces.py:37
 msgid "Local Categories"
@@ -66,20 +66,20 @@ msgid "Portal Type"
 msgstr "Tipo di contenuto"
 
 msgid "Rating"
-msgstr "Gradimento"
+msgstr "Rating"
 
 #: ./browser/controlpanel.py:232
 msgid "Rating Assignments"
-msgstr "Assegnazioni del Gradimento"
+msgstr "Assegnazioni del Rating"
 
 #: ./browser/controlpanel.py:256
 msgid "Rating settings"
-msgstr "Impostazioni gradimento"
+msgstr "Impostazioni rating"
 
 #. Default: "Ratings"
 #: ./profiles/default/controlpanel.xml
 msgid "Ratings"
-msgstr "Gradimento"
+msgstr "Rating"
 
 #: ./browser/interfaces.py:23
 msgid "Select the view for this category"
@@ -91,10 +91,10 @@ msgstr "Impostazioni"
 
 #: ./browser/controlpanel.py:257
 msgid "Settings related to content ratings."
-msgstr "Impostazioni per il gradimento dei contenuti"
+msgstr "Impostazioni per il rating dei contenuti"
 
 msgid "Short Rating"
-msgstr "Gradimento Compatto"
+msgstr "Rating Compatto"
 
 #: ./browser/interfaces.py:22
 msgid "View"
@@ -104,20 +104,20 @@ msgstr "Vista"
 #: ./schema_extender.py:40
 msgid "allow_ratings_help"
 msgstr ""
-"Seleziona per poter aggiungere il gradimento a questo elemento.\n"
-"Usa il pannello di controllo per selezionare il tipo di gradimento da mostrare per ogni tipo di contenuto."
+"Seleziona per poter aggiungere il rating a questo elemento.\n"
+"Usa il pannello di controllo per selezionare il tipo di rating da mostrare per ogni tipo di contenuto."
 
 #. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
 #: ./browser/controlpanel.py:241
 msgid "categories_description_help"
 msgstr ""
-"Aggiungi, modifica o rimuovi categorie di gradimento.\n"
-"Puoi specificare un titolo, una descrizione, condizioni per vedere ed impostare il gradimento, una vista per visualizzare il gradimento e un numero d'ordine relativo.\n"
+"Aggiungi, modifica o rimuovi categorie di rating.\n"
+"Puoi specificare un titolo, una descrizione, condizioni per vedere ed impostare il rating, una vista per visualizzare il rating e un numero d'ordine relativo.\n"
 "Categorie che sono definite ad un livello inferiore (e.g. globalmente) non possono essere modificate.\n"
 "Devi salvare le modifiche dopo aver aggiunto o rimosso categorie"
 
 #. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
 #: ./browser/controlpanel.py:233
 msgid "typespolicies_description_help"
-msgstr "Scegli un tipo di contenuto dalla lista e seleziona uno o più tipi di gradimento che dovranno apparire su questo tipo."
+msgstr "Scegli un tipo di contenuto dalla lista e seleziona uno o più tipi di rating che dovranno apparire su questo tipo."
 

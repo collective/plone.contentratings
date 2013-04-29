@@ -7,6 +7,7 @@ HISTORY
 - Restore Plone 3 compatibility. [thet]
 - Added italian translation [keul]
 - Fixes to i18n support (prefer new ids instead of full description) [keul]
+- Added translations for the globally defined rating categories [keul] 
 
 1.0.1 (2012-06-04)
 ------------------
