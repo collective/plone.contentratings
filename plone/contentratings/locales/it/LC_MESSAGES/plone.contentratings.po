@@ -1,0 +1,114 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-04-29 09:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
+"Language-Team: plone-italian-translation-discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone.contentratings\n"
+
+#: ./browser/interfaces.py:42
+msgid "Acquired Categories"
+msgstr "Categorie acquisite"
+
+#: ./browser/interfaces.py:31
+msgid "Assignment"
+msgstr "Assegnazione"
+
+#: ./browser/interfaces.py:12
+msgid "Categories"
+msgstr "Categorie"
+
+#: ./browser/interfaces.py:13
+msgid "Category"
+msgstr "Categoria"
+
+#: ./browser/controlpanel.py:252
+msgid "Category Assignments"
+msgstr "Assegnazione categoria"
+
+#: ./browser/controlpanel.py:265
+msgid "Change Portal Type"
+msgstr "Cambia tipo di contenuto"
+
+#: ./behaviors.py:29
+#: ./schema_extender.py:38
+msgid "Enable Ratings"
+msgstr "Abilita Valutazioni"
+
+#: ./behaviors.py:30
+msgid "Enable ratings on this content item"
+msgstr "Abilita le valutazioni su questo elemento"
+
+#: ./browser/interfaces.py:37
+msgid "Local Categories"
+msgstr "Categorie Locali"
+
+#: ./browser/controlpanel.py:240
+msgid "Manage Categories"
+msgstr "Gestisci Categorie"
+
+#: ./browser/interfaces.py:9
+msgid "Portal Type"
+msgstr "Tipo di contenuto"
+
+#: ./browser/controlpanel.py:232
+msgid "Rating Assignments"
+msgstr "Assegnazioni delle Valutazioni"
+
+#. Default: "Ratings"
+#: ./profiles/default/controlpanel.xml
+msgid "Ratings"
+msgstr "Valutazioni"
+
+#: ./browser/interfaces.py:23
+msgid "Select the view for this category"
+msgstr "Seleziona la vista per questa categoria"
+
+#: ./browser/controlpanel.py:256
+msgid "Set the categories for portal types"
+msgstr "Imposta le categorie per tipi di contenuto"
+
+#: ./behaviors.py:26
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: ./browser/controlpanel.py:257
+msgid "Settings related to content ratings."
+msgstr "Impostazioni per le valutazioni dei contenuti"
+
+#: ./browser/interfaces.py:22
+msgid "View"
+msgstr "Vista"
+
+#. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
+#: ./schema_extender.py:40
+msgid "allow_ratings_help"
+msgstr ""
+"Seleziona per poter aggiungere valutazioni a quesot elemento\n"
+"Usa il pannello di controllo per selezionare il tipo di valutazione da mostrare per ogni tipo di contenuto."
+
+#. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
+#: ./browser/controlpanel.py:241
+msgid "categories_description_help"
+msgstr ""
+"Aggiungi, modifica o rimuovi categorie.\n"
+"Puoi specificare un titolo, una descrizione, condizioni per vedere ed impostare la graduatoria, una vista per visualizzare la graduatoria e un numero d'ordine relativo.\n"
+"Categorie che sono definite ad un livello inferiore (e.g. globalmente) non possono essere modificate.\n"
+"Devi salvare le modifiche dopo aver aggiunto o rimosso categorie"
+
+#. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
+#: ./browser/controlpanel.py:233
+msgid "typespolicies_description_help"
+msgstr "Scegli un tipo di contenuto dalla lista e seleziona uno o più tipi di graduatoria che dovranno apparire su questo tipo."
+
