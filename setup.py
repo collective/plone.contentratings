@@ -8,6 +8,8 @@ def read(*rnames):
     text = unicode(text, 'utf-8').encode('ascii', 'xmlcharrefreplace')
     return text
 
+tests_require = ['zope.app.testing']
+
 description = read('README.txt') + '\n\n' + \
               'Detailed Documentation\n' + \
               '**********************\n\n' + \
@@ -35,6 +37,8 @@ setup(name='plone.contentratings',
       namespace_packages=['plone'],
       include_package_data=True,
       zip_safe=False,
+      tests_require=tests_require,
+      extras_require=dict(test=tests_require),
       install_requires=[
           'setuptools',
           'contentratings>=1.0',
