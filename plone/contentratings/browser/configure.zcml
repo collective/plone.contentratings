@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.contentratings">
 
     <browser:viewlet
@@ -33,6 +34,7 @@
         permission="cmf.ManagePortal"
         />
 
+    <configure zcml:condition="installed kss.core">
     <browser:pages
         for="Products.CMFCore.interfaces.ISiteRoot"
         class=".kss_ratings.ControlPanelKSSView"
@@ -62,5 +64,6 @@
       <page name="deleteEditorRating"
             attribute="delete_rating" />
     </browser:pages>
+    </configure>
     
 </configure>
