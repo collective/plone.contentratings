@@ -1,6 +1,8 @@
 from zope.component import getAdapter, getMultiAdapter, getUtility
 from zope.schema.interfaces import IVocabularyFactory
 
+from Products.CMFCore.utils import getToolByName
+
 from kss.core import kssaction, KSSExplicitError
 from plone.app.kss.plonekssview import PloneKSSView
 
@@ -58,12 +60,34 @@ class RatingKSSView(PloneKSSView):
     def update_rating(self, category, rating_class):
         """Update the user rating"""
         rating = self._extract_rating(rating_class)
-        self._call_view_method(category, 'rate', value=rating)
+        # get context
+        # dunno why but later this become an ImplicitAcquirerWrapper
+        # with no way to retrieve the original object, even with aq_base stuff. WTF???
+        # self.current_context = self._get_context(category, rating_class)
+        context = self._get_context(category, rating_class)
+        self._call_view_method(category, 'rate', context=context, value=rating)
+
+    def _get_context(self, category, rating_class):
+        # this should be cached base on uid
+        class_elements = rating_class.split(" ")
+        context = None
+        uid = None
+        for el in class_elements:
+            if el.startswith('uid-'):
+                uid = el[4:]
+                break
+        if uid:
+            catalog = getToolByName(self.context, 'portal_catalog')
+            brains = catalog(UID=uid)
+            if brains:
+                context = brains[0].getObject()
+        return context
 
     @kssaction
-    def delete_rating(self, category):
+    def delete_rating(self, category, rating_class):
         """Delete the user rating"""
-        self._call_view_method(category, 'remove_rating')
+        context = self._get_context(category, rating_class)
+        self._call_view_method(category, 'remove_rating', context=context)
 
     def _extract_rating(self, rating_class):
         class_elements = rating_class.split(" ")
@@ -76,26 +100,34 @@ class RatingKSSView(PloneKSSView):
                                     "method call"
         return rating
 
-    def _get_view(self, category):
+    def _get_view(self, category, context=None, **kw):
         if category == '_default':
             category = u''
-        manager = getAdapter(self.context, self.rating_iface, name=category)
+        if context is None:
+            context = self.context
+        manager = getAdapter(context, self.rating_iface, name=category)
         view_name = manager.view_name
-        return getMultiAdapter((manager,self.request), name=view_name)
+        return getMultiAdapter((manager, self.request), name=view_name)
 
-    def _call_view_method(self, category, method_name, **kw):
-        rating_view = self._get_view(category)
+    def _call_view_method(self, category, method_name, context=None, **kw):
+        if context is None:
+            context = self.context
+        rating_view = self._get_view(category, context=context, **kw)
         method = getattr(rating_view, method_name)
         kw['redirect'] = False
         msg = method(**kw)
-        self._update_page(rating_view, msg)
+        self._update_page(rating_view, msg, context=context)
 
-    def _update_page(self, rating_view, msg=''):
+    def _update_page(self, rating_view, msg='', context=None):
+        if context is None:
+            context = self.context
         html = rating_view()
         category = rating_view.context.name
         ksscore = self.getCommandSet('core')
-        select = ksscore.getCssSelector(self.base_selector +
-                                         (category or '_default'))
+        sel = self.base_selector + (category or '_default')
+        # make sure we select only current rating snippet
+        sel = '.uid-' + context.UID() + sel
+        select = ksscore.getCssSelector(sel)
         ksscore.replaceHTML(select, html)
 
         if msg:

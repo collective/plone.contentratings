@@ -28,6 +28,7 @@ select[name="form.assignment.portal_type"]:change {
     evt-click-preventdefault:  True;
     action-server: deleteRating;
     deleteRating-category: kssAttr('category', true);
+    deleteRating-rating_class: nodeAttr('class');
     updateRating-error: plone-followLink;
 }
 
