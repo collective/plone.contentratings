@@ -39,7 +39,8 @@ ul.star-rating {
 }
 
 
-#content .star-rating a:hover {
+#content .star-rating a:hover,
+#content .star-rating a:focus {
 	background-position: left bottom;
 }
 
@@ -50,7 +51,8 @@ ul.star-rating {
     background: url(/++resource++contentratings/star_small.gif) left -1000px repeat-x;
 }
 
-#content .small-star .star-rating a:hover {
+#content .small-star .star-rating a:hover,
+#content .small-star .star-rating a:focus {
 	background-position: left bottom;
 }
 
