@@ -50,6 +50,8 @@ setup(name='plone.contentratings',
       install_requires=[
           'setuptools',
           'Products.CMFCore',
+          'Products.ATContentTypes',
+          'Products.Archetypes',
           'archetypes.schemaextender',
           'contentratings>=1.0',
           'plone.app.controlpanel',
