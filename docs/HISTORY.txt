@@ -4,10 +4,14 @@ HISTORY
 1.0.2 (unreleased)
 ------------------
 
-- Restore Plone 3 compatibility. [thet]
+- Cleanup. Compatible with Plone 4.1, 4.2 and 4.3.  [maurits]
+
 - Added italian translation [keul]
+
 - Fixes to i18n support (prefer new ids instead of full description) [keul]
+
 - Added translations for the globally defined rating categories [keul] 
+
 - Accessibility fixes: display rating value when focus is put on rating icons [keul]
 
 1.0.1 (2012-06-04)
