@@ -8,7 +8,10 @@ def read(*rnames):
     text = unicode(text, 'utf-8').encode('ascii', 'xmlcharrefreplace')
     return text
 
-tests_require = ['zope.app.testing']
+tests_require = [
+    'zope.app.testing',
+    'zope.container',
+    ]
 
 description = '\n\n'.join([
     read('README.txt'),
@@ -59,7 +62,6 @@ setup(name='plone.contentratings',
           'zope.app.form',
           'zope.browserpage',
           'zope.component',
-          'zope.container',
       ],
       entry_points="""
       # -*- Entry points: -*-
