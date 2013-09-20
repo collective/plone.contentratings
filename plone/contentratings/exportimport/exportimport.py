@@ -139,7 +139,7 @@ def importTypeRatingAssignments(context):
         category_mng = None
     if category_mng is None:
         logger = context.getLogger("contentratings")
-        logger.info("plone.contentratings not installed in this portal.")
+        logger.debug("plone.contentratings not installed in this portal.")
         return
 
     importObjects(category_mng, '', context)
@@ -151,7 +151,7 @@ def exportTypeRatingAssignments(context):
     category_mng = getUtility(IRatingCategoryAssignment)
     if category_mng is None:
         logger = context.getLogger("contentratings")
-        logger.info("Nothing to export.")
+        logger.debug("Nothing to export.")
         return
 
     exportObjects(category_mng, '', context)
