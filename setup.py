@@ -23,7 +23,7 @@ description = '\n\n'.join([
     ])
 
 setup(name='plone.contentratings',
-      version='1.1',
+      version='1.1.1.dev0',
       description="Plone support for the contentratings package",
       long_description=description,
       classifiers=[
