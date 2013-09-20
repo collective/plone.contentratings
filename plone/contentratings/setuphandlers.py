@@ -1,5 +1,5 @@
 from plone.contentratings.browser.interfaces import ICategoryContainer
-from zope.app.component.hooks import setSite
+from zope.component.hooks import setSite
 
 
 def uninstallVarious(context):

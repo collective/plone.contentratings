@@ -49,14 +49,15 @@ setup(name='plone.contentratings',
       extras_require=dict(test=tests_require),
       install_requires=[
           'setuptools',
-          'contentratings>=1.0',
-          'zope.app.component',
+          'Products.CMFCore',
           'archetypes.schemaextender',
+          'contentratings>=1.0',
+          'plone.app.controlpanel',
+          'rwproperty',
+          'zope.app.component',
           'zope.app.form',
           'zope.app.interface',
-          'rwproperty',
-          'Products.CMFCore',
-          'plone.app.controlpanel',
+          'zope.component'
       ],
       entry_points="""
       # -*- Entry points: -*-

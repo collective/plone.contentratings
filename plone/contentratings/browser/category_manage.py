@@ -3,20 +3,15 @@ from contentratings.category import RatingsCategoryFactory
 from contentratings.interfaces import IRatingCategory
 from contentratings.interfaces import IUserRating
 from plone.i18n.normalizer.interfaces import IURLNormalizer
-from zope.app.component import queryNextSiteManager
+from zope.app.component import queryNextSiteManager  # XXX Long deprecated.
 from zope.app.form import CustomWidgetFactory
 from zope.app.form.browser import (ObjectWidget, ListSequenceWidget,
                                    SequenceDisplayWidget)
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import adapts, getSiteManager, queryUtility
+from zope.component.interfaces import ISite
 from zope.interface import implements
 from zope.schema import getFieldsInOrder
-try:
-    from zope.location.interfaces import ISite
-    ISite  # pyflakes
-except ImportError:
-    # Zope BBB
-    from zope.app.component.interfaces import ISite
 
 from plone.contentratings.browser.interfaces import ICategoryContainer
 

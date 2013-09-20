@@ -1,6 +1,6 @@
 from zope.interface import implements, Interface
 from zope.component import getSiteManager
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer

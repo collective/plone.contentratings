@@ -4,16 +4,10 @@ from plone.fieldsets.fieldsets import FormFieldsets
 from zope.app.form.browser.objectwidget import ObjectWidget
 from zope.component import adapts
 from zope.component import getUtility
+from zope.component.interfaces import ISite
 from zope.formlib import form
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
-
-try:
-    from zope.location.interfaces import ISite
-    ISite  # pyflakes
-except ImportError:
-    # Zope BBB
-    from zope.app.component.interfaces import ISite
 
 from plone.contentratings.interfaces import _
 from plone.contentratings.interfaces import IRatingCategoryAssignment

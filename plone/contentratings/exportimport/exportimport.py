@@ -7,7 +7,7 @@ from sets import Set
 
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 
 from Products.GenericSetup.utils import XMLAdapterBase
 from Products.GenericSetup.utils import exportObjects
