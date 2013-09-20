@@ -12,4 +12,4 @@ To Do
   in the underlying contentratings package, and may be best left to
   individual applications using this infrastructure.
 
-* ??? 
+* Replace KSS with jQuery.
