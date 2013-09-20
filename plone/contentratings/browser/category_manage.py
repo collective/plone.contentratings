@@ -7,7 +7,7 @@ from zope.app.component import queryNextSiteManager  # XXX Long deprecated.
 from zope.app.form import CustomWidgetFactory
 from zope.app.form.browser import (ObjectWidget, ListSequenceWidget,
                                    SequenceDisplayWidget)
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import adapts, getSiteManager, queryUtility
 from zope.component.interfaces import ISite
 from zope.interface import implements
