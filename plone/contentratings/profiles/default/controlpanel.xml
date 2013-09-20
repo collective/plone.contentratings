@@ -11,9 +11,9 @@
     url_expr="string:${portal_url}/contentratings-controlpanel"
     visible="True">
   <permission>Manage portal</permission>
-  
+
   Add a controlpanel for content ratings settings
-  
+
  </configlet>
 
 </object>

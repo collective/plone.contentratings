@@ -12,10 +12,10 @@
   <include package="contentratings" file="configure.zcml" />
 
   <include zcml:condition="have plone-4" package="Products.CMFCore" file="permissions.zcml" />
-  
+
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
-  
+
   <contentratings:category
       for="Products.CMFCore.interfaces.IDynamicType"
       title="Rating"
@@ -23,7 +23,7 @@
       read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
       write_expr="python:checkPermission('Content Ratings: User Rate', context)"
       />
-      
+
   <contentratings:category
       for=".interfaces.IDexterityRatingsEnabled"
       title="Rating"
@@ -61,13 +61,13 @@
       read_expr="python:checkPermission('Content Ratings: View User Rating', context)"
       write_expr="python:checkPermission('Content Ratings: User Rate', context)"
       />
-  
+
   <interface interface=".interfaces.IUnratable" />
 
   <adapter factory=".category.PloneRatingCategoryAdapter" />
   <adapter factory=".schema_extender.RatingRemover"
            name="contentratings.ratingremover" />
-  
+
   <adapter name="average_rating" factory=".catalog.average_rating" />
   <adapter name="rating_users" factory=".catalog.rating_users" />
   <subscriber
@@ -80,7 +80,7 @@
   <include package=".exportimport" />
   <include file="profiles.zcml" />
   <include file="vocabs.zcml" />
-  
+
   <class class="contentratings.category.RatingsCategoryFactory">
       <implements interface=".browser.interfaces.IPloneRatingCategory" />
   </class>

@@ -1,7 +1,7 @@
 <configure
  xmlns="http://namespaces.zope.org/zope"
  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
-  
+
   <adapter
       factory=".exportimport.ContentRatingsXMLAdapter"
       provides="Products.GenericSetup.interfaces.IBody"
@@ -14,18 +14,18 @@
       title="Content Ratings"
       description="Import Content Ratings Assignments specific configuration."
       handler=".exportimport.importTypeRatingAssignments" />
-  
+
   <genericsetup:exportStep
       name="plone.contentratings"
       title="Content Ratings"
       description="Export Content Ratings Assignments specific configuration."
       handler=".exportimport.exportTypeRatingAssignments"
       />
-  
+
   <genericsetup:importStep
       name="plone.contentratings.uninstallVarious"
       title="Uninstall Content Ratings Adapters"
       description="Uninstall all custom rating categories."
       handler="..setuphandlers.uninstallVarious" />
-  
+
 </configure>

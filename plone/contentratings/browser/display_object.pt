@@ -6,7 +6,7 @@
       <div class="label"
            tal:content="python: widget.context.title"> Title </div>
       <div class="field"
-           tal:content="python: widget._data"> Value </div>  
+           tal:content="python: widget._data"> Value </div>
     </tal:block>
 
   </div>

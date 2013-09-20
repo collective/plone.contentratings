@@ -16,23 +16,23 @@ class ControlPanelKSSView(PloneKSSView):
 
     @kssaction
     def refresh_categories(self, type_id):
-        
+
         field = IEditCategoryAssignment['assignment']
         adapted = IEditCategoryAssignment(self.context)
         field = field.bind(adapted)
-        
+
         widget = AssignmentWidget(field, self.request)
         widget.setPrefix('form')
         widget.setRenderedValue()
         select = widget.getSubWidget('assigned_categories')
         html = select.renderValue(select._getFormValue())
-        
+
         ksscore = self.getCommandSet('core')
         select = ksscore.getCssSelector(
             'select[id="form.assignment.assigned_categories"]')
         ksscore.clearChildNodes(select)
         ksscore.replaceHTML(select, html)
-        
+
     @kssaction
     def save_rating_assignments(self):
         """Save the rating assignments in the current form"""

@@ -167,7 +167,7 @@ class CategoryContainerAdapter(object):
 
         >>> manager.acquired_categories
         []
-        
+
         >>> manager.local_categories = [category3, category2]
         >>> len(manager.acquired_categories)
         1
@@ -187,7 +187,7 @@ class CategoryContainerAdapter(object):
         >>> manager.local_categories[0] is category3
         True
         >>> category4 = RatingsCategoryFactory('category4', order=500)
-        >>> 
+        >>>
         >>> ztapi.provideAdapter((IDynamicType,), IUserRating,
         ...                      category4)
         >>> manager.acquired_categories[0] is category1
@@ -195,25 +195,25 @@ class CategoryContainerAdapter(object):
         >>> category4.order = 50
         >>> manager.acquired_categories[0] is category4
         True
-        
+
 
     """
-    
+
     implements(ICategoryContainer)
     adapts(ISite)
-    
+
     def __init__(self, context):
         self.context = context
         self.sm = getSiteManager(context)
         self.nsm = queryNextSiteManager(context)
-    
+
     def add(self, category):
         "add a new rating category to the local Site Manager"
-        self.sm.registerAdapter(category, 
-                                (IDynamicType,), 
+        self.sm.registerAdapter(category,
+                                (IDynamicType,),
                                 IUserRating,
                                 name=category.name or u'')
-        
+
     def remove(self, category):
         """remove the given rating category from the local Site Manager"""
         assert category.name in [c.name for c in self.local_categories]
@@ -254,18 +254,18 @@ class CategoryContainerAdapter(object):
     def _get_acquired_categories(self):
         "gets registered rating categories acquired from site managers other then local one"
 
-        return sorted(self._filter_categories(local=False), 
+        return sorted(self._filter_categories(local=False),
                        key=lambda x: x.order)
-                
+
     def _get_local_categories(self):
         "gets the local site manager registered rating categories"
-        
-        return sorted(self._filter_categories(local=True), 
+
+        return sorted(self._filter_categories(local=True),
                        key=lambda x: x.order)
-    
-    
+
+
     def _set_categories(self, categories):
-        """modifies the registered rating categories 
+        """modifies the registered rating categories
         to match the given list of categories"""
         orig_categories = self._get_local_categories()
         orig_names = dict((c.name,c) for c in orig_categories)
@@ -279,20 +279,20 @@ class CategoryContainerAdapter(object):
                     name = "%s_%s" % (prefix, i)
                     i += 1
                 cat.name = name
-                
+
         new_names = dict((c.name,c) for c in categories)
-        
+
         for c in orig_categories:
             if c.name not in new_names:
                 self.remove(c)
-        
+
         for c in categories:
             if c.name not in orig_names:
                 self.add(c)
             else:
                 self.modify(c)
-            
-                
+
+
     local_categories = property(_get_local_categories, _set_categories)
     acquired_categories = property(_get_acquired_categories)
 
@@ -300,16 +300,16 @@ class ObjectDisplayWidget(ObjectWidget):
     """an object widget which hide all readonly attributes """
 
     template = ViewPageTemplateFile('display_object.pt')
-    
+
     def __call__(self):
         return self.template()
 
 
 class HiddenReadonlyObjectWidget(ObjectWidget):
     """an object widget which hide all readonly attributes """
-    
+
     template = ViewPageTemplateFile('hidden_readonly_object.pt')
-    
+
     def __call__(self):
         return self.template()
 

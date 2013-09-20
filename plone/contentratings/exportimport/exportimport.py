@@ -48,8 +48,8 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
         category_container=ICategoryContainer(getSite())
         for cat in category_container.local_categories:
             category_container.remove(cat)
-        
-        
+
+
     def _initLocalCategoriesSettings(self, node):
         def _convert(type, value):
             if type=='string':
@@ -57,11 +57,11 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
             if type=='integer':
                 return int(value)
             return value
-            
+
         for child in node.childNodes:
             if child.nodeName=='categories':
                 category_container=ICategoryContainer(getSite())
-                current_categories=[cat.name for cat in 
+                current_categories=[cat.name for cat in
                                         category_container._get_local_categories()]
                 for category_node in child.getElementsByTagName('category'):
                     category_name=category_node.getAttribute('name')
@@ -69,15 +69,15 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
                     for attr_node in category_node.getElementsByTagName('attr'):
                         attr_name = attr_node.getAttribute('name')
                         attr_type = attr_node.getAttribute('type')
-                        attributes[str(attr_name)]=_convert(attr_type, 
+                        attributes[str(attr_name)]=_convert(attr_type,
                                                        attr_node.firstChild.data)
-                    # XXX: should we always add or better to update already existing? 
-                    # (should we purge at import?) 
+                    # XXX: should we always add or better to update already existing?
+                    # (should we purge at import?)
                     if category_name in current_categories:
                         category_container.modify(RatingsCategoryFactory(**attributes))
                     else:
                         category_container.add(RatingsCategoryFactory(**attributes))
-                        
+
     def _initTypeAssignmentsSettings(self, node):
         for child in node.childNodes:
             if child.nodeName=='assignments':
@@ -89,7 +89,7 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
                                    self.context.categories_for_type(portaltype)]
                     categories=Set(categories + already)
                     self.context._mapping[portaltype] = categories
-                
+
 
     def _extractTypeAssignments(self):
         node=self._doc.createElement('assignments')
@@ -107,7 +107,7 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
                 node.appendChild(child)
 
         return node
-        
+
     def _extractLocalCategories(self):
         node=self._doc.createElement('categories')
         attr_names=IRatingCategoryInfo.names()
@@ -141,7 +141,7 @@ def importTypeRatingAssignments(context):
         logger = context.getLogger("contentratings")
         logger.info("plone.contentratings not installed in this portal.")
         return
-        
+
     importObjects(category_mng, '', context)
 
 

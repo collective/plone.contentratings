@@ -10,7 +10,7 @@
         class=".viewlets.UserRatingViewlet"
         permission="zope2.View"
         />
-    
+
     <!-- Resource directory for stylesheets -->
     <browser:resourceDirectory
         name="plone.contentratings.stylesheets"
@@ -22,9 +22,9 @@
         directory="resources"
         />
     <adapter factory=".controlpanel.AssignmentsAdapter" />
-    
+
     <adapter factory=".category_manage.CategoryContainerAdapter" />
-    
+
     <!-- Control panel for plone.contentratings -->
 
     <browser:page
@@ -44,7 +44,7 @@
       <page name="saveRatingAssignments"
             attribute="save_rating_assignments" />
     </browser:pages>
-        
+
     <browser:pages
         for="*"
         class=".kss_ratings.RatingKSSView"
@@ -54,7 +54,7 @@
       <page name="deleteRating"
             attribute="delete_rating" />
     </browser:pages>
-        
+
     <browser:pages
         for="*"
         class=".kss_ratings.EditorialKSSView"
@@ -65,5 +65,5 @@
             attribute="delete_rating" />
     </browser:pages>
     </configure>
-    
+
 </configure>
