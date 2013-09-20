@@ -58,7 +58,8 @@ setup(name='plone.contentratings',
           'rwproperty',
           'zope.app.component',
           'zope.app.form',
-          'zope.component'
+          'zope.component',
+          'zope.container',
       ],
       entry_points="""
       # -*- Entry points: -*-

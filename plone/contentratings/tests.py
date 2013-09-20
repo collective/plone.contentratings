@@ -3,10 +3,11 @@ from zope.annotation.interfaces import IAnnotations
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.annotation.attribute import AttributeAnnotations
 from zope.interface import directlyProvides
-from zope.app.container.sample import SampleContainer
+from zope.container.sample import SampleContainer
 from zope.app.testing import ztapi
 from zope.testing import doctestunit
 from zope.component import testing
+
 
 def setUpCategoryTests(test):
     testing.setUp(test)
@@ -16,6 +17,7 @@ def setUpCategoryTests(test):
     container = SampleContainer()
     directlyProvides(container, IAttributeAnnotatable)
     test.globs = {'my_container': container}
+
 
 def test_suite():
     return unittest.TestSuite([
