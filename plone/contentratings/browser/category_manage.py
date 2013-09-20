@@ -1,24 +1,24 @@
-from zope.interface import implements
-from zope.component import adapts, getSiteManager, queryUtility
+from Products.CMFCore.interfaces import IDynamicType
+from contentratings.category import RatingsCategoryFactory
+from contentratings.interfaces import IRatingCategory
+from contentratings.interfaces import IUserRating
+from plone.i18n.normalizer.interfaces import IURLNormalizer
 from zope.app.component import queryNextSiteManager
 from zope.app.form import CustomWidgetFactory
 from zope.app.form.browser import (ObjectWidget, ListSequenceWidget,
-                                   SequenceDisplayWidget,)
+                                   SequenceDisplayWidget)
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.component import adapts, getSiteManager, queryUtility
+from zope.interface import implements
 from zope.schema import getFieldsInOrder
 try:
     from zope.location.interfaces import ISite
+    ISite  # pyflakes
 except ImportError:
     # Zope BBB
     from zope.app.component.interfaces import ISite
 
-from plone.i18n.normalizer.interfaces import IURLNormalizer
 from plone.contentratings.browser.interfaces import ICategoryContainer
-from contentratings.interfaces import IUserRating
-from contentratings.interfaces import IRatingCategory
-from contentratings.category import RatingsCategoryFactory
-
-from Products.CMFCore.interfaces import IDynamicType
 
 
 class CategoryContainerAdapter(object):
@@ -225,29 +225,28 @@ class CategoryContainerAdapter(object):
     def modify(self, category):
         """modify the given rating category in the local Site Manager"""
         assert category.name in [c.name for c in self.local_categories]
-        orig_category = self.sm.adapters.lookup((IDynamicType,),
-                                                 IUserRating,
-                                                 name=category.name)
+        orig_category = self.sm.adapters.lookup(
+            (IDynamicType, ), IUserRating, name=category.name)
         for name, field in getFieldsInOrder(IRatingCategory):
             if not field.readonly:
                 setattr(orig_category, name, getattr(category, name))
 
     def _filter_categories(self, local):
         """separate categories in local and acquired one"""
-        all_categories = self.sm.adapters.lookupAll((IDynamicType,),
-                                                    IUserRating)
+        all_categories = self.sm.adapters.lookupAll(
+            (IDynamicType, ), IUserRating)
         parent_categories = {}
         if self.nsm is not None:
-            for n, c in self.nsm.adapters.lookupAll((IDynamicType,),
-                                                     IUserRating):
+            for n, c in self.nsm.adapters.lookupAll(
+                    (IDynamicType, ), IUserRating):
                 parent_categories[id(c)] = c
         # use 'id' to check if these are the object exists here and in parent
         if local:
-            filtered_categories = (c for n,c in all_categories if id(c)
-                                                      not in parent_categories)
+            filtered_categories = (c for n, c in all_categories if id(c)
+                                   not in parent_categories)
         else:
-            filtered_categories = (c for n,c in all_categories if id(c)
-                                                      in parent_categories)
+            filtered_categories = (c for n, c in all_categories if id(c)
+                                   in parent_categories)
 
         return filtered_categories
 
@@ -255,20 +254,19 @@ class CategoryContainerAdapter(object):
         "gets registered rating categories acquired from site managers other then local one"
 
         return sorted(self._filter_categories(local=False),
-                       key=lambda x: x.order)
+                      key=lambda x: x.order)
 
     def _get_local_categories(self):
         "gets the local site manager registered rating categories"
 
         return sorted(self._filter_categories(local=True),
-                       key=lambda x: x.order)
-
+                      key=lambda x: x.order)
 
     def _set_categories(self, categories):
         """modifies the registered rating categories
         to match the given list of categories"""
         orig_categories = self._get_local_categories()
-        orig_names = dict((c.name,c) for c in orig_categories)
+        orig_names = dict((c.name, c) for c in orig_categories)
         for cat in categories:
             cat.name = cat.name or u''
             cat.order = cat.order is None and 100 or cat.order
@@ -280,7 +278,7 @@ class CategoryContainerAdapter(object):
                     i += 1
                 cat.name = name
 
-        new_names = dict((c.name,c) for c in categories)
+        new_names = dict((c.name, c) for c in categories)
 
         for c in orig_categories:
             if c.name not in new_names:
@@ -292,9 +290,9 @@ class CategoryContainerAdapter(object):
             else:
                 self.modify(c)
 
-
     local_categories = property(_get_local_categories, _set_categories)
     acquired_categories = property(_get_acquired_categories)
+
 
 class ObjectDisplayWidget(ObjectWidget):
     """an object widget which hide all readonly attributes """

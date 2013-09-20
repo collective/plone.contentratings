@@ -1,24 +1,21 @@
-from zope.interface import implements
-from zope.component import adapts
-
 from Products.CMFCore.utils import getToolByName
-
 from plone.app.controlpanel.form import ControlPanelForm
 from plone.fieldsets.fieldsets import FormFieldsets
 from zope.app.form.browser.objectwidget import ObjectWidget
+from zope.component import adapts
+from zope.component import getUtility
+from zope.formlib import form
+from zope.interface import implements
+from zope.schema.interfaces import IVocabularyFactory
 
 try:
     from zope.location.interfaces import ISite
+    ISite  # pyflakes
 except ImportError:
     # Zope BBB
     from zope.app.component.interfaces import ISite
-from zope.formlib import form
-
-from zope.component import getUtility
-from zope.schema.interfaces import IVocabularyFactory
 
 from plone.contentratings.interfaces import _
-
 from plone.contentratings.interfaces import IRatingCategoryAssignment
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryAssignment
@@ -201,7 +198,6 @@ class AssignmentWidget(ObjectWidget):
         value = self.get_categories()
         super(AssignmentWidget, self).setRenderedValue(value)
 
-
     def get_categories(self):
         """Return the list of categories assigned to the type specified in
         the request."""
@@ -221,6 +217,7 @@ class AssignmentWidget(ObjectWidget):
         assignment.assigned_categories = set(selected_categories(portal_type))
 
         return assignment
+
 
 def selected_categories(portal_type):
     assignments = getUtility(IRatingCategoryAssignment)
@@ -247,6 +244,7 @@ u'edited. You need to save your changes after adding or removing categories')
 
 categories.required = False
 
+
 class ContentRatingsControlPanel(ControlPanelForm):
 
     form_name = _(u"Category Assignments")
@@ -269,4 +267,3 @@ class ContentRatingsControlPanel(ControlPanelForm):
         self.request.form.clear()
         self.request.form['type_id'] = type_id
         return self()
-

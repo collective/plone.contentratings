@@ -1,14 +1,14 @@
-from zope.interface import implements, alsoProvides, noLongerProvides
-from zope.component import adapts, queryUtility
+from Products.ATContentTypes.interface import IATDocument
+from Products.Archetypes.atapi import BooleanField, BooleanWidget
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import ISchemaExtender
-from Products.Archetypes.atapi import BooleanField, BooleanWidget
-from Products.Archetypes.interfaces import IBaseObject
-from Products.ATContentTypes.interface import IATDocument
+from zope.component import adapts, queryUtility
+from zope.interface import implements, alsoProvides, noLongerProvides
 
 from plone.contentratings.interfaces import IUnratable, \
-                                            IRatingCategoryAssignment
+    IRatingCategoryAssignment
 from plone.contentratings.interfaces import _
+
 
 class ReverseInterfaceField(ExtensionField, BooleanField):
     """Just a boolean field"""
@@ -27,24 +27,24 @@ class ReverseInterfaceField(ExtensionField, BooleanField):
             if iface.providedBy(instance):
                 noLongerProvides(instance, iface)
 
+
 class RatingRemover(object):
     """An adapter that adds the rating removal field"""
     adapts(IATDocument)
     implements(ISchemaExtender)
 
-    fields = [ ReverseInterfaceField("allow_ratings",
-                                     default=True,
-                                     widget=BooleanWidget(
-                                                    label=_(u"Enable Ratings"),
-                                                    description=
-                                                    _('allow_ratings_help',
-                                                    default=u"Check this box to add "
-                                                    u"ratings to this item. "
-                                                    u"Use the control panel to "
-                                                    u"select the ratings shown "
-                                                    u"on each content type.")),
-                                     schemata="settings")
-             ]
+    fields = [ReverseInterfaceField(
+        "allow_ratings",
+        default=True,
+        widget=BooleanWidget(
+            label=_(u"Enable Ratings"),
+            description= _('allow_ratings_help',
+                           default=(u"Check this box to add ratings to this "
+                                    u"item. Use the control panel to select "
+                                    u"the ratings shown on each content type.")
+                           )),
+        schemata="settings"),
+        ]
 
     def __init__(self, context):
         self.context = context
