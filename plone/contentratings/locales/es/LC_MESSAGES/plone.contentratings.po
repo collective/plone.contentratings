@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.contentratings\n"
-"POT-Creation-Date: 2013-04-29 10:54+0000\n"
+"POT-Creation-Date: 2013-09-20 21:39+0000\n"
 "PO-Revision-Date: 2009-08-11 12:38-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -18,62 +18,62 @@ msgstr ""
 "Domain: plone.contentratings\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 
-#: ./browser/interfaces.py:42
+#: ./browser/interfaces.py:48
 msgid "Acquired Categories"
 msgstr "Categorías adquiridas"
 
-#: ./browser/interfaces.py:31
+#: ./browser/interfaces.py:35
 msgid "Assignment"
 msgstr "Asignación"
 
-#: ./browser/interfaces.py:12
+#: ./browser/interfaces.py:15
 msgid "Categories"
 msgstr "Categorías"
 
-#: ./browser/interfaces.py:13
+#: ./browser/interfaces.py:16
 msgid "Category"
 msgstr "Categoría"
 
-#: ./browser/controlpanel.py:252
+#: ./browser/controlpanel.py:244
 msgid "Category Assignments"
 msgstr "Asignación de la categoría"
 
-#: ./browser/controlpanel.py:265
+#: ./browser/controlpanel.py:257
 msgid "Change Portal Type"
 msgstr "Cambiar tipo de portal"
 
-#: ./behaviors.py:29
-#: ./schema_extender.py:38
+#: ./behaviors.py:27
+#: ./schema_extender.py:40
 msgid "Enable Ratings"
 msgstr "Habilitar calificaciones"
 
-#: ./behaviors.py:30
+#: ./behaviors.py:28
 msgid "Enable ratings on this content item"
 msgstr ""
 
 msgid "Large Rating"
 msgstr ""
 
-#: ./browser/interfaces.py:37
+#: ./browser/interfaces.py:42
 msgid "Local Categories"
 msgstr "Categorías locales"
 
-#: ./browser/controlpanel.py:240
+#: ./browser/controlpanel.py:231
 msgid "Manage Categories"
 msgstr "Administrar categorías"
 
-#: ./browser/interfaces.py:9
+#: ./browser/interfaces.py:11
 msgid "Portal Type"
 msgstr "Tipos del portal"
 
 msgid "Rating"
 msgstr ""
 
-#: ./browser/controlpanel.py:232
+#: ./browser/controlpanel.py:223
 msgid "Rating Assignments"
 msgstr "Asignación de calificación"
 
-#: ./browser/controlpanel.py:256
+#: ./browser/controlpanel.py:248
 msgid "Rating settings"
 msgstr ""
 
@@ -82,37 +82,37 @@ msgstr ""
 msgid "Ratings"
 msgstr "Calificaciones"
 
-#: ./browser/interfaces.py:23
+#: ./browser/interfaces.py:26
 msgid "Select the view for this category"
 msgstr "Seleccionar la vista para esta categoría"
 
-#: ./behaviors.py:26
+#: ./behaviors.py:24
 msgid "Settings"
 msgstr ""
 
-#: ./browser/controlpanel.py:257
+#: ./browser/controlpanel.py:249
 msgid "Settings related to content ratings."
 msgstr "Configuraciones relacionadas con los contenidos calificados"
 
 msgid "Short Rating"
 msgstr ""
 
-#: ./browser/interfaces.py:22
+#: ./browser/interfaces.py:25
 msgid "View"
 msgstr "Vista"
 
 #. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
-#: ./schema_extender.py:40
+#: ./schema_extender.py:41
 msgid "allow_ratings_help"
 msgstr "Marque esta casilla para agregar calificaciones a este elemento. Utilice el panel de control para seleccionar las calificaciones mostradas en cada tipo de contenido."
 
 #. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
-#: ./browser/controlpanel.py:241
+#: ./browser/controlpanel.py:232
 msgid "categories_description_help"
 msgstr "Agregar, modificar o remover categorías de calificaciones. Puede especificar un titulo, una descripción, las condiciones de visualización y ajuste de calificaciones, una vista para mostrar la calificación, y un número de orden relativo. Las categorías que se definen en un nivel inferior (ej., globalmente) no pueden ser editadas. Usted necesita guardar los cambios antes después de agregar o remover categorías"
 
 #. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
-#: ./browser/controlpanel.py:233
+#: ./browser/controlpanel.py:224
 msgid "typespolicies_description_help"
 msgstr "Elija un tipo de portal de la lista y seleccione una o más categorías de calificación para aparecer en ese tipo."
 

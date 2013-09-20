@@ -1,8 +1,8 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 10:54+0000\n"
+"POT-Creation-Date: 2013-09-20 21:39+0000\n"
 "PO-Revision-Date: 2008-06-17 14:46+0200\n"
 "Last-Translator: Jarno de Wit <Jarno.de.Wit@pareto.nl>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -17,62 +17,62 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "X-Is-Fallback-For: nl-be nl-nl\n"
 
-#: ./browser/interfaces.py:42
+#: ./browser/interfaces.py:48
 msgid "Acquired Categories"
 msgstr "Overgenomen categorieën"
 
-#: ./browser/interfaces.py:31
+#: ./browser/interfaces.py:35
 msgid "Assignment"
 msgstr "Toewijziging"
 
-#: ./browser/interfaces.py:12
+#: ./browser/interfaces.py:15
 msgid "Categories"
 msgstr "Categorieën"
 
-#: ./browser/interfaces.py:13
+#: ./browser/interfaces.py:16
 msgid "Category"
 msgstr "Categorie"
 
-#: ./browser/controlpanel.py:252
+#: ./browser/controlpanel.py:244
 msgid "Category Assignments"
 msgstr "Categorie toewijziging"
 
-#: ./browser/controlpanel.py:265
+#: ./browser/controlpanel.py:257
 msgid "Change Portal Type"
 msgstr "Wijzig content type"
 
-#: ./behaviors.py:29
-#: ./schema_extender.py:38
+#: ./behaviors.py:27
+#: ./schema_extender.py:40
 msgid "Enable Ratings"
 msgstr "Waardering inschakelen"
 
-#: ./behaviors.py:30
+#: ./behaviors.py:28
 msgid "Enable ratings on this content item"
 msgstr ""
 
 msgid "Large Rating"
 msgstr ""
 
-#: ./browser/interfaces.py:37
+#: ./browser/interfaces.py:42
 msgid "Local Categories"
 msgstr "Lokale categorieën"
 
-#: ./browser/controlpanel.py:240
+#: ./browser/controlpanel.py:231
 msgid "Manage Categories"
 msgstr "Categorieën beheren"
 
-#: ./browser/interfaces.py:9
+#: ./browser/interfaces.py:11
 msgid "Portal Type"
 msgstr "Content type"
 
 msgid "Rating"
 msgstr ""
 
-#: ./browser/controlpanel.py:232
+#: ./browser/controlpanel.py:223
 msgid "Rating Assignments"
 msgstr "Waarderingstoewijzing"
 
-#: ./browser/controlpanel.py:256
+#: ./browser/controlpanel.py:248
 msgid "Rating settings"
 msgstr ""
 
@@ -81,37 +81,37 @@ msgstr ""
 msgid "Ratings"
 msgstr "Waarderingen"
 
-#: ./browser/interfaces.py:23
+#: ./browser/interfaces.py:26
 msgid "Select the view for this category"
 msgstr "Kies de weergave voor deze categorie"
 
-#: ./behaviors.py:26
+#: ./behaviors.py:24
 msgid "Settings"
 msgstr ""
 
-#: ./browser/controlpanel.py:257
+#: ./browser/controlpanel.py:249
 msgid "Settings related to content ratings."
 msgstr "Aan waardering gerelateerde instellingen"
 
 msgid "Short Rating"
 msgstr ""
 
-#: ./browser/interfaces.py:22
+#: ./browser/interfaces.py:25
 msgid "View"
 msgstr "Weergave"
 
 #. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
-#: ./schema_extender.py:40
+#: ./schema_extender.py:41
 msgid "allow_ratings_help"
 msgstr "Vink deze optie aan om waardering toe te voegen voor dit item. Gebruik het configuratiescherm om de te tonen waardering voor elk contenttype in te stellen."
 
 #. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
-#: ./browser/controlpanel.py:241
+#: ./browser/controlpanel.py:232
 msgid "categories_description_help"
 msgstr "Voeg toe, pas aan of verwijder waarderingscategorieën. U ma een titel, beschrijving, voorwaarden opgeven voor weergave en instellingen van waarderingen, een weergave voor het tonen van de waardering en een relative volgorde. Categorieën die op een lager niveau worden ingesteld (bijvoorbeeld globaal) mogen niet worden gewijzigd. U moet uw wijzigingen opslaan na toevoegen of verwijderen van categorieën"
 
 #. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
-#: ./browser/controlpanel.py:233
+#: ./browser/controlpanel.py:224
 msgid "typespolicies_description_help"
 msgstr "Kies een content type uit de lijst en kies kies één of meer te tonen waarderingscategorieën voor het type. "
 

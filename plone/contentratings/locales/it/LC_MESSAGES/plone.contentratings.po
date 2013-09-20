@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-29 10:54+0000\n"
+"POT-Creation-Date: 2013-09-20 21:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: plone-italian-translation-discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
@@ -17,62 +17,62 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone.contentratings\n"
 
-#: ./browser/interfaces.py:42
+#: ./browser/interfaces.py:48
 msgid "Acquired Categories"
 msgstr "Categorie acquisite"
 
-#: ./browser/interfaces.py:31
+#: ./browser/interfaces.py:35
 msgid "Assignment"
 msgstr "Assegnazione"
 
-#: ./browser/interfaces.py:12
+#: ./browser/interfaces.py:15
 msgid "Categories"
 msgstr "Categorie"
 
-#: ./browser/interfaces.py:13
+#: ./browser/interfaces.py:16
 msgid "Category"
 msgstr "Categoria"
 
-#: ./browser/controlpanel.py:252
+#: ./browser/controlpanel.py:244
 msgid "Category Assignments"
 msgstr "Assegnazioni categorie"
 
-#: ./browser/controlpanel.py:265
+#: ./browser/controlpanel.py:257
 msgid "Change Portal Type"
 msgstr "Cambia tipo di contenuto"
 
-#: ./behaviors.py:29
-#: ./schema_extender.py:38
+#: ./behaviors.py:27
+#: ./schema_extender.py:40
 msgid "Enable Ratings"
 msgstr "Abilita Rating"
 
-#: ./behaviors.py:30
+#: ./behaviors.py:28
 msgid "Enable ratings on this content item"
 msgstr "Abilita il rating su questo elemento"
 
 msgid "Large Rating"
 msgstr "Rating Grande"
 
-#: ./browser/interfaces.py:37
+#: ./browser/interfaces.py:42
 msgid "Local Categories"
 msgstr "Categorie Locali"
 
-#: ./browser/controlpanel.py:240
+#: ./browser/controlpanel.py:231
 msgid "Manage Categories"
 msgstr "Gestisci Categorie"
 
-#: ./browser/interfaces.py:9
+#: ./browser/interfaces.py:11
 msgid "Portal Type"
 msgstr "Tipo di contenuto"
 
 msgid "Rating"
 msgstr "Rating"
 
-#: ./browser/controlpanel.py:232
+#: ./browser/controlpanel.py:223
 msgid "Rating Assignments"
 msgstr "Assegnazioni del Rating"
 
-#: ./browser/controlpanel.py:256
+#: ./browser/controlpanel.py:248
 msgid "Rating settings"
 msgstr "Impostazioni rating"
 
@@ -81,34 +81,34 @@ msgstr "Impostazioni rating"
 msgid "Ratings"
 msgstr "Rating"
 
-#: ./browser/interfaces.py:23
+#: ./browser/interfaces.py:26
 msgid "Select the view for this category"
 msgstr "Seleziona la vista per questa categoria"
 
-#: ./behaviors.py:26
+#: ./behaviors.py:24
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: ./browser/controlpanel.py:257
+#: ./browser/controlpanel.py:249
 msgid "Settings related to content ratings."
 msgstr "Impostazioni per il rating dei contenuti"
 
 msgid "Short Rating"
 msgstr "Rating Compatto"
 
-#: ./browser/interfaces.py:22
+#: ./browser/interfaces.py:25
 msgid "View"
 msgstr "Vista"
 
 #. Default: "Check this box to add ratings to this item. Use the control panel to select the ratings shown on each content type."
-#: ./schema_extender.py:40
+#: ./schema_extender.py:41
 msgid "allow_ratings_help"
 msgstr ""
 "Seleziona per poter aggiungere il rating a questo elemento.\n"
 "Usa il pannello di controllo per selezionare il tipo di rating da mostrare per ogni tipo di contenuto."
 
 #. Default: "Add, modify, or remove rating categories. You may specify a title, description, conditions for viewing and setting ratings, a view to display the rating, and a relative order number. Categories which are defined at a lower level (e.g., globally) may not be edited. You need to save your changes after adding or removing categories"
-#: ./browser/controlpanel.py:241
+#: ./browser/controlpanel.py:232
 msgid "categories_description_help"
 msgstr ""
 "Aggiungi, modifica o rimuovi categorie di rating.\n"
@@ -117,7 +117,7 @@ msgstr ""
 "Devi salvare le modifiche dopo aver aggiunto o rimosso categorie"
 
 #. Default: "Choose a portal type from the list and select one or more rating categories to appear on that type."
-#: ./browser/controlpanel.py:233
+#: ./browser/controlpanel.py:224
 msgid "typespolicies_description_help"
 msgstr "Scegli un tipo di contenuto dalla lista e seleziona uno o più tipi di rating che dovranno apparire su questo tipo."
 
