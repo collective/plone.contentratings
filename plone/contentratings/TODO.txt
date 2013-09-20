@@ -13,3 +13,6 @@ To Do
   individual applications using this infrastructure.
 
 * Replace KSS with jQuery.
+
+* Replace our use of the long deprecated queryNextSiteManager from
+  zope.app.component.
