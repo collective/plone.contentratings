@@ -10,7 +10,7 @@ var kssAttr = function (el, name) {
 var $change_type = $('input[name="form.actions.change_type"]')
 $change_type.hide();
 
-var $portal_type = $('select[name="form.assignment.portal_type');
+var $portal_type = $('select[name="form.assignment.portal_type"]');
 $portal_type.change(function () {
 	$.get(baseUrl + '/refreshCategories', {type_id: $(this).val()}, function (data) {
 		$('select[id="form.assignment.assigned_categories"]').replaceWith(data);
