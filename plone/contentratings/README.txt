@@ -10,14 +10,6 @@ This panel provides two configuration sections.  One for associating
 particular content types with rating categories, and another for
 adding and managing rating categories.
 
-Note: on Plone 4.3, if you want to use the ajax javascript features of
-`plone.contentratings`, you must first install `plone.app.kss` in the
-`Add-on Products` control panel.  Only *after* this, should you
-install `plone.contentratings` in that control panel.  (You might get
-javascript errors indicating that you need to go to portal_javascripts
-in the ZMI and enable the cssQuery, base2-dom and jquery-integration
-javascripts before kss works correctly.)
-
 
 Assigning Ratings
 -----------------

@@ -34,20 +34,17 @@
         permission="cmf.ManagePortal"
         />
 
-    <configure zcml:condition="installed kss.core">
     <browser:pages
         for="Products.CMFCore.interfaces.ISiteRoot"
-        class=".kss_ratings.ControlPanelKSSView"
+        class=".ajax.ControlPanelView"
         permission="cmf.ManagePortal">
       <page name="refreshCategories"
             attribute="refresh_categories"/>
-      <page name="saveRatingAssignments"
-            attribute="save_rating_assignments" />
     </browser:pages>
 
     <browser:pages
         for="*"
-        class=".kss_ratings.RatingKSSView"
+        class=".ajax.RatingView"
         permission="zope.Public">
       <page name="updateRating"
             attribute="update_rating" />
@@ -57,13 +54,12 @@
 
     <browser:pages
         for="*"
-        class=".kss_ratings.EditorialKSSView"
+        class=".ajax.EditorialView"
         permission="zope.Public">
       <page name="updateEditorRating"
             attribute="update_rating" />
       <page name="deleteEditorRating"
             attribute="delete_rating" />
     </browser:pages>
-    </configure>
 
 </configure>

@@ -20,4 +20,26 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       />
+
+  <configure zcml:condition="installed plone.app.kss">
+    <genericsetup:upgradeDepends
+        profile="plone.contentratings:default"
+        title="Remove KSS and add Javascript"
+        description=""
+        source="2"
+        destination="3"
+        import_steps="kssregistry jsregistry"
+        />
+  </configure>
+  <configure zcml:condition="not-installed plone.app.kss">
+    <genericsetup:upgradeDepends
+        profile="plone.contentratings:default"
+        title="Add Javascript"
+        description=""
+        source="2"
+        destination="3"
+        import_steps="jsregistry"
+        />
+  </configure>
+
 </configure>

@@ -1,10 +1,12 @@
 HISTORY
 =======
 
-1.1.1 (unreleased)
-------------------
+1.2 (unreleased)
+----------------
 
-- Nothing changed yet.
+- Replace KSS with JQuery.
+  (Note: there is an upgrade step to add the new javascript to the JS registry.)
+  [davisagli]
 
 
 1.1 (2013-09-20)
