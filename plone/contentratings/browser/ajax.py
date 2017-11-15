@@ -1,6 +1,7 @@
+import json
 from zope.component import getAdapter, getMultiAdapter
 from plone.contentratings.browser.interfaces import IEditCategoryAssignment
-from plone.contentratings.browser.controlpanel import AssignmentWidget
+from plone.contentratings.browser.controlpanel import selected_categories
 from Products.Five import BrowserView
 from contentratings.interfaces import IUserRating, IEditorialRating
 
@@ -9,18 +10,7 @@ class ControlPanelView(BrowserView):
     """ AJAX change categories type """
 
     def refresh_categories(self, type_id):
-
-        field = IEditCategoryAssignment['assignment']
-        adapted = IEditCategoryAssignment(self.context)
-        field = field.bind(adapted)
-
-        widget = AssignmentWidget(field, self.request)
-        widget.setPrefix('form')
-        widget.setRenderedValue()
-        select = widget.getSubWidget('assigned_categories')
-
-        self.request.environ['plone.transformchain.disable'] = True
-        return select.renderValue(select._getFormValue())
+        return json.dumps([c.name for c in selected_categories(type_id)])
 
 
 class RatingView(BrowserView):

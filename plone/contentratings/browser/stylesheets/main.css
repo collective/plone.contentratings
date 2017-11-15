@@ -22,20 +22,22 @@ ul.star-rating {
 }
 
 #content .UserRating a.DeleteRating {
-    background-image: url(/++resource++plone.contentratings.resources/delete_icon.gif);
+    background-image: url("/++resource++plone.contentratings.resources/delete_icon.gif");
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 #content .small-star .UserRating a.DeleteRating {
-    background-image: url(/++resource++plone.contentratings.resources/delete_icon.gif);
+    background-image: url("/++resource++plone.contentratings.resources/delete_icon.gif");
 }
 
 #content .star-rating a,
 #content .star-rating a:hover,
 #content .star-rating a:active,
 #content .star-rating a:focus {
-    background: url(/++resource++contentratings/star.gif) left -1000px repeat-x;
+    background-image: url("/++resource++contentratings/star.gif");
+    background-position: left -1000px;
+    background-repeat: repeat-x;
 }
 
 
@@ -48,7 +50,9 @@ ul.star-rating {
 #content .small-star .star-rating a:hover,
 #content .small-star .star-rating a:active,
 #content .small-star .star-rating a:focus {
-    background: url(/++resource++contentratings/star_small.gif) left -1000px repeat-x;
+    background-image: url("/++resource++contentratings/star_small.gif");
+    background-position: left -1000px;
+    background-repeat: repeat-x;
 }
 
 #content .small-star .star-rating a:hover,

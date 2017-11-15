@@ -21,8 +21,12 @@
         name="plone.contentratings.resources"
         directory="resources"
         />
-    <adapter factory=".controlpanel.AssignmentsAdapter" />
 
+    <adapter factory=".controlpanel.AssignmentsAdapter" />
+    <adapter factory=".controlpanel.CategoryAssignmentFactory"
+             name="plone.contentratings.browser.interfaces.ICategoryAssignment" />
+    <adapter factory=".controlpanel.RatingCategoryFactory"
+             name="plone.contentratings.browser.interfaces.IPloneRatingCategory" />
     <adapter factory=".category_manage.CategoryContainerAdapter" />
 
     <!-- Control panel for plone.contentratings -->

@@ -9,12 +9,10 @@
   <utility
       component=".vocabs.types_vocab"
       name="plone.contentratings.portal_types"
-      provides="zope.schema.interfaces.IVocabularyFactory"
       />
   <utility
       component=".vocabs.rating_view_vocab"
       name="plone.contentratings.rating_views"
-      provides="zope.schema.interfaces.IVocabularyFactory"
       />
 
 </configure>

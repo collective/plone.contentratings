@@ -1,6 +1,6 @@
 jQuery(function($) {
 
-var baseUrl = $('base').attr('href');
+var baseUrl = $('base').attr('href') || window.PORTAL_URL || '';
 var kssAttr = function (el, name) {
 	var $el = $(el).closest('[class*="kssattr-' + name + '-"]');
 	var klass = $el.attr('class');
@@ -10,10 +10,18 @@ var kssAttr = function (el, name) {
 var $change_type = $('input[name="form.actions.change_type"]')
 $change_type.hide();
 
-var $portal_type = $('select[name="form.assignment.portal_type"]');
+var $portal_type = $('select[name^="form.widgets.assignment.widgets.portal_type"]');
 $portal_type.change(function () {
-	$.get(baseUrl + '/refreshCategories', {type_id: $(this).val()}, function (data) {
-		$('select[id="form.assignment.assigned_categories"]').replaceWith(data);
+	$.getJSON(baseUrl + '/refreshCategories', {type_id: $(this).val()}, function (data) {
+		var $select = $('select[name^="form.widgets.assignment.widgets.assigned_categories"]');
+		data = data || [];
+		$('option', $select).each(function (i, e) {
+			if (data.indexOf(e.value) >= 0) {
+				$(e).prop('selected', true);
+			} else {
+				$(e).prop('selected', false);
+			}
+		});
 	});
 });
 

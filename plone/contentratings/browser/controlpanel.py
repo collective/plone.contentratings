@@ -1,23 +1,19 @@
 from Products.CMFCore.utils import getToolByName
-from plone.app.controlpanel.form import ControlPanelForm
-from plone.fieldsets.fieldsets import FormFieldsets
-from zope.app.form.browser.objectwidget import ObjectWidget
 from zope.component import adapts
 from zope.component import getUtility
 from zope.component.interfaces import ISite
-from zope.formlib import form
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
+from z3c.form import form
+from z3c.form.object import FactoryAdapter
 
+from contentratings.category import RatingsCategoryFactory
+from plone.autoform.form import AutoExtensibleForm
 from plone.contentratings.interfaces import _
 from plone.contentratings.interfaces import IRatingCategoryAssignment
-from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import ICategoryAssignment
-from plone.contentratings.browser.interfaces import ICategoryContainer
-from plone.contentratings.browser.category_manage import (
-    hr_categories_widget,
-    display_categories_widget,
-    )
+from plone.contentratings.browser.interfaces import IEditCategoryAssignment
+from plone.contentratings.browser.interfaces import IControlPanelForm
 
 
 class CategoryAssignment(object):
@@ -82,135 +78,12 @@ class AssignmentsAdapter(object):
                                     assignment.assigned_categories)
 
     def _get_assignment(self):
-        return None
+        factory = CategoryAssignmentFactory(self.context,
+                                            getattr(self.context, 'REQUEST', None),
+                                            None, None)
+        return factory()
 
     assignment = property(fget=_get_assignment, fset=_set_assignment)
-
-
-class AssignmentWidget(ObjectWidget):
-    """A custom version of ObjectWidget which sets CategoryAssignment
-    objects on the context (which is the above adapter).  The value
-    in the widget is the list of selected categories for the type
-    specified in the request.
-
-    We need a request and a field for our widget to act on::
-
-        >>> from zope.publisher.browser import TestRequest
-        >>> request = TestRequest()
-        >>> class Dummy(object):
-        ...     pass
-        >>> content = Dummy()
-        >>> content.assignment = None
-        >>> content.context = None
-        >>> from plone.contentratings.browser.interfaces import IEditCategoryAssignment
-        >>> field = IEditCategoryAssignment['assignment'].bind(content)
-        >>> from plone.contentratings.browser.controlpanel import AssignmentWidget
-
-    We also need vocabularies of portal types and categories, and a type
-    assignment utility::
-
-        >>> from zope.schema.vocabulary import SimpleVocabulary, getVocabularyRegistry
-        >>> def type_vocab(context):
-        ...     return SimpleVocabulary.fromItems((('type1', 'type1'),
-        ...                                        ('type2', 'type2')))
-        >>> def category_vocab(context):
-        ...     return SimpleVocabulary.fromItems((('cat1', 'cat1'),
-        ...                                        ('cat2', 'cat2')))
-        >>> registry = getVocabularyRegistry()
-        >>> registry.register('plone.contentratings.portal_types', type_vocab)
-        >>> registry.register('plone.contentratings.categories', category_vocab)
-        >>> from zope.app.testing import ztapi
-        >>> ztapi.provideUtility(IVocabularyFactory, type_vocab,
-        ...                      name='plone.contentratings.portal_types')
-        >>> ztapi.provideUtility(IVocabularyFactory, category_vocab,
-        ...                      name='plone.contentratings.categories')
-        >>> class DummyUtil(object):
-        ...     def categories_for_type(self, portal_type):
-        ...         return ['cat2', 'fake_cat+%s'%portal_type]
-        >>> from plone.contentratings.interfaces import IRatingCategoryAssignment
-        >>> ztapi.provideUtility(IRatingCategoryAssignment, DummyUtil())
-
-   Now that we have our vocabularies and sub-widgets, we can test our widget's
-   custom behavior.  First we see that when we set the rendered value
-   the first portal type is retrieved, along with the category
-   settings for that type::
-
-        >>> widget = AssignmentWidget(field, request)
-        >>> type_widget = widget.getSubWidget('portal_type')
-        >>> category_widget = widget.getSubWidget('assigned_categories')
-        >>> type_widget._data is type_widget._data_marker
-        True
-        >>> category_widget._data is category_widget._data_marker
-        True
-        >>> widget.setRenderedValue('nonsense')
-        >>> type_widget._data
-        'type1'
-        >>> category_widget._data
-        set(['fake_cat+type1', 'cat2'])
-
-    If a portal_type is specfied in the form (using either of two
-    request variables), then the categories retrieved are those for
-    that type::
-
-        >>> request.form['form.assignment.portal_type'] = 'type2'
-        >>> widget.setRenderedValue('nonsense')
-        >>> type_widget._data
-        'type2'
-        >>> category_widget._data
-        set(['cat2', 'fake_cat+type2'])
-
-        >>> request.form['type_id'] = 'type3'
-        >>> widget.setRenderedValue('nonsense')
-        >>> type_widget._data
-        'type3'
-        >>> category_widget._data
-        set(['cat2', 'fake_cat+type3'])
-
-    If were to submit the form, an assignment object would be created and
-    set on our content/adapter::
-
-        >>> request.form['field.assignment.portal_type'] = 'type1'
-        >>> request.form['field.assignment.assigned_categories'] = ['cat1']
-        >>> widget.applyChanges(content)
-        True
-        >>> isinstance(content.assignment, CategoryAssignment)
-        True
-        >>> content.assignment.portal_type
-        'type1'
-        >>> content.assignment.assigned_categories
-        set(['cat1'])
-
-    """
-
-    def __init__(self, context, request, **kw):
-        super(AssignmentWidget, self).__init__(context, request,
-                                               CategoryAssignment)
-
-    def setRenderedValue(self, value=None):
-        """Uses the currently selected categories as the current value,
-        regardless of the passed in value."""
-        value = self.get_categories()
-        super(AssignmentWidget, self).setRenderedValue(value)
-
-    def get_categories(self):
-        """Return the list of categories assigned to the type specified in
-        the request."""
-        # Look for the portal_type in the request
-        portal_type = self.request.form.get('type_id',
-                           self.request.form.get('form.assignment.portal_type',
-                                                 None))
-        if portal_type is None:
-            # get the vocabulary of types and choose the first entry, since
-            # that's the one selected if one was not explicitly selected.
-            vocab_factory = getUtility(IVocabularyFactory,
-                          name="plone.contentratings.portal_types")
-            portal_type = list(vocab_factory(self.context.context.context))[0].token
-
-        assignment = CategoryAssignment()
-        assignment.portal_type = portal_type
-        assignment.assigned_categories = set(selected_categories(portal_type))
-
-        return assignment
 
 
 def selected_categories(portal_type):
@@ -218,46 +91,47 @@ def selected_categories(portal_type):
     return (t for t in assignments.categories_for_type(portal_type))
 
 
-typespolicies = FormFieldsets(IEditCategoryAssignment)
-typespolicies.id = 'types_categories'
-typespolicies.label = _(u'Rating Assignments')
-typespolicies.description = _('typespolicies_description_help',
-                              default=u'Choose a portal type from the list and select '
-u'one or more rating categories to appear on that type.')
-typespolicies.required = False
+class CategoryAssignmentFactory(FactoryAdapter):
 
-categories = FormFieldsets(ICategoryContainer)
-categories.id = 'manage_categories'
-categories.label = _(u'Manage Categories')
-categories.description = _('categories_description_help',
-                           default=u'Add, modify, or remove rating categories. You '
-u'may specify a title, description, conditions for viewing and setting '
-u'ratings, a view to display the rating, and a relative order number. '
-u'Categories which are defined at a lower level (e.g., globally) may not be '
-u'edited. You need to save your changes after adding or removing categories')
+    def __call__(self, value=None):
+        if not self.request:
+            portal_type = None
+        else:
+            portal_type = self.request.form.get(
+                'type_id',
+                self.request.form.get('form.widgets.assignment.widgets.portal_type',
+                                      None)
+            )
+        if portal_type is None:
+            # get the vocabulary of types and choose the first entry, since
+            # that's the one selected if one was not explicitly selected.
+            vocab_factory = getUtility(
+                IVocabularyFactory,
+                name="plone.contentratings.portal_types"
+            )
+            portal_type = list(vocab_factory(self.context))[0].token
 
-categories.required = False
+        assignment = CategoryAssignment()
+        assignment.portal_type = portal_type
+        assignment.assigned_categories = set(selected_categories(portal_type))
+        assignment.context = self.context
+
+        return assignment
 
 
-class ContentRatingsControlPanel(ControlPanelForm):
+class RatingCategoryFactory(FactoryAdapter):
+
+    def __call__(self, value=None):
+        if not value:
+            value = {}
+        return RatingsCategoryFactory(**value)
+
+
+class ContentRatingsControlPanel(AutoExtensibleForm, form.EditForm):
 
     form_name = _(u"Category Assignments")
-
-    actions = ControlPanelForm.actions.copy()
-
     label = _(u"Rating settings")
+    id = "contentratings-controlpanel"
+    control_panel_view = "contentratings-controlpanel"
     description = _(u"Settings related to content ratings.")
-
-    typespolicies['assignment'].custom_widget = AssignmentWidget
-
-    categories['local_categories'].custom_widget = hr_categories_widget
-    categories['acquired_categories'].custom_widget = display_categories_widget
-    form_fields = FormFieldsets(typespolicies, categories)
-
-    @form.action(_(u'Change Portal Type'), name=u'change_type')
-    def change_type(self, action, data):
-        """Does nothing except reload the form"""
-        type_id = self.request.form['form.assignment.portal_type']
-        self.request.form.clear()
-        self.request.form['type_id'] = type_id
-        return self()
+    schema = IControlPanelForm

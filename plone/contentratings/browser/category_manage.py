@@ -10,7 +10,7 @@ from zope.app.form.browser import (ObjectWidget, ListSequenceWidget,
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import adapts, getSiteManager, queryUtility
 from zope.component.interfaces import ISite
-from zope.interface import implements
+from zope.interface import implements, Interface
 from zope.schema import getFieldsInOrder
 
 from plone.contentratings.browser.interfaces import ICategoryContainer
@@ -195,7 +195,7 @@ class CategoryContainerAdapter(object):
     """
 
     implements(ICategoryContainer)
-    adapts(ISite)
+    adapts(Interface)
 
     def __init__(self, context):
         self.context = context
@@ -260,6 +260,7 @@ class CategoryContainerAdapter(object):
     def _set_categories(self, categories):
         """modifies the registered rating categories
         to match the given list of categories"""
+        categories = categories or []
         orig_categories = self._get_local_categories()
         orig_names = dict((c.name, c) for c in orig_categories)
         for cat in categories:
@@ -287,28 +288,3 @@ class CategoryContainerAdapter(object):
 
     local_categories = property(_get_local_categories, _set_categories)
     acquired_categories = property(_get_acquired_categories)
-
-
-class ObjectDisplayWidget(ObjectWidget):
-    """an object widget which hide all readonly attributes """
-
-    template = ViewPageTemplateFile('display_object.pt')
-
-    def __call__(self):
-        return self.template()
-
-
-class HiddenReadonlyObjectWidget(ObjectWidget):
-    """an object widget which hide all readonly attributes """
-
-    template = ViewPageTemplateFile('hidden_readonly_object.pt')
-
-    def __call__(self):
-        return self.template()
-
-hr_category_widget = CustomWidgetFactory(HiddenReadonlyObjectWidget, RatingsCategoryFactory)
-hr_categories_widget = CustomWidgetFactory(ListSequenceWidget, hr_category_widget)
-
-
-display_category_widget = CustomWidgetFactory(ObjectDisplayWidget, RatingsCategoryFactory)
-display_categories_widget = CustomWidgetFactory(SequenceDisplayWidget, display_category_widget)
