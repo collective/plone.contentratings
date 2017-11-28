@@ -9,6 +9,7 @@ def read(*rnames):
     return text
 
 tests_require = [
+    'zope.testing',
     'zope.app.testing',
     'zope.container',
     ]

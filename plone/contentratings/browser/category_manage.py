@@ -1,15 +1,8 @@
 from Products.CMFCore.interfaces import IDynamicType
-from contentratings.category import RatingsCategoryFactory
 from contentratings.interfaces import IRatingCategory
 from contentratings.interfaces import IUserRating
 from plone.i18n.normalizer.interfaces import IURLNormalizer
-from zope.app.component import queryNextSiteManager  # XXX Long deprecated.
-from zope.app.form import CustomWidgetFactory
-from zope.app.form.browser import (ObjectWidget, ListSequenceWidget,
-                                   SequenceDisplayWidget)
-from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import adapts, getSiteManager, queryUtility
-from zope.component.interfaces import ISite
 from zope.interface import implements, Interface
 from zope.schema import getFieldsInOrder
 
@@ -25,6 +18,7 @@ class CategoryContainerAdapter(object):
     the expected behavior::
 
         >>> from plone.contentratings.browser.category_manage import CategoryContainerAdapter
+        >>> from contentratings.category import RatingsCategoryFactory
         >>> manager = CategoryContainerAdapter(site)
         >>> manager.local_categories
         []
@@ -196,11 +190,18 @@ class CategoryContainerAdapter(object):
 
     implements(ICategoryContainer)
     adapts(Interface)
+    nsm = sm = None
 
     def __init__(self, context):
         self.context = context
         self.sm = getSiteManager(context)
-        self.nsm = queryNextSiteManager(context)
+        bases = self.sm.__bases__
+        for base in bases:
+            self.nsm = base
+            break
+        else:
+            self.nsm = self.sm
+
 
     def add(self, category):
         "add a new rating category to the local Site Manager"
