@@ -1,6 +1,5 @@
 import json
 from zope.component import getAdapter, getMultiAdapter
-from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.controlpanel import selected_categories
 from Products.Five import BrowserView
 from contentratings.interfaces import IUserRating, IEditorialRating

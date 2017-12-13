@@ -25,12 +25,15 @@ $portal_type.change(function () {
 	});
 });
 
+var token = $('#protect-script').attr('data-token');
+
 $(document).on('click', '.Rating ul.star-rating a.rate', function (e) {
 	e.preventDefault();
 	var category = kssAttr(this, 'category') || 'default';
 	$.post(baseUrl + '/updateRating', {
 		rating_class: $(this).attr('class'),
-		category: category
+		category: category,
+		_authenticator: token
 	}, function (data) {
 		$('.Rating#rating-stars-view-' + category).replaceWith(data);
 	});
@@ -40,7 +43,8 @@ $(document).on('click', '.Rating .UserRating a.DeleteRating', function (e) {
 	e.preventDefault();
 	var category = kssAttr(this, 'category') || 'default';
 	$.post(baseUrl + '/deleteRating', {
-		category: category
+		category: category,
+		_authenticator: token
 	}, function (data) {
 		$('.Rating#rating-stars-view-' + category).replaceWith(data);
 	});
@@ -51,7 +55,8 @@ $(document).on('click', '.EditorRating ul.star-rating a.rate', function (e) {
 	var category = kssAttr(this, 'category') || 'default';
 	$.post(baseUrl + '/updateEditorRating', {
 		rating_class: $(this).attr('class'),
-		category: category
+		category: category,
+		_authenticator: token
 	}, function (data) {
 		$('.EditorRating#editor-rating-stars-view-' + category).replaceWith(data);
 	});
