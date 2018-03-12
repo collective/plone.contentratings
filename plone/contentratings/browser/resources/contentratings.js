@@ -1,6 +1,6 @@
 jQuery(function($) {
 
-var baseUrl = $('base').attr('href') || window.PORTAL_URL || '';
+var baseUrl = $('base').attr('href') || $('body').attr('data-base-url') || window.PORTAL_URL || '';
 var kssAttr = function (el, name) {
 	var $el = $(el).closest('[class*="kssattr-' + name + '-"]');
 	var klass = $el.attr('class');

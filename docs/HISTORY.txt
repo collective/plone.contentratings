@@ -8,6 +8,9 @@ HISTORY
   (Note: there is an upgrade step to add the new javascript to the JS registry.)
   [davisagli]
 
+- Update JS to work in Plone 5.
+  [alecpm, davisagli]
+
 
 1.1 (2013-09-20)
 ----------------
