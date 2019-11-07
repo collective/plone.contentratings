@@ -25,7 +25,8 @@ class RatingView(BrowserView):
 
     def delete_rating(self, category):
         """Delete the user rating"""
-        self._call_view_method(category, 'remove_rating')
+        # Missing the keyword "return"
+        return self._call_view_method(category, 'remove_rating')
 
     def _extract_rating(self, rating_class):
         class_elements = rating_class.split(" ")
