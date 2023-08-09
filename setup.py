@@ -1,12 +1,20 @@
 import os
+import sys
+
 
 from setuptools import setup, find_packages
 
 
 def read(*rnames):
-    text = open(os.path.join(os.path.dirname(__file__), *rnames)).read()
-    text = unicode(text, 'utf-8').encode('ascii', 'xmlcharrefreplace')
-    return text
+    path = os.path.join(os.path.dirname(__file__), *rnames)
+    with open(path, 'rb') as f:
+        text = f.read()
+
+    if sys.version_info[0] == 2:
+        return unicode(text, 'utf-8').encode('ascii', 'xmlcharrefreplace')
+    else:
+        return text.decode('utf-8')
+
 
 tests_require = [
     'zope.testing',
