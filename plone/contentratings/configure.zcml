@@ -65,8 +65,6 @@
   <interface interface=".interfaces.IUnratable" />
 
   <adapter factory=".category.PloneRatingCategoryAdapter" />
-  <adapter factory=".schema_extender.RatingRemover"
-           name="contentratings.ratingremover" />
 
   <adapter name="average_rating" factory=".catalog.average_rating" />
   <adapter name="rating_users" factory=".catalog.rating_users" />
