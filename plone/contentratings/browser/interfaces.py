@@ -3,6 +3,7 @@ from zope.interface import Interface
 from zope.schema import Set, Tuple, Choice, Object, List
 
 from plone.contentratings.interfaces import _
+# TODO: remove this import and make things work anyway
 from plone.directives.form import Schema, fieldset
 
 

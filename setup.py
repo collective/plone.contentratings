@@ -68,7 +68,6 @@ setup(name='plone.contentratings',
           'zope.app.form',
           'zope.browserpage',
           'zope.component',
-          'plone.directives.form',
       ],
       entry_points="""
       # -*- Entry points: -*-
