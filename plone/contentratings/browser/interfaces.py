@@ -3,8 +3,10 @@ from zope.interface import Interface
 from zope.schema import Set, Tuple, Choice, Object, List
 
 from plone.contentratings.interfaces import _
-# TODO: remove this import and make things work anyway
-from plone.directives.form import Schema, fieldset
+try:
+    from plone.supermodel.model import Schema, fieldset
+except ImportError:
+    from plone.directives.form import Schema, fieldset
 
 
 class ICategoryAssignment(Interface):
