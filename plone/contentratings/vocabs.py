@@ -1,4 +1,4 @@
-from zope.interface import implements, Interface, provider
+from zope.interface import implementer, Interface, provider
 from zope.component import getSiteManager
 from zope.component.hooks import getSite
 from zope.schema.interfaces import IVocabularyFactory
@@ -13,9 +13,9 @@ from contentratings.browser.interfaces import IRatingView
 from plone.contentratings import messageFactory as _
 
 
+@implementer(IVocabularyFactory)
 class UserCategoryVocab(object):
     """Vocabulary of all categories providing IUserRating"""
-    implements(IVocabularyFactory)
     interface = IUserRating
 
     def __call__(self, context=None):

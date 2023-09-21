@@ -3,8 +3,6 @@
 $Id:$
 """
 
-from sets import Set
-
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component.hooks import getSite
@@ -87,7 +85,7 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
                                   type_node.getElementsByTagName('category')]
                     already = [cat.name for cat in
                                    self.context.categories_for_type(portaltype)]
-                    categories=Set(categories + already)
+                    categories=set(categories + already)
                     self.context._mapping[portaltype] = categories
 
 

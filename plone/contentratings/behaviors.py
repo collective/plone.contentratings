@@ -2,7 +2,7 @@ from plone.dexterity.interfaces import IDexterityContent
 from rwproperty import getproperty, setproperty
 from z3c.form.interfaces import IEditForm, IAddForm
 from zope.component import adapts
-from zope.interface import alsoProvides, implements, noLongerProvides
+from zope.interface import alsoProvides, implementer, noLongerProvides
 from zope.schema import Bool
 try:
     from plone.supermodel.model import Schema, fieldset
@@ -35,11 +35,11 @@ class IRatingBehavior(Schema):
 alsoProvides(IRatingBehavior, IFormFieldProvider)
 
 
+@implementer(IRatingBehavior)
 class RatingBehavior(object):
     """ Store by applying a marker interface. This makes it easy to switch the view on and off.
     """
 
-    implements(IRatingBehavior)
     adapts(IDexterityContent)
 
     def __init__(self, context):

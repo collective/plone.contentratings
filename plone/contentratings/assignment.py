@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 from persistent import Persistent
@@ -6,10 +6,10 @@ from BTrees.OOBTree import OOBTree
 from plone.contentratings.interfaces import (IRatingCategoryAssignment,
                                              IUnratable,)
 
+@implementer(IRatingCategoryAssignment)
 class LocalAssignmentUtility(Persistent):
     """A utility for determining which rating categories are available for an
     object"""
-    implements(IRatingCategoryAssignment)
 
     def __init__(self):
         self._mapping = OOBTree()

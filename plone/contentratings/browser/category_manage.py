@@ -3,12 +3,13 @@ from contentratings.interfaces import IRatingCategory
 from contentratings.interfaces import IUserRating
 from plone.i18n.normalizer.interfaces import IURLNormalizer
 from zope.component import adapts, getSiteManager, queryUtility
-from zope.interface import implements, Interface
+from zope.interface import implementer, Interface
 from zope.schema import getFieldsInOrder
 
 from plone.contentratings.browser.interfaces import ICategoryContainer
 
 
+@implementer(ICategoryContainer)
 class CategoryContainerAdapter(object):
     """Adapter for site root to ICategoryContainer.  This provides mechanisms
     for introspecting the registered categories (adapters) at a particular
@@ -188,7 +189,6 @@ class CategoryContainerAdapter(object):
 
     """
 
-    implements(ICategoryContainer)
     adapts(Interface)
     nsm = sm = None
 

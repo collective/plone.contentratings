@@ -2,7 +2,7 @@ from Products.CMFCore.utils import getToolByName
 from zope.component import adapts
 from zope.component import getUtility
 from zope.component.interfaces import ISite
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from z3c.form import form
 from z3c.form.object import FactoryAdapter
@@ -16,12 +16,13 @@ from plone.contentratings.browser.interfaces import IEditCategoryAssignment
 from plone.contentratings.browser.interfaces import IControlPanelForm
 
 
+@implementer(ICategoryAssignment)
 class CategoryAssignment(object):
     """A Dummy type which is simply used to hold attributes, those
     attbributes are set by the form"""
-    implements(ICategoryAssignment)
 
 
+@implementer(IEditCategoryAssignment)
 class AssignmentsAdapter(object):
     """An adapter from the site to IEditCategoryAssignment which uses
     the local IRatingCategoryAssignment utility, to set rating
@@ -63,7 +64,6 @@ class AssignmentsAdapter(object):
         {'test': [], 'another': []}
 
     """
-    implements(IEditCategoryAssignment)
     adapts(ISite)
 
     def __init__(self, context):
