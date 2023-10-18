@@ -1,0 +1,24 @@
+<registry>
+  <records prefix="plone.resources/plone-contentratings"
+           interface="Products.CMFPlone.interfaces.IResourceRegistry">
+    <value key="css">
+      <element>++resource++plone.contentratings.stylesheets/main.css</element>
+      <element>++resource++contentratings/star_rating.css</element>
+    </value>
+    <value key="js">++resource++plone.contentratings.resources/contentratings.js</value>
+  </records>
+  <records prefix="plone.bundles/plone-contentratings"
+           interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources" purge="False">
+      <element>plone-contentratings</element>
+    </value>
+    <value key="merge_with"></value>
+		<value key="depends">plone</value>
+      <value key="stub_js_modules">
+		  <element>jquery</element>
+		</value>
+    <value key="csscompilation">++plone++static/plone-contentratings-compiled.css</value>
+    <value key="jscompilation">++plone++static/plone-contentratings-compiled.js</value>
+		<value key="last_compilation"></value>
+  </records>
+</registry>
