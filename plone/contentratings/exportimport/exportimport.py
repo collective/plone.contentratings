@@ -10,6 +10,7 @@ from zope.component.hooks import getSite
 from Products.GenericSetup.utils import XMLAdapterBase
 from Products.GenericSetup.utils import exportObjects
 from Products.GenericSetup.utils import importObjects
+from Products.CMFPlone.utils import safe_unicode
 
 from contentratings.interfaces import IRatingCategoryInfo
 from plone.contentratings.interfaces import IRatingCategoryAssignment
@@ -51,7 +52,7 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
     def _initLocalCategoriesSettings(self, node):
         def _convert(type, value):
             if type=='string':
-                return unicode(value)
+                return safe_unicode(value)
             if type=='integer':
                 return int(value)
             return value
@@ -117,11 +118,11 @@ class ContentRatingsXMLAdapter(XMLAdapterBase):
                 if value is not None:
                     sub=self._doc.createElement('attr')
                     sub.setAttribute('name', attr)
-                    if isinstance(attr, (str, unicode)):
+                    if isinstance(attr, (str, bytes)):
                         sub.setAttribute('type', 'string')
                     if isinstance(attr, int):
                         sub.setAttribute('type', 'integer')
-                    subchild = self._doc.createTextNode(unicode(value))
+                    subchild = self._doc.createTextNode(safe_unicode(value))
                     sub.appendChild(subchild)
                     child.appendChild(sub)
             node.appendChild(child)
